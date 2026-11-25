@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Directorate of Scientific Affairs & Postgraduate, University of Sulaimani">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>DSAP Information Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Public+Sans:wght@400;500;600&family=Vazirmatn:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f2f5f3; --surface:#ffffff; --ink:#13201c; --muted:#56665f; --line:#d5dfda;
+  --pine:#14493c; --pine-2:#0f3a30; --on-pine:#ffffff; --on-pine-muted:#bfd6cd;
+  --saffron:#a86f00; --saffron-soft:#fbf1d8; --saffron-ink:#5c3f00;
+  --ok-soft:#e1f0e8; --ok-ink:#165a40; --old-soft:#eceeed; --old-ink:#56605c; --amd-soft:#e6eef8; --amd-ink:#22466e;
+  --f-display:"Literata", Georgia, "Times New Roman", serif;
+  --f-body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-ku:"Vazirmatn", "Noto Naskh Arabic", Tahoma, sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d1512; --surface:#141f1b; --ink:#e5eee9; --muted:#9bada5; --line:#263731;
+  --pine:#174e41; --pine-2:#123f35; --on-pine:#ffffff; --on-pine-muted:#b4cdc3;
+  --saffron:#f0bd4f; --saffron-soft:#2b2512; --saffron-ink:#f6d58e; --ok-soft:#16302a; --ok-ink:#9fdcc0;
+  --old-soft:#1f2926; --old-ink:#a3b1ab; --amd-soft:#182638; --amd-ink:#a9c6ea; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0d1512; --surface:#141f1b; --ink:#e5eee9; --muted:#9bada5; --line:#263731;
+  --pine:#174e41; --pine-2:#123f35; --on-pine:#ffffff; --on-pine-muted:#b4cdc3;
+  --saffron:#f0bd4f; --saffron-soft:#2b2512; --saffron-ink:#f6d58e; --ok-soft:#16302a; --ok-ink:#9fdcc0;
+  --old-soft:#1f2926; --old-ink:#a3b1ab; --amd-soft:#182638; --amd-ink:#a9c6ea; color-scheme:dark;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
+html[dir="rtl"] body{font-family:var(--f-ku);line-height:1.85}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3{font-family:var(--f-ku);font-weight:700;letter-spacing:0}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:650;line-height:1.3;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.num{font-variant-numeric:tabular-nums}
+.ltr{direction:ltr;unicode-bidi:isolate}
+
+.band{background:var(--pine);color:var(--on-pine)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:14px}
+.seal{display:flex;align-items:center;gap:12px;min-width:0}
+.seal-mark{width:40px;height:40px;border-radius:50%;border:2px solid var(--on-pine-muted);display:grid;place-items:center;font-family:var(--f-display);font-weight:650;font-size:15px;flex:none}
+.seal small{display:block;color:var(--on-pine-muted);font-size:13px;line-height:1.3}
+.seal strong{display:block;font-size:15px;line-height:1.35;font-weight:600}
+.lang{display:flex;border:1px solid var(--on-pine-muted);border-radius:999px;overflow:hidden;flex:none}
+.lang button{background:transparent;color:var(--on-pine);border:0;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;min-height:36px}
+.lang button[aria-pressed="true"]{background:var(--on-pine);color:var(--pine)}
+.hero{padding-block:26px 30px;display:grid;gap:14px}
+.hero h1{font-size:clamp(28px,4.4vw,42px);max-width:22ch}
+.hero p{color:var(--on-pine-muted);max-width:64ch;font-size:17px}
+.test-note{display:inline-flex;align-self:start;justify-self:start;background:var(--saffron-soft);color:var(--saffron-ink);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+.stats{display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:6px}
+.stats div{display:grid}
+.stats b{font-size:26px;font-family:var(--f-display);font-weight:650;line-height:1.1}
+.stats span{font-size:13.5px;color:var(--on-pine-muted)}
+
+nav.jump{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+nav.jump .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:6px}
+nav.jump .wrap::-webkit-scrollbar{display:none}
+nav.jump a{flex:none;text-decoration:none;font-size:14.5px;padding:7px 12px;border-radius:999px;color:var(--muted);white-space:nowrap}
+nav.jump a:hover{color:var(--ink);background:var(--bg)}
+
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;padding-block:32px 110px}
+main>section{min-width:0}
+.sec-head{display:grid;gap:6px;margin-bottom:18px}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--saffron);font-weight:600}
+html[dir="rtl"] .eyebrow{letter-spacing:0;font-size:13px}
+.sec-head h2{font-size:clamp(22px,3vw,29px)}
+.sec-head p{color:var(--muted);max-width:66ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+
+/* assistant */
+.desk{display:grid;overflow:hidden;border-radius:14px}
+.desk-head{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--pine-2);color:var(--on-pine)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--saffron);flex:none}
+.desk-head strong{font-weight:600}
+.desk-head span{color:var(--on-pine-muted);font-size:13px;display:block}
+.log{display:flex;flex-direction:column;gap:12px;padding:18px;min-height:200px;max-height:460px;overflow-y:auto}
+.msg{max-width:min(620px,90%);padding:10px 14px;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:15.5px}
+.msg.bot{background:var(--bg);border:1px solid var(--line);align-self:flex-start;border-end-start-radius:4px}
+.msg.user{background:var(--pine);color:var(--on-pine);align-self:flex-end;border-end-end-radius:4px}
+.msg.thinking{color:var(--muted);font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 14px}
+.chip{font:inherit;font-size:13.5px;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:36px}
+.chip:hover,.chip[aria-pressed="true"]{border-color:var(--pine);background:var(--ok-soft);color:var(--ok-ink)}
+form.ask{display:flex;gap:8px;padding:12px 18px 16px;border-top:1px solid var(--line)}
+form.ask input{flex:1;min-width:0;font:inherit;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.btn{font:inherit;font-weight:600;border:0;border-radius:999px;padding:10px 18px;background:var(--pine);color:var(--on-pine);cursor:pointer;white-space:nowrap;min-height:44px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.55;cursor:default}
+.desk-foot{font-size:12.5px;color:var(--muted);padding:0 18px 14px}
+
+/* admission */
+.prog-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.prog-tabs button{font:inherit;font-size:15px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer;min-height:44px}
+.prog-tabs button[aria-pressed="true"]{background:var(--pine);color:var(--on-pine);border-color:var(--pine)}
+.req{display:grid}
+.req-row{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,1fr);gap:16px;padding:14px 18px;border-top:1px solid var(--line)}
+.req-row:first-child{border-top:0}
+.req-row h3{font-size:15px;font-family:inherit;font-weight:600;color:var(--muted)}
+@media (max-width:620px){.req-row{grid-template-columns:1fr;gap:4px}}
+.adm-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}
+@media (max-width:860px){.adm-grid{grid-template-columns:1fr}}
+.calc{padding:18px;display:grid;gap:14px}
+.calc h3{font-size:18px}
+.calc p.sub{color:var(--muted);font-size:14.5px}
+.calc-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:480px){.calc-fields{grid-template-columns:1fr}}
+.calc label{display:grid;gap:4px;font-size:14px;color:var(--muted)}
+.calc input{font:inherit;font-size:16px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-variant-numeric:tabular-nums;width:100%}
+.calc-out{display:flex;gap:28px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}
+.calc-out div{display:grid}
+.calc-out b{font-size:28px;font-family:var(--f-display);font-weight:650;line-height:1.15;font-variant-numeric:tabular-nums}
+.calc-out span{font-size:13.5px;color:var(--muted)}
+.calc small{color:var(--muted);font-size:13px}
+.notes{padding:18px;display:grid;gap:10px}
+.notes h3{font-size:18px}
+.notes ul{margin:0;padding-inline-start:20px;display:grid;gap:6px;font-size:15px}
+
+/* topics */
+.topics{display:grid;gap:10px}
+details.topic{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+details.topic summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;min-height:56px}
+details.topic summary::-webkit-details-marker{display:none}
+.t-title{display:grid;gap:2px;min-width:0}
+.t-title strong{font-size:17px;font-weight:600}
+.t-title span{font-size:14.5px;color:var(--muted)}
+.chev{flex:none;width:10px;height:10px;border-inline-end:2px solid var(--muted);border-block-end:2px solid var(--muted);transform:rotate(45deg);transition:transform .2s}
+details[open] .chev{transform:rotate(-135deg)}
+.t-body{padding:14px 18px 18px;border-top:1px solid var(--line);display:grid;gap:14px}
+.t-body ul{margin:0;padding-inline-start:20px;display:grid;gap:7px}
+.basis{font-size:13.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.basis a{color:var(--pine);text-underline-offset:3px}
+:root[data-theme="dark"] .basis a{color:var(--saffron)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .basis a{color:var(--saffron)}}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:8px 12px;text-align:start;border-top:1px solid var(--line);vertical-align:top}
+thead th{border-top:0;background:var(--bg);font-weight:600;font-size:13.5px;color:var(--muted)}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.sub-h{font-size:19px;margin:26px 0 12px}
+
+/* returning */
+.ret{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.flow{padding:20px;display:grid;min-width:0}
+.step{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding-bottom:18px;position:relative}
+.step:not(:last-child)::before{content:"";position:absolute;inset-inline-start:15px;top:34px;bottom:2px;width:2px;background:var(--line)}
+.step .n{width:32px;height:32px;border-radius:50%;background:var(--pine);color:var(--on-pine);display:grid;place-items:center;font-weight:600;font-size:14px}
+.step strong{display:block;font-weight:600}
+.step p{color:var(--muted);font-size:15px}
+.fork-q{display:flex;gap:10px;align-items:center;font-weight:600;padding:4px 0 12px}
+.fork-q .n{width:28px;height:28px;flex:none;border-radius:6px;transform:rotate(45deg);background:var(--saffron);display:grid;place-items:center}
+.fork-q .n span{transform:rotate(-45deg);color:#1b1300;font-weight:700}
+.fork{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.branch{border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:10px;align-content:start;background:var(--bg)}
+.branch.no{border-color:var(--saffron)}
+.branch .tag{font-size:13px;font-weight:600;padding:2px 10px;border-radius:999px;justify-self:start}
+.branch.yes .tag{background:var(--ok-soft);color:var(--ok-ink)}
+.branch.no .tag{background:var(--saffron-soft);color:var(--saffron-ink)}
+.branch .step{padding-bottom:12px}
+.branch .step:last-child{padding-bottom:0}
+.ret .basis{padding-top:12px}
+
+/* documents */
+.doc-tools{display:grid;gap:10px;margin-bottom:12px}
+.doc-tools input{font:inherit;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);width:100%;max-width:440px}
+.doc-cats{display:flex;flex-wrap:wrap;gap:6px}
+.docs{overflow:hidden}
+.doc{display:grid;grid-template-columns:minmax(92px,auto) minmax(0,1fr) auto;gap:14px;align-items:start;padding:13px 18px;border-top:1px solid var(--line)}
+.doc:first-child{border-top:0}
+.doc-ref{font-size:13px;color:var(--pine);background:var(--bg);border:1px solid var(--line);padding:2px 8px;border-radius:6px;white-space:nowrap;unicode-bidi:plaintext;justify-self:start;font-variant-numeric:tabular-nums}
+:root[data-theme="dark"] .doc-ref{color:var(--saffron)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .doc-ref{color:var(--saffron)}}
+.doc strong{display:block;font-weight:500;font-size:15.5px}
+.doc .fn{font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+.doc-side{display:grid;gap:6px;justify-items:end}
+.badge{font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.badge.current{background:var(--ok-soft);color:var(--ok-ink)}
+.badge.amended{background:var(--amd-soft);color:var(--amd-ink)}
+.badge.superseded{background:var(--old-soft);color:var(--old-ink)}
+.badge.reference{background:var(--saffron-soft);color:var(--saffron-ink)}
+.doc-side a{font-size:13.5px;color:var(--pine);white-space:nowrap}
+:root[data-theme="dark"] .doc-side a{color:var(--saffron)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .doc-side a{color:var(--saffron)}}
+@media (max-width:620px){.doc{grid-template-columns:1fr;gap:6px}.doc-side{justify-items:start;grid-auto-flow:column;justify-content:start;gap:12px;align-items:center}}
+.doc-count{font-size:13.5px;color:var(--muted)}
+
+/* QR + contact */
+.qr-grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center;padding:20px}
+.qr-tile{background:#fff;padding:12px;border-radius:8px;border:1px solid var(--line);width:184px;height:184px;display:grid;place-items:center}
+.qr-tile img,.qr-tile canvas{display:block;width:160px;height:160px}
+.qr-side{display:grid;gap:12px;min-width:0}
+.qr-side input{font:inherit;width:100%;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);direction:ltr}
+.qr-side p{color:var(--muted);font-size:14.5px}
+@media (max-width:560px){.qr-grid{grid-template-columns:1fr;justify-items:center}.qr-side{width:100%}}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding:18px}
+.contact div{display:grid;gap:2px}
+.contact b{font-size:13px;color:var(--muted);font-weight:500}
+footer{border-top:1px solid var(--line);padding-block:18px 28px;color:var(--muted);font-size:13px}
+.fab{position:fixed;inset-inline-end:calc(16px + env(safe-area-inset-right, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));box-shadow:0 6px 18px rgba(0,0,0,.18);text-decoration:none;display:inline-flex;align-items:center;z-index:6}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media print{nav.jump,.fab,#assistant,#qr{display:none}}
+</style>
+</head>
+<body>
+<div class="band">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="seal">
+        <div class="seal-mark" aria-hidden="true">UoS</div>
+        <div><small data-t="uni"></small><strong data-t="name"></strong></div>
+      </div>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ckb">کوردی</button>
+        <button type="button" data-lang="ar">العربية</button>
+        <button type="button" data-lang="en">English</button>
+      </div>
+    </div>
+    <div class="hero">
+      <span class="test-note" data-t="heroNote"></span>
+      <h1 data-t="heroTitle"></h1>
+      <p data-t="heroText"></p>
+      <div class="stats">
+        <div><b class="num" id="st-docs"></b><span data-t="statDocs"></span></div>
+        <div><b class="num" id="st-cur"></b><span data-t="statCurrent"></span></div>
+        <div><b class="num ltr">12/2024</b><span data-t="statMain"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="jump" aria-label="Sections"><div class="wrap" id="jump"></div></nav>
+
+<div class="wrap">
+<main>
+  <section id="assistant" aria-labelledby="ask-h">
+    <div class="sec-head"><span class="eyebrow" data-t="askEyebrow"></span><h2 id="ask-h" data-t="askTitle"></h2><p data-t="askText"></p></div>
+    <div class="card desk">
+      <div class="desk-head"><span class="dot" aria-hidden="true"></span><div><strong data-t="botName"></strong><span id="bot-status" data-t="botStatus"></span></div></div>
+      <div class="log" id="log" aria-live="polite"></div>
+      <div class="chips" id="chips"></div>
+      <form class="ask" id="ask-form"><input id="q" autocomplete="off" aria-label="Question"><button class="btn" id="send" type="submit" data-t="send"></button><button class="btn ghost" id="stop" type="button" hidden data-t="stop"></button></form>
+      <p class="desk-foot" data-t="botFoot"></p>
+    </div>
+  </section>
+
+  <section id="admission" aria-labelledby="adm-h">
+    <div class="sec-head"><span class="eyebrow" data-t="admEyebrow"></span><h2 id="adm-h" data-t="admTitle"></h2><p data-t="admText"></p></div>
+    <div class="prog-tabs" id="prog-tabs" role="group"></div>
+    <div class="card req" id="req"></div>
+    <p class="basis" id="req-src" style="margin-top:10px"></p>
+    <div class="adm-grid">
+      <div class="card calc">
+        <h3 data-t="calcTitle"></h3><p class="sub" data-t="calcText"></p>
+        <div class="calc-fields">
+          <label><span data-t="calcAvg"></span><input id="c-avg" type="number" inputmode="decimal" step="0.01" value="72"></label>
+          <label><span data-t="calcExam"></span><input id="c-exam" type="number" inputmode="decimal" step="1" min="0" max="40" value="27"></label>
+          <label><span data-t="calcMax"></span><input id="c-max" type="number" inputmode="decimal" step="0.01" value="88"></label>
+          <label><span data-t="calcMin"></span><input id="c-min" type="number" inputmode="decimal" step="0.01" value="55"></label>
+        </div>
+        <div class="calc-out"><div><b id="c-new">–</b><span data-t="calcNew"></span></div><div><b id="c-pts">–</b><span data-t="calcPts"></span></div></div>
+        <small data-t="calcNoteA"></small><small data-t="calcSample"></small>
+      </div>
+      <div class="card notes"><h3 id="notes-h"></h3><ul id="adm-notes"></ul><p class="basis" id="notes-src"></p></div>
+    </div>
+  </section>
+
+  <section id="cert" aria-labelledby="cert-h">
+    <div class="sec-head"><span class="eyebrow" data-t="certEyebrow"></span><h2 id="cert-h" data-t="certTitle"></h2><p data-t="certText"></p></div>
+    <div class="topics" id="topics-cert"></div>
+    <h3 class="sub-h" id="ret-h"></h3>
+    <div class="ret" id="ret"></div>
+  </section>
+
+  <section id="plan" aria-labelledby="plan-h">
+    <div class="sec-head"><span class="eyebrow" data-t="planEyebrow"></span><h2 id="plan-h" data-t="planTitle"></h2><p data-t="planText"></p></div>
+    <div class="topics" id="topics-plan"></div>
+  </section>
+
+  <section id="rules" aria-labelledby="rules-h">
+    <div class="sec-head"><span class="eyebrow" data-t="rulesEyebrow"></span><h2 id="rules-h" data-t="rulesTitle"></h2><p data-t="rulesText"></p></div>
+    <div class="topics" id="topics-rules"></div>
+  </section>
+
+  <section id="docs" aria-labelledby="docs-h">
+    <div class="sec-head"><span class="eyebrow" data-t="docsEyebrow"></span><h2 id="docs-h" data-t="docsTitle"></h2><p data-t="docsText"></p></div>
+    <div class="doc-tools"><input id="doc-q" type="search"><div class="doc-cats" id="doc-cats"></div><span class="doc-count" id="doc-count"></span></div>
+    <div class="card docs" id="doc-list"></div>
+  </section>
+
+  <section id="qr" aria-labelledby="qr-h">
+    <div class="sec-head"><span class="eyebrow" data-t="qrEyebrow"></span><h2 id="qr-h" data-t="qrTitle"></h2></div>
+    <div class="card qr-grid">
+      <div class="qr-tile" id="qrbox" aria-label="QR code"></div>
+      <div class="qr-side"><p data-t="qrText"></p><input id="qr-url" aria-label="URL"></div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="ct-h">
+    <div class="sec-head"><span class="eyebrow" data-t="ctEyebrow"></span><h2 id="ct-h" data-t="ctTitle"></h2></div>
+    <div class="card contact">
+      <div><b data-t="ctHoursL"></b><span data-t="ctHours"></span></div>
+      <div><b data-t="ctWhereL"></b><span data-t="ctWhere"></span></div>
+      <div><b data-t="ctPhoneL"></b><span data-t="ctPhone"></span></div>
+    </div>
+  </section>
+</main>
+</div>
+<footer><div class="wrap" data-t="footer"></div></footer>
+<a class="btn fab" href="#assistant" data-t="fab"></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const DOCS = [{"id": "1uleVjg8WpBcLI__-ItR4DnjE0chnzC5W", "t": "Instruction_No5_2018_Kurdish_and_English", "no": "5/2018", "cat": "pg", "st": "superseded", "en": "English proficiency amendment (AMIDEAST courses), Kurdish with English translation", "ckb": "هەمواری توانستی زمانی ئینگلیزی (خولی AMIDEAST)، کوردی و ئینگلیزی", "ar": "تعديل الكفاءة في اللغة الإنجليزية (دورات AMIDEAST)", "url": "https://drive.google.com/file/d/1uleVjg8WpBcLI__-ItR4DnjE0chnzC5W/view"}, {"id": "11T8dMkMJ7t4uPDlSnukyofAMObtyqAkm", "t": "رێنمایی دکتۆرا", "no": "7/2023", "cat": "pg", "st": "superseded", "en": "PhD course structure (180 ECTS, first-semester courses, seminars, evaluation forms)", "ckb": "شێوازی کۆرسەکانی دکتۆرا (١٨٠ کرێدیت، سیمینار، فۆرمی هەڵسەنگاندن)", "ar": "نظام مقررات الدكتوراه (180 وحدة، الحلقات الدراسية، استمارات التقييم)", "url": "https://drive.google.com/file/d/11T8dMkMJ7t4uPDlSnukyofAMObtyqAkm/view"}, {"id": "1IIoEybmD92chTEeG-phA1pLzUCTbhSbu", "t": "رێنمایی ماستەر 2023 ژمارە 6", "no": "6/2023", "cat": "pg", "st": "superseded", "en": "MA course structure (120 ECTS)", "ckb": "شێوازی کۆرسەکانی ماستەر (١٢٠ کرێدیت)", "ar": "نظام مقررات الماجستير (120 وحدة)", "url": "https://drive.google.com/file/d/1IIoEybmD92chTEeG-phA1pLzUCTbhSbu/view"}, {"id": "15p5aFmd_Q4HVsOBn9eWfw5FGPAOowQzQ", "t": "فەرمانی_وەزاری_نهێنی_ڕێنمایی_تاقیکردنەوە", "no": "Order", "cat": "pg", "st": "superseded", "en": "Confidential ministerial order on how the scientific competency exam is set and marked", "ckb": "فەرمانی وەزاری نهێنی: میکانیزمی تاقیکردنەوەی توانستی زانستی", "ar": "أمر وزاري سري بآلية امتحان الكفاءة العلمية", "url": "https://drive.google.com/file/d/15p5aFmd_Q4HVsOBn9eWfw5FGPAOowQzQ/view"}, {"id": "1smPDA6jwJLG2PNcd7JyqUBPZtpmxc7qL", "t": "٤. ڕێنمایى ژمارە (٤)ى ساڵى (٢٠٢١) ... ڕێنمایى خولى ڕاهێنانى پێداگۆجى لە زانکۆکانى هەرێمى کوردستان", "no": "4/2021", "cat": "titles", "st": "current", "en": "Pedagogical training course at Kurdistan universities (6 modules, 30 ECTS)", "ckb": "خولی ڕاهێنانی پێداگۆجی لە زانکۆکان (٦ مۆدیوڵ، ٣٠ کرێدیت)", "ar": "الدورة التدريبية التربوية في الجامعات (6 وحدات، 30 وحدة)", "url": "https://drive.google.com/file/d/1smPDA6jwJLG2PNcd7JyqUBPZtpmxc7qL/view"}, {"id": "1N5ZN6LgfpYBkGqmM27X7JhrqH-FlthwR", "t": "1563297339503631", "no": "2/2019", "cat": "pg", "st": "superseded", "en": "PhD by split-site system (suspended in August 2019)", "ckb": "دکتۆرا بە سیستەمی سپلیت سایت (ڕاگیراوە)", "ar": "الدكتوراه بنظام Split-site (موقوفة)", "url": "https://drive.google.com/file/d/1N5ZN6LgfpYBkGqmM27X7JhrqH-FlthwR/view"}, {"id": "1wedsiazHvki5tkcyvAnNYFQl-g0noyUu", "t": "١. یاساى ژمارە (١٢)ى ساڵى (٢٠١٣)ى یاساى جێبەجێکردنى یاساى ڕاژەى زانکۆیى فیدراڵى ژمارە (٢٣)ى ساڵى (٢٠٠٨)ى هەموارکراو", "no": "Law 12/2013", "cat": "laws", "st": "reference", "en": "Implementing the federal University Service Law 23/2008 in the Region (retirement ages)", "ckb": "جێبەجێکردنی یاسای ڕاژەی زانکۆیی فیدراڵی لە هەرێم", "ar": "تطبيق قانون الخدمة الجامعية الاتحادي في الإقليم", "url": "https://drive.google.com/file/d/1wedsiazHvki5tkcyvAnNYFQl-g0noyUu/view"}, {"id": "1pRr5a1u1GtV5ucG_VGEgV1ZotbHswoJZ", "t": "قانون وزارة التعليم العالي والبحث العلمي لاقليم كوردستان ـ العراق", "no": "Law 10/2008", "cat": "laws", "st": "reference", "en": "Law of the Ministry of Higher Education and Scientific Research (Arabic)", "ckb": "یاسای وەزارەتی خوێندنی باڵا (عەرەبی)", "ar": "قانون وزارة التعليم العالي والبحث العلمي (عربي)", "url": "https://drive.google.com/file/d/1pRr5a1u1GtV5ucG_VGEgV1ZotbHswoJZ/view"}, {"id": "1NJstOYf3-Ix_nCcZwXLVAD2V2J6ENjEu", "t": "٢٩- بڕیارى وەزارەت سەبارەت بەوەرگرتنى کەسوکارى (شەهیدان، ئەنفالکراوەکان، زیندانیانى سیاسى) ", "no": "Letter 2017", "cat": "circ", "st": "superseded", "en": "Seats for families of martyrs, Anfal victims and political prisoners (2016-2017)", "ckb": "کورسی بۆ کەسوکاری شەهیدان و ئەنفالکراوان و زیندانیانی سیاسی (٢٠١٦-٢٠١٧)", "ar": "مقاعد لذوي الشهداء والمؤنفلين والسجناء السياسيين (2016-2017)", "url": "https://drive.google.com/file/d/1NJstOYf3-Ix_nCcZwXLVAD2V2J6ENjEu/view"}, {"id": "1Y_AtbQcDKDanig5W1FwI7TFC9wz4GrdR", "t": "رێنمایی_دکتۆرا2", "no": "2020", "cat": "pg", "st": "superseded", "en": "1st amendment of PhD Instr. 6/2019: filling empty seats", "ckb": "هەمواری یەکەمی ڕێنمایی دکتۆرا ٦/٢٠١٩", "ar": "التعديل الأول لتعليمات الدكتوراه 6/2019", "url": "https://drive.google.com/file/d/1Y_AtbQcDKDanig5W1FwI7TFC9wz4GrdR/view"}, {"id": "1jDzcBPZWV80yukr8QQaGzGIzsSlW78n9", "t": "ڕێنمایی ژمارە(١١)ی ساڵی (٢٠٢٤) ڕێنمایی هەمواری هەشتەمی ڕێنمایی ژمارە(٣)ی ساڵی (٢٠٢٢) و خوێندنی باڵا لە زانکۆ حکومییەکانی کوردستان", "no": "11/2024", "cat": "pg", "st": "current", "en": "8th amendment of Instr. 3/2022: defend before meeting English; blind students exempt from English", "ckb": "هەمواری هەشتەم: گفتوگۆ پێش توانستی زمان؛ نابینایان لە مەرجی زمان دەبەخشرێن", "ar": "التعديل الثامن: المناقشة قبل الكفاءة اللغوية؛ إعفاء المكفوفين من شرط اللغة", "url": "https://drive.google.com/file/d/1jDzcBPZWV80yukr8QQaGzGIzsSlW78n9/view"}, {"id": "1TJx-iva6rPdtAVy3tk-ZVEdTQqZRjijs", "t": "رێنمایی_دبلۆمى_باڵاى_دوو_ساڵە_ژمارە_5", "no": "5/2023", "cat": "pg", "st": "superseded", "en": "2-year clinical higher diploma course structure (medicine, dentistry, pharmacy)", "ckb": "شێوازی کۆرسەکانی دبلۆمی باڵای دوو ساڵەی پزیشکی", "ar": "نظام مقررات الدبلوم العالي السريري لسنتين", "url": "https://drive.google.com/file/d/1TJx-iva6rPdtAVy3tk-ZVEdTQqZRjijs/view"}, {"id": "1m0dYn8U7IudXlakNtfI7uP7FAXFOVeey", "t": "٢. رێنمایی ژمارە (2)ى ساڵى (2021)ى مافى سەرپەرشتیکردن", "no": "2/2021", "cat": "research", "st": "current", "en": "Supervision rights and caps; MA/PhD defence committee membership", "ckb": "ماف و میچی سەرپەرشتیکردن؛ ئەندامێتی لیژنەی گفتوگۆ", "ar": "حقوق وسقف الإشراف؛ عضوية لجان المناقشة", "url": "https://drive.google.com/file/d/1m0dYn8U7IudXlakNtfI7uP7FAXFOVeey/view"}, {"id": "1ZNdXO5OOJVD6Rc65gngLl_m-0Is71lA1", "t": "photo_2024-02-05_22-11-11", "no": "Letter 19054/2023", "cat": "circ", "st": "current", "en": "No teaching or supervising a relative (up to 4th degree) in postgraduate study", "ckb": "قەدەغەی وانەوتنەوە بە خزم (تا پلەی ٤) لە خوێندنی باڵا", "ar": "منع تدريس الأقارب حتى الدرجة الرابعة في الدراسات العليا", "url": "https://drive.google.com/file/d/1ZNdXO5OOJVD6Rc65gngLl_m-0Is71lA1/view"}, {"id": "1BeR47OgJbpdX0ZfvGxNPuyVW-h8O2iau", "t": "قانون-انضباط-موظفي-الدولة", "no": "Law 14/1991", "cat": "laws", "st": "reference", "en": "State employees discipline law (Arabic)", "ckb": "یاسای دیسپلینی فەرمانبەرانی دەوڵەت (عەرەبی)", "ar": "قانون انضباط موظفي الدولة والقطاع العام", "url": "https://drive.google.com/file/d/1BeR47OgJbpdX0ZfvGxNPuyVW-h8O2iau/view"}, {"id": "1D1E6dnq7qwI433WVg8XaKiSuD6xFjFoW", "t": "رێنمایی ماستەر 2019", "no": "5/2019", "cat": "pg", "st": "superseded", "en": "MA study at public universities, 2019-2020", "ckb": "خوێندنی ماستەر، ساڵی ٢٠١٩-٢٠٢٠", "ar": "دراسة الماجستير 2019-2020", "url": "https://drive.google.com/file/d/1D1E6dnq7qwI433WVg8XaKiSuD6xFjFoW/view"}, {"id": "1fuendeiCxx34a7gLvftNvqi1WrY9qLrb", "t": "رێنمایی_دبلۆم", "no": "1/2020", "cat": "pg", "st": "superseded", "en": "1st amendment of 1-year diploma Instr. 7/2019 (2019-2020 applicants)", "ckb": "هەمواری یەکەمی ڕێنمایی دبلۆم ٧/٢٠١٩", "ar": "التعديل الأول لتعليمات الدبلوم 7/2019", "url": "https://drive.google.com/file/d/1fuendeiCxx34a7gLvftNvqi1WrY9qLrb/view"}, {"id": "1tyLyxhQ-xkWJMDAGa45hZCVdqYa0khBr", "t": "ڕێنمایی ژمارە(١)ی ساڵی (٢٠٢٤) ڕێنمایی هەمواری یەکەمی ڕێنمایی ژمارە(٨)ی ساڵی (٢٠٢٣) پێشکەشکردنو وەرگرتنی بۆردی پزیشکی لە ئەنجومەنی ب", "no": "1/2024", "cat": "board", "st": "reference", "en": "1st amendment of medical board admission Instr. 8/2023: extra seats", "ckb": "هەمواری یەکەمی ڕێنمایی بۆردی پزیشکی ٨/٢٠٢٣: کورسیی زیادە", "ar": "التعديل الأول لتعليمات البورد الطبي 8/2023: مقاعد إضافية", "url": "https://drive.google.com/file/d/1tyLyxhQ-xkWJMDAGa45hZCVdqYa0khBr/view"}, {"id": "1S6Eu2T3YKx-TLmTRSNvh8s0JjTLZTeIv", "t": "0-02-0b-ac1b34cf976d66136ce96ba8c1c37683b89096966b4dc34bab387005fd315cc2_ea3d649ed9673b2", "no": "Letter 11/2023", "cat": "circ", "st": "current", "en": "Rules for the scientific competency (entrance) exam: hall, time, pens, ID", "ckb": "ڕێساکانی تاقیکردنەوەی توانستی زانستی: هۆڵ، کات، پێنووس، ناسنامە", "ar": "ضوابط امتحان الكفاءة العلمية: القاعة والوقت والأقلام والهوية", "url": "https://drive.google.com/file/d/1S6Eu2T3YKx-TLmTRSNvh8s0JjTLZTeIv/view"}, {"id": "10qGH0Onj_CWnlAdycNyj9FfttUkPuWiC", "t": "٢- ڕێنمایی ژماره_ (5)ی تایبه_ت به_ هه_مواركردنه_وه_ی توانستی زمان بۆ خوێندكار و كاندیده_كانی ماسته_ر و دكتۆرا", "no": "5/2018", "cat": "pg", "st": "superseded", "en": "English proficiency amendment for MA/PhD candidates (Kurdish original)", "ckb": "هەمواری توانستی زمان بۆ ماستەر و دکتۆرا (ئەسڵی کوردی)", "ar": "تعديل الكفاءة اللغوية للماجستير والدكتوراه (الأصل الكردي)", "url": "https://drive.google.com/file/d/10qGH0Onj_CWnlAdycNyj9FfttUkPuWiC/view"}, {"id": "1sJwxgY6rDrgXMPK941pbjrOXZvOJDBn2", "t": "viber_image_2022-09-04_10-37-10-239", "no": "Letter 3920/2021", "cat": "titles", "st": "current", "en": "Promotion amendments (page 1): papers, Scopus, quality assurance years", "ckb": "هەمواری بەرزکردنەوەی پلە (لاپەڕە ١): توێژینەوە، سکۆپەس، دڵنیایی جۆری", "ar": "تعديلات الترقية (ص1): البحوث، سكوبس، ضمان الجودة", "url": "https://drive.google.com/file/d/1sJwxgY6rDrgXMPK941pbjrOXZvOJDBn2/view"}, {"id": "1FU4qe4ZjoXqSsvguOBiqh43grntFDJrW", "t": "٩- ڕێنمایی خوێندنى باڵا دکتۆرا بۆ ساڵى خوێندنى (٢٠١٦-٢٠١٧)", "no": "5/2016", "cat": "pg", "st": "superseded", "en": "PhD study, 2016-2017", "ckb": "خوێندنی دکتۆرا، ٢٠١٦-٢٠١٧", "ar": "دراسة الدكتوراه 2016-2017", "url": "https://drive.google.com/file/d/1FU4qe4ZjoXqSsvguOBiqh43grntFDJrW/view"}, {"id": "1uAu_Ex5-2wdVOlo48GfDikbuPkLqC8Rl", "t": "photo_2023-08-13_12-46-43", "no": "Order 980/2021", "cat": "circ", "st": "reference", "en": "Fee discounts for top-ranked parallel MA students admitted 2019-2020", "ckb": "داشکاندنی کرێی خوێندن بۆ یەکەمەکانی پارالێلی ماستەر ٢٠١٩-٢٠٢٠", "ar": "تخفيض أجور الأوائل في الماجستير الموازي 2019-2020", "url": "https://drive.google.com/file/d/1uAu_Ex5-2wdVOlo48GfDikbuPkLqC8Rl/view"}, {"id": "1RN-rl1iJB2IpKjPsEb-7x4z7dMnpHL8x", "t": "رێنمایی ژمارە 3", "no": "3/2023", "cat": "pg", "st": "superseded", "en": "Seats outside the plan for political prisoners (3rd amendment of 3/2022)", "ckb": "کورسی لە دەرەوەی پلان بۆ زیندانیانی سیاسی (هەمواری سێیەم)", "ar": "مقاعد خارج الخطة للسجناء السياسيين (التعديل الثالث)", "url": "https://drive.google.com/file/d/1RN-rl1iJB2IpKjPsEb-7x4z7dMnpHL8x/view"}, {"id": "1CxY-0BxUjVgtt2heal3k0AtrJVdJJH-2", "t": "تعليمات الترقية العلمية لحاملي الشهادات العليا والمعينين في مؤسسات وجامعات وزارة التعليم العالي والبحث العلمي في اقليم كردستان1", "no": "2014", "cat": "titles", "st": "superseded", "en": "Academic promotion instructions, Arabic translation (2014)", "ckb": "ڕێنمایی بەرزکردنەوەی پلەی زانستی، وەرگێڕانی عەرەبی (٢٠١٤)", "ar": "تعليمات الترقية العلمية، ترجمة عربية (2014)", "url": "https://drive.google.com/file/d/1CxY-0BxUjVgtt2heal3k0AtrJVdJJH-2/view"}, {"id": "19PhW_0TsnBElby3_ZpCXDfoxAND5yN07", "t": "156329719812289", "no": "4/2016", "cat": "pg", "st": "superseded", "en": "MA study, 2016-2017 (second copy)", "ckb": "خوێندنی ماستەر، ٢٠١٦-٢٠١٧ (کۆپی دووەم)", "ar": "دراسة الماجستير 2016-2017 (نسخة ثانية)", "url": "https://drive.google.com/file/d/19PhW_0TsnBElby3_ZpCXDfoxAND5yN07/view"}, {"id": "1tLEG48G0UkGPht-bqs69lAxNEnkV-Q0J", "t": "رێنمایی ژمارە ١١ى ساڵى ٢٠٢٣", "no": "11/2023", "cat": "pg", "st": "superseded", "en": "Admission of applicants from Kurdistani areas outside the Region (2023-2024)", "ckb": "وەرگرتنی پێشکەشکارانی ناوچە کوردستانییەکانی دەرەوەی هەرێم (٢٠٢٣-٢٠٢٤)", "ar": "قبول المتقدمين من المناطق الكوردستانية خارج الإقليم (2023-2024)", "url": "https://drive.google.com/file/d/1tLEG48G0UkGPht-bqs69lAxNEnkV-Q0J/view"}, {"id": "1pJ_H4KgyZHKY2i1pXj3zzqBAeXlbDd2u", "t": "26266", "no": "Letter 12/2023", "cat": "circ", "st": "reference", "en": "List of Kurdistani areas outside the Region's administration (Article 140 areas)", "ckb": "لیستی ناوچە کوردستانییەکانی دەرەوەی ئیدارەی هەرێم", "ar": "قائمة المناطق الكوردستانية خارج إدارة الإقليم", "url": "https://drive.google.com/file/d/1pJ_H4KgyZHKY2i1pXj3zzqBAeXlbDd2u/view"}, {"id": "1crp2ENb66WBNIqIH4y-NXHxO9wt18ywE", "t": "4. ڕێنمایی هەمواری دووەمی ڕێنمایی ژمارە (٣)ی ساڵی (٢٠٢٢)ی خوێندنی باڵا لە زانکۆ حکومییەکانی هەرێمی کوردستان - Copy", "no": "2/2023", "cat": "pg", "st": "superseded", "en": "Islamic sciences MA/PhD students may defend before meeting English (2nd amendment)", "ckb": "قوتابیانی زانستە ئیسلامییەکان پێش زمان گفتوگۆ دەکەن (هەمواری دووەم)", "ar": "مناقشة طلبة العلوم الإسلامية قبل الكفاءة اللغوية (التعديل الثاني)", "url": "https://drive.google.com/file/d/1crp2ENb66WBNIqIH4y-NXHxO9wt18ywE/view"}, {"id": "1M6rw4YUOzRixRQmcd_M9GlToyANAdjuw", "t": "پەیڕەوی ژمارە (١١) ی ساڵی_٢٠٢١_1644298497", "no": "Reg. 11/2021", "cat": "leave", "st": "current", "en": "Council of Ministers regulation on granting study leave in the Kurdistan Region", "ckb": "پەیڕەوی ئەنجومەنی وەزیران بۆ پێدانی مۆڵەتی خوێندن", "ar": "نظام مجلس الوزراء لمنح الإجازة الدراسية في الإقليم", "url": "https://drive.google.com/file/d/1M6rw4YUOzRixRQmcd_M9GlToyANAdjuw/view"}, {"id": "1-p7SYPWpmvm8A_tCki8O32MU9Ek3ie8Q", "t": "ڕێنمایى ژمارە (٩)ى ساڵى (٢٠٢٤) ، ڕێنمایی دەرکردنی گۆڤارە زانستییەکان  ", "no": "9/2024", "cat": "research", "st": "current", "en": "Issuing scientific journals: editorial boards, indexing, peer review, licensing", "ckb": "دەرکردنی گۆڤارە زانستییەکان: دەستەی نووسەران، ئیندێکس، هەڵسەنگاندن، مۆڵەت", "ar": "إصدار المجلات العلمية: هيئات التحرير، الفهرسة، التحكيم، الترخيص", "url": "https://drive.google.com/file/d/1-p7SYPWpmvm8A_tCki8O32MU9Ek3ie8Q/view"}, {"id": "18L0TQHTlxvBzdngr4N15gFbcKFINOxNl", "t": "viber_image_2022-09-04_10-37-11-064", "no": "Letter 3920/2021", "cat": "titles", "st": "current", "en": "Promotion amendments (page 2): private universities, joint research, exemptions", "ckb": "هەمواری بەرزکردنەوەی پلە (لاپەڕە ٢): زانکۆی تایبەت، توێژینەوەی هاوبەش", "ar": "تعديلات الترقية (ص2): الجامعات الأهلية والبحوث المشتركة", "url": "https://drive.google.com/file/d/18L0TQHTlxvBzdngr4N15gFbcKFINOxNl/view"}, {"id": "1DIEhvr0oQLVnzo1FuJOoSYBL-2DgGI4L", "t": "رێنمایی دکتۆرا 2019", "no": "6/2019", "cat": "pg", "st": "superseded", "en": "PhD study at public universities, 2019-2020", "ckb": "خوێندنی دکتۆرا، ساڵی ٢٠١٩-٢٠٢٠", "ar": "دراسة الدكتوراه 2019-2020", "url": "https://drive.google.com/file/d/1DIEhvr0oQLVnzo1FuJOoSYBL-2DgGI4L/view"}, {"id": "1HlW6fy_C13jQhze3hQr6r3c-bdegHAbm", "t": "القوانين-والتعليمات-المعتمدة-في-وزارة-التعليم-العالي-والبحث-العلمي-العراقية", "no": "Compendium", "cat": "laws", "st": "reference", "en": "Laws and instructions of the federal Iraqi Ministry of Higher Education (530 pages)", "ckb": "یاسا و ڕێنماییەکانی وەزارەتی خوێندنی باڵای عێراقی فیدراڵ (٥٣٠ لاپەڕە)", "ar": "القوانين والتعليمات المعتمدة في وزارة التعليم العالي العراقية", "url": "https://drive.google.com/file/d/1HlW6fy_C13jQhze3hQr6r3c-bdegHAbm/view"}, {"id": "14j9Clhq2xrZWO2mn6o3uziaamRzNbgYH", "t": "رێنمایی 12", "no": "12/2024", "cat": "pg", "st": "current", "en": "Postgraduate study: 1-year academic HD, 2-year clinical HD, MA and PhD at public universities (main instruction)", "ckb": "ڕێنمایی خوێندنی باڵا: دبلۆمی باڵای یەک ساڵە، دبلۆمی باڵای دوو ساڵەی پزیشکی، ماستەر و دکتۆرا (ڕێنمایی سەرەکی)", "ar": "تعليمات الدراسات العليا: الدبلوم العالي لسنة واحدة، الدبلوم العالي السريري لسنتين، الماجستير والدكتوراه (التعليمات الرئيسة)", "url": "https://drive.google.com/file/d/14j9Clhq2xrZWO2mn6o3uziaamRzNbgYH/view"}, {"id": "1LtC71vlNw6TAHEofD8ScxO5qbj-f8c9H", "t": "رێنمایی ژمارە ٣ى ساڵى ٢٠٢٤ (1)", "no": "3/2024", "cat": "leave", "st": "current", "en": "Scientific leave: post-doctorate and sabbatical leave for teaching staff", "ckb": "خۆتەرخانکردنی زانستی: پۆست دکتۆرا و ساباتیکەڵ لیڤ بۆ مامۆستایان", "ar": "التفرغ العلمي: ما بعد الدكتوراه والإجازة الدراسية (السبتية) للتدريسيين", "url": "https://drive.google.com/file/d/1LtC71vlNw6TAHEofD8ScxO5qbj-f8c9H/view"}, {"id": "1zKNkk86sKMnpwPWerdLDVpoQVt4vtfoj", "t": "رینمایی دبلۆمى ئەکادیمی 2019", "no": "7/2019", "cat": "pg", "st": "superseded", "en": "1-year academic higher diploma, 2019-2020", "ckb": "دبلۆمی باڵای یەک ساڵەی ئەکادیمی، ٢٠١٩-٢٠٢٠", "ar": "الدبلوم العالي الأكاديمي 2019-2020", "url": "https://drive.google.com/file/d/1zKNkk86sKMnpwPWerdLDVpoQVt4vtfoj/view"}, {"id": "1EFX3klk7L0ocQrzGDckCELtNb2IPeztr", "t": "ڕێنمایى ژمارە (٣)ى ساڵى ٢٠٢٢ى ڕێنمایى خوێندنى باڵا دبلۆمى باڵا - ماستەر- دکتۆرا لە زانکۆ حکومییەکانى هەرێمى کوردستان", "no": "3/2022", "cat": "pg", "st": "amended", "en": "Postgraduate study at public universities (2022), amended 8 times; admission now under Instr. 12/2024", "ckb": "ڕێنمایی خوێندنی باڵا (٢٠٢٢)، ٨ جار هەموارکراوە؛ وەرگرتن ئێستا بە ڕێنمایی ١٢/٢٠٢٤", "ar": "تعليمات الدراسات العليا (2022) المعدلة 8 مرات؛ القبول الآن وفق 12/2024", "url": "https://drive.google.com/file/d/1EFX3klk7L0ocQrzGDckCELtNb2IPeztr/view"}, {"id": "1j6CZfz8WDWhFZTMk-R2JrNqQV0_OhWW8", "t": "photo_2023-12-06_08-24-12", "no": "Letter 23695/2023", "cat": "circ", "st": "current", "en": "Only the student and supervisor may be named on a thesis or dissertation", "ckb": "تەنها ناوی قوتابی و سەرپەرشتیار لەسەر ماستەرنامە و تێز", "ar": "لا يُذكر على الرسالة أو الأطروحة إلا الطالب والمشرف", "url": "https://drive.google.com/file/d/1j6CZfz8WDWhFZTMk-R2JrNqQV0_OhWW8/view"}, {"id": "1WSA3RRhpEs3yxrqOTSnR5pTNl2-ol4UY", "t": "٢. یاساى ژمارە (١٠)ى ساڵى (٢٠٠٨)ى یاساى وەزارەتى خوێندنى باڵاو توێژینەوەى زانستى هەرێمى کوردستان", "no": "Law 10/2008", "cat": "laws", "st": "reference", "en": "Law of the Ministry of Higher Education and Scientific Research (Kurdish)", "ckb": "یاسای وەزارەتی خوێندنی باڵا و توێژینەوەی زانستی (کوردی)", "ar": "قانون وزارة التعليم العالي والبحث العلمي (كردي)", "url": "https://drive.google.com/file/d/1WSA3RRhpEs3yxrqOTSnR5pTNl2-ol4UY/view"}, {"id": "13s_n_jM-HdnVsPckRziFUeaZI7fuLt-a", "t": "photo_2024-02-29_08-29-33", "no": "Letter 2019", "cat": "circ", "st": "reference", "en": "Split-site PhD (2/2019) and promotion instruction (3/2019) suspended", "ckb": "ڕاگرتنی ڕێنمایی سپلیت سایت و بەرزکردنەوەی ٢٠١٩", "ar": "إيقاف تعليمات السبليت سايت والترقية 2019", "url": "https://drive.google.com/file/d/13s_n_jM-HdnVsPckRziFUeaZI7fuLt-a/view"}, {"id": "18_XOwoFJIqRW6012fzKsRfTivoF4pmvJ", "t": "رینمایی_دبلۆمى_باڵاى_باڵاى_یەک_ساڵە_ژمارە_4", "no": "4/2023", "cat": "pg", "st": "superseded", "en": "1-year academic higher diploma course structure", "ckb": "شێوازی کۆرسەکانی دبلۆمی باڵای یەک ساڵەی ئەکادیمی", "ar": "نظام مقررات الدبلوم العالي الأكاديمي لسنة واحدة", "url": "https://drive.google.com/file/d/18_XOwoFJIqRW6012fzKsRfTivoF4pmvJ/view"}, {"id": "1mqyE0KDgy_zf88eRiydzJw5mGSHMxfJV", "t": "٣- ڕێنمایى کردنەوەى پەیمانگەى تایبەت لە هەرێمى کوردستان", "no": "2015", "cat": "laws", "st": "reference", "en": "Opening private institutes in the Kurdistan Region", "ckb": "کردنەوەی پەیمانگەی تایبەت لە هەرێمی کوردستان", "ar": "فتح المعاهد الأهلية في الإقليم", "url": "https://drive.google.com/file/d/1mqyE0KDgy_zf88eRiydzJw5mGSHMxfJV/view"}, {"id": "1oMWOYU0GHibgj97JMv5M_FEBjqXBXZTD", "t": "١٣- ڕێنمایى پێدانى نازناوى زانستى (1)", "no": "1/2016", "cat": "titles", "st": "current", "en": "Granting academic titles (second copy)", "ckb": "پێدانی نازناوی زانستی (کۆپی دووەم)", "ar": "منح اللقب العلمي (نسخة ثانية)", "url": "https://drive.google.com/file/d/1oMWOYU0GHibgj97JMv5M_FEBjqXBXZTD/view"}, {"id": "1T-HAQdc0Hc4cmZ2iKl3Zri8b2yfi5BuC", "t": "رێنمایی ژمارە 9", "no": "9/2023", "cat": "pg", "st": "superseded", "en": "Filling empty postgraduate seats for 2023-2024 (4th amendment of 3/2022)", "ckb": "پڕکردنەوەی کورسیی بەتاڵ بۆ ٢٠٢٣-٢٠٢٤ (هەمواری چوارەم)", "ar": "ملء المقاعد الشاغرة 2023-2024 (التعديل الرابع)", "url": "https://drive.google.com/file/d/1T-HAQdc0Hc4cmZ2iKl3Zri8b2yfi5BuC/view"}, {"id": "1h-o-Kqozmp9Bp5yiyxmZqxkQo86QpOxE", "t": "٢. رێنمایی ژمارە (2)ى ساڵى (2021)ى مافى سەرپەرشتیکردن", "no": "2/2021", "cat": "research", "st": "current", "en": "Supervision rights and caps (second copy)", "ckb": "ماف و میچی سەرپەرشتیکردن (کۆپی دووەم)", "ar": "حقوق وسقف الإشراف (نسخة ثانية)", "url": "https://drive.google.com/file/d/1h-o-Kqozmp9Bp5yiyxmZqxkQo86QpOxE/view"}, {"id": "1_Ad8cRUVd0_1QnylastqjKUJPaSh0cOl", "t": "ڕێنمایی ژمارە (٦) ئەنجامدانی کۆنفرانسی زانستی", "no": "6/2022", "cat": "research", "st": "current", "en": "Holding scientific conferences (Kurdistan, Iraq and international levels)", "ckb": "ئەنجامدانی کۆنفرانسی زانستی (ئاستی کوردستان، عێراق، نێودەوڵەتی)", "ar": "عقد المؤتمرات العلمية (مستوى كوردستان والعراق والدولي)", "url": "https://drive.google.com/file/d/1_Ad8cRUVd0_1QnylastqjKUJPaSh0cOl/view"}, {"id": "1BGfEa7FuLiwgpCorW0ESBIY4ZXl2oYxY", "t": "ڕێنمایى ژمارە (٥)ى ساڵى ٢٠٢٤ ڕێنماییەکانى گواستنەوەو دابەزینى قوتابیان( خوێندکاران )بۆ ساڵى خوێندنى (٢٠٢٤-٢٠٢٥)", "no": "5/2024", "cat": "students", "st": "reference", "en": "Transfer and downgrading of undergraduate students for 2024-2025", "ckb": "گواستنەوە و دابەزینی قوتابیانی بەکالۆریۆس بۆ ساڵی ٢٠٢٤-٢٠٢٥", "ar": "انتقال وتنزيل طلبة الدراسات الأولية للعام 2024-2025", "url": "https://drive.google.com/file/d/1BGfEa7FuLiwgpCorW0ESBIY4ZXl2oYxY/view"}, {"id": "1BX_0LRS4l943mlAr22WhDUHNQGSeDY4m", "t": "١٣- ڕێنمایى پێدانى نازناوى زانستى", "no": "1/2016", "cat": "titles", "st": "current", "en": "Granting academic titles (Assistant Lecturer, Lecturer): courses, language, title exam", "ckb": "پێدانی نازناوی زانستی (مامۆستای یاریدەدەر، مامۆستا)", "ar": "منح اللقب العلمي (مدرس مساعد، مدرس)", "url": "https://drive.google.com/file/d/1BX_0LRS4l943mlAr22WhDUHNQGSeDY4m/view"}, {"id": "1dYexiwEq0ejQJZHBeTUPBD0GaXSDDO6y", "t": "3333", "no": "Circular 11/2023", "cat": "circ", "st": "reference", "en": "2023-2024 admission closed: no extra seats, plan changes or fee waivers", "ckb": "داخستنی وەرگرتنی ٢٠٢٣-٢٠٢٤: هیچ کورسیی زیادە نییە", "ar": "انتهاء قبول 2023-2024: لا مقاعد إضافية", "url": "https://drive.google.com/file/d/1dYexiwEq0ejQJZHBeTUPBD0GaXSDDO6y/view"}, {"id": "1Vn8C_Qf2dJ-uxCyEcvazpdiKetsN4YgR", "t": "١٠- ڕێنمایی خوێندنى باڵا ماستەر بۆ ساڵى خوێندنى (٢٠١٦-٢٠١٧)", "no": "4/2016", "cat": "pg", "st": "superseded", "en": "MA study, 2016-2017", "ckb": "خوێندنی ماستەر، ٢٠١٦-٢٠١٧", "ar": "دراسة الماجستير 2016-2017", "url": "https://drive.google.com/file/d/1Vn8C_Qf2dJ-uxCyEcvazpdiKetsN4YgR/view"}, {"id": "1klh9RcpVZ2Cp2voK8BcSwS0VtruKStD7", "t": "3-2015", "no": "2/2015", "cat": "research", "st": "superseded", "en": "Conditions for issuing scientific journals (2015), replaced by 9/2024", "ckb": "مەرجەکانی دەرکردنی گۆڤاری زانستی (٢٠١٥)", "ar": "شروط إصدار المجلات العلمية (2015)", "url": "https://drive.google.com/file/d/1klh9RcpVZ2Cp2voK8BcSwS0VtruKStD7/view"}, {"id": "1Zjs-ayrTkyzfHiP29ZBuWHvd6GFeNgHt", "t": "تایبەت بە پە پەسەنکردنی پلانی مۆڵەتی خوێندنی کۆلێجەکان", "no": "UoS plan", "cat": "leave", "st": "reference", "en": "University of Sulaimani: approved study-leave plan tables by college", "ckb": "زانکۆی سلێمانی: خشتەی پلانی مۆڵەتی خوێندنی کۆلێژەکان", "ar": "جامعة السليمانية: جداول خطة الإجازات الدراسية للكليات", "url": "https://drive.google.com/file/d/1Zjs-ayrTkyzfHiP29ZBuWHvd6GFeNgHt/view"}, {"id": "1qodBRE8KXDK5uXepucShUSzGRFjMYQ72", "t": "PhD ", "no": "2020", "cat": "pg", "st": "superseded", "en": "Details of PhD course system for 2019-2020 applicants (Bologna, publication rules)", "ckb": "وردەکاری کۆرسەکانی دکتۆرا بۆ ٢٠١٩-٢٠٢٠", "ar": "تفاصيل نظام مقررات الدكتوراه 2019-2020", "url": "https://drive.google.com/file/d/1qodBRE8KXDK5uXepucShUSzGRFjMYQ72/view"}, {"id": "1UIZ8prBjlD7s06XCpZ7dYV5WGbqQGjX9", "t": "1673358533510911", "no": "Reg. 11/2021", "cat": "leave", "st": "current", "en": "Study leave regulation (copy with Council of Ministers cover letter)", "ckb": "پەیڕەوی مۆڵەتی خوێندن (کۆپی لەگەڵ نووسراوی ئەنجومەنی وەزیران)", "ar": "نظام الإجازة الدراسية (نسخة مع كتاب مجلس الوزراء)", "url": "https://drive.google.com/file/d/1UIZ8prBjlD7s06XCpZ7dYV5WGbqQGjX9/view"}, {"id": "194QLmVZjuQPU1pdKB9l1a2vL9wzqhNiP", "t": "0-02-0b-62f8354d7d1a11f9cd234be1ec9d41b95d796a97b80360efbb02ec9e96c6195e_73ed60a71e52fb2b", "no": "Letter 2023", "cat": "circ", "st": "reference", "en": "Decisions on a university's PhD plan and course distribution (page 2)", "ckb": "بڕیار لەسەر پلانی دکتۆرای زانکۆیەک (لاپەڕە ٢)", "ar": "قرارات بشأن خطة دكتوراه جامعة (ص2)", "url": "https://drive.google.com/file/d/194QLmVZjuQPU1pdKB9l1a2vL9wzqhNiP/view"}, {"id": "1XHNlJFQ1i8IeRVPHHUrfkIdfzlTlk5kV", "t": "viber_image_2021-12-20_11-11-30-441", "no": "UoS 2021", "cat": "circ", "st": "reference", "en": "University of Sulaimani: PhD seminar and publication timeline (course-based PhD)", "ckb": "زانکۆی سلێمانی: خشتەی سیمینار و بڵاوکردنەوەی دکتۆرا", "ar": "جامعة السليمانية: جدول حلقات ونشر الدكتوراه", "url": "https://drive.google.com/file/d/1XHNlJFQ1i8IeRVPHHUrfkIdfzlTlk5kV/view"}, {"id": "1e4oJitn08GBavguHZVkmf5DfVSZw8Vk0", "t": "3. ڕێنمایی هەمواری یەکەمی ڕێنمایی ژمارە (٣)ی ساڵی (٢٠٢٢)ی خوێندنی باڵا-دیپلۆمی باڵا و ماستەر و دکتۆرا لە زانکۆ حکومییەکانی هەرێمی کوردستان (1)", "no": "1/2023", "cat": "pg", "st": "superseded", "en": "1st amendment of 3/2022: exam by universities; seats for the blind and political prisoners", "ckb": "هەمواری یەکەم: تاقیکردنەوە لەلایەن زانکۆ؛ کورسی بۆ نابینایان و زیندانیانی سیاسی", "ar": "التعديل الأول: الامتحان من قبل الجامعات؛ مقاعد للمكفوفين والسجناء السياسيين", "url": "https://drive.google.com/file/d/1e4oJitn08GBavguHZVkmf5DfVSZw8Vk0/view"}, {"id": "1lQt-H9FD-Tnude8HPX9axrATMx7pvzJe", "t": "law_2", "no": "Law 23/2008", "cat": "laws", "st": "reference", "en": "Iraqi University Service Law (Arabic)", "ckb": "یاسای ڕاژەی زانکۆیی عێراق (عەرەبی)", "ar": "قانون الخدمة الجامعية العراقي", "url": "https://drive.google.com/file/d/1lQt-H9FD-Tnude8HPX9axrATMx7pvzJe/view"}, {"id": "1H5D0whuCbFSB6SUp43NRbhvpRuGOKssM", "t": "رینمایی_ماستەر", "no": "2/2020", "cat": "pg", "st": "superseded", "en": "1st amendment of MA Instr. 5/2019: filling empty seats", "ckb": "هەمواری یەکەمی ڕێنمایی ماستەر ٥/٢٠١٩: پڕکردنەوەی کورسی", "ar": "التعديل الأول لتعليمات الماجستير 5/2019: ملء المقاعد", "url": "https://drive.google.com/file/d/1H5D0whuCbFSB6SUp43NRbhvpRuGOKssM/view"}, {"id": "1xDc0nVWSnLmisG3GJLVR-20tQvAmpVER", "t": "0-02-0b-efacbff292465793d73ccfdfd5f5300d80f8b29bb6e36f336ae89215160eb1f8_d41e7a87f0a78f10", "no": "Letter 6/2023", "cat": "circ", "st": "reference", "en": "No seats added after plan approval; channel swaps refused", "ckb": "زیادکردنی کورسی دوای پەسەندکردنی پلان ناکرێت", "ar": "لا تضاف مقاعد بعد إقرار الخطة", "url": "https://drive.google.com/file/d/1xDc0nVWSnLmisG3GJLVR-20tQvAmpVER/view"}, {"id": "1LJcUSMeDLpuvNucB3OvkixWp8KddT9PE", "t": "تعليمات انضباط الطلبة", "no": "1/2009", "cat": "students", "st": "reference", "en": "Exam instructions and student discipline (Arabic)", "ckb": "ڕێنمایی تاقیکردنەوەکان و جڵەوگیری (عەرەبی)", "ar": "التعليمات الامتحانية وانضباط الطلبة", "url": "https://drive.google.com/file/d/1LJcUSMeDLpuvNucB3OvkixWp8KddT9PE/view"}, {"id": "1O-qDDAvysLqUNx_atL72d1lo5MtuepDJ", "t": "2222", "no": "Letter 11/2023", "cat": "circ", "st": "current", "en": "Universities must verify the authenticity of applicants' documents", "ckb": "زانکۆکان دەبێت ڕاستی بەڵگەنامەکانی پێشکەشکاران بپشکنن", "ar": "على الجامعات التحقق من صحة صدور وثائق المتقدمين", "url": "https://drive.google.com/file/d/1O-qDDAvysLqUNx_atL72d1lo5MtuepDJ/view"}, {"id": "11HTSHlxIifZ7qgKSsBYZu3xHDduy4y3f", "t": "رِێنماييەكانی جڵەوگيری خوێندكاران", "no": "2/2009", "cat": "students", "st": "reference", "en": "Student discipline instructions (Kurdish)", "ckb": "ڕێنماییەکانی جڵەوگیری خوێندکاران", "ar": "تعليمات انضباط الطلبة (كردي)", "url": "https://drive.google.com/file/d/11HTSHlxIifZ7qgKSsBYZu3xHDduy4y3f/view"}, {"id": "1N45NPFlwgjJyG-IZEbdJgLUUlvLitNix", "t": "1650280505911982", "no": "Order 2019", "cat": "titles", "st": "reference", "en": "Titles for staff with BA average below 60%: 2 papers and 5 years outside big cities", "ckb": "نازناو بۆ ئەوانەی کۆنمرەی بەکالۆریۆسیان خوار ٦٠٪ە", "ar": "اللقب العلمي لمن معدله دون 60%", "url": "https://drive.google.com/file/d/1N45NPFlwgjJyG-IZEbdJgLUUlvLitNix/view"}, {"id": "1gpfGgfwxDn87egXULdlt1o0JFyR8tleS", "t": "Molati xwendn-Renmai wazarat", "no": "5/2021", "cat": "leave", "st": "current", "en": "Granting study leave: points system, conditions, extensions", "ckb": "پێدانی مۆڵەتی خوێندن: سیستەمی خاڵبەندی، مەرج، درێژکردنەوە", "ar": "منح الإجازة الدراسية: نظام النقاط والشروط والتمديد", "url": "https://drive.google.com/file/d/1gpfGgfwxDn87egXULdlt1o0JFyR8tleS/view"}, {"id": "1iaa550S4No4XY6KFMLy1oEoEexgxcxkY", "t": "viber_image_2023-11-01_12-08-14-917", "no": "Circular 11/2023", "cat": "circ", "st": "current", "en": "Postgraduate study in the morning, at least 3 days a week, no Friday classes", "ckb": "خوێندنی باڵا بەیانیانە، لانیکەم ٣ ڕۆژ، هەینی وانە نییە", "ar": "الدراسات العليا صباحية، 3 أيام على الأقل، لا دروس يوم الجمعة", "url": "https://drive.google.com/file/d/1iaa550S4No4XY6KFMLy1oEoEexgxcxkY/view"}, {"id": "1DnNV0pNKexUifNpc6CQYwZztlgms8kav", "t": "_⁨رێنمایی_ژمارە_٣ى_ساڵى_2021_تایبەت_بە_درێژکردنەوەى_جارى_سێیەم_ماستەر⁩", "no": "3/2021", "cat": "pg", "st": "reference", "en": "MA extensions: 6 + 6 months, third (unpaid) by the minister", "ckb": "درێژکردنەوەی ماستەر: ٦+٦ مانگ، سێیەم بێ مووچە بە وەزیر", "ar": "تمديد الماجستير: 6+6 أشهر، والثالث دون راتب بقرار الوزير", "url": "https://drive.google.com/file/d/1DnNV0pNKexUifNpc6CQYwZztlgms8kav/view"}, {"id": "1fbj4mSFZ8xiB8T0isrNtyRH1xhqnIrKx", "t": "0-02-05-de3b1a9a5baf34010ac4eedc1cecf3aa1ea64173acd1651ad3039d3afec82892_5e1bf8eae22453d1", "no": "Letter 11/2023", "cat": "circ", "st": "reference", "en": "Clarification on families of martyrs and Anfal victims (Instr. 3/2023)", "ckb": "ڕوونکردنەوە دەربارەی کەسوکاری شەهیدان و ئەنفالکراوان", "ar": "توضيح بشأن ذوي الشهداء والمؤنفلين", "url": "https://drive.google.com/file/d/1fbj4mSFZ8xiB8T0isrNtyRH1xhqnIrKx/view"}, {"id": "1KRlZNTk3DJPr18uG9OQZpqgNcL56VVXX", "t": "Molati xwendn-Renmai wazarat", "no": "5/2021", "cat": "leave", "st": "current", "en": "Granting study leave (second copy)", "ckb": "پێدانی مۆڵەتی خوێندن (کۆپی دووەم)", "ar": "منح الإجازة الدراسية (نسخة ثانية)", "url": "https://drive.google.com/file/d/1KRlZNTk3DJPr18uG9OQZpqgNcL56VVXX/view"}, {"id": "1SpXfL8dNmO4_lRKoQRhZ_hgc19f7q-ZB", "t": "٢. یاساى ژمارە (٢)ى ساڵى (٢٠١٣)ى یاساى زانکۆ تایبەتەکان لە هەرێمى کوردستان", "no": "Law 2/2013", "cat": "laws", "st": "reference", "en": "Private universities law of the Kurdistan Region", "ckb": "یاسای زانکۆ تایبەتەکان لە هەرێمی کوردستان", "ar": "قانون الجامعات الأهلية في الإقليم", "url": "https://drive.google.com/file/d/1SpXfL8dNmO4_lRKoQRhZ_hgc19f7q-ZB/view"}, {"id": "1gVY-osld6N-d5vbKPc7W14ZfipYLGlav", "t": "مدة التقديم والمناقشة", "no": "Letter 5/2021", "cat": "circ", "st": "current", "en": "When MA and PhD students may submit their thesis before the study period ends", "ckb": "کەی دەتوانرێت ماستەرنامە و تێز پێش کۆتایی ماوە پێشکەش بکرێت", "ar": "متى يمكن تقديم الرسالة والأطروحة قبل نهاية المدة", "url": "https://drive.google.com/file/d/1gVY-osld6N-d5vbKPc7W14ZfipYLGlav/view"}, {"id": "1gz_c4Qd5cXcLWIQhn_ddmydTuBeWriBf", "t": "viber_image_2022-03-03_10-24-40-412", "no": "Order 2020", "cat": "circ", "st": "reference", "en": "COVID-19: three months not counted in study period; no parallel fees for it", "ckb": "کۆڕۆنا: ٣ مانگ لە ماوەی خوێندن ناژمێردرێت", "ar": "كوفيد-19: لا تحتسب ثلاثة أشهر من مدة الدراسة", "url": "https://drive.google.com/file/d/1gz_c4Qd5cXcLWIQhn_ddmydTuBeWriBf/view"}, {"id": "1MDj_CTeT3uHLMosIqMioCI0jT4aaCrTn", "t": "viber_image_2022-02-07_22-04-15-138", "no": "Order 1176/2019", "cat": "circ", "st": "reference", "en": "PhD publication requirement: Clarivate, or Scopus plus a peer-reviewed journal", "ckb": "مەرجی بڵاوکردنەوەی دکتۆرا: کلاریڤەیت یان سکۆپەس + گۆڤاری محکەم", "ar": "شرط النشر للدكتوراه: كلاريفيت أو سكوبس مع مجلة محكمة", "url": "https://drive.google.com/file/d/1MDj_CTeT3uHLMosIqMioCI0jT4aaCrTn/view"}, {"id": "11xdNhZPwK4h98qu0yNwzSEP5CRk5Uj1P", "t": "رينمايى بةزركردنى 2016", "no": "Order 1312/2016", "cat": "titles", "st": "amended", "en": "Academic promotion instruction (ranks, research, committees, grievances)", "ckb": "ڕێنمایی بەرزکردنەوەی پلەی زانستی (پلەکان، توێژینەوە، لیژنە، گازاندە)", "ar": "تعليمات الترقية العلمية (المراتب، البحوث، اللجان، التظلم)", "url": "https://drive.google.com/file/d/11xdNhZPwK4h98qu0yNwzSEP5CRk5Uj1P/view"}, {"id": "13KcN_5JLgOclW6VI1GzNMdxpW88BFIoP", "t": "10. ڕێنمایی ژمارە (٨)ی ساڵی ٢٠٢٣،ڕێنمایی پێشکەش کردن و وەرگرتن بۆ خوێندن و ڕاهێنانی بۆردی پزیشکی بۆ ساڵی خوێندنی (٢٠٢٣-٢٠٢٤)", "no": "8/2023", "cat": "board", "st": "reference", "en": "Application and admission to Kurdistan Board of Medical Specialties training, 2023-2024", "ckb": "پێشکەشکردن و وەرگرتن بۆ بۆردی پزیشکی، ساڵی ٢٠٢٣-٢٠٢٤", "ar": "التقديم والقبول في البورد الكوردستاني للاختصاصات الطبية 2023-2024", "url": "https://drive.google.com/file/d/13KcN_5JLgOclW6VI1GzNMdxpW88BFIoP/view"}, {"id": "1Fyxa6WnMXoseoFvKrkZZPi-9M-3EmlJs", "t": "form tarkya", "no": "Order 1312/2016", "cat": "titles", "st": "amended", "en": "Academic promotion instruction with forms (copy)", "ckb": "ڕێنمایی بەرزکردنەوەی پلەی زانستی لەگەڵ فۆرمەکان", "ar": "تعليمات الترقية العلمية مع الاستمارات", "url": "https://drive.google.com/file/d/1Fyxa6WnMXoseoFvKrkZZPi-9M-3EmlJs/view"}];
+/* DSAP site content (part A): interface text, admission rules. Sources: Drive folder "instruction". */
+window.SITE = window.SITE || {};
+SITE.T = {
+en:{dir:"ltr",uni:"University of Sulaimani",name:"Directorate of Scientific Affairs & Postgraduate",
+ nav:{ask:"Ask",adm:"Admission",cert:"Certification & Titles",plan:"Planning & Higher Ed.",rules:"Student rules",docs:"Documents",contact:"Contact"},
+ heroTitle:"The Ministry's instructions, explained in plain words",
+ heroText:"Admission rules, academic titles, promotion, study leave, supervision and more, summarised from the Ministry of Higher Education instructions the directorate works with. Each answer names the instruction it comes from.",
+ heroNote:"Draft for internal review · summaries, not official text",
+ statDocs:"documents read",statCurrent:"in force",statMain:"main instruction",
+ askEyebrow:"Ask the assistant",askTitle:"Ask a question in Kurdish, Arabic or English",
+ askText:"The assistant answers only from the instructions summarised on this page and names its source. If the answer is not there, it says so.",
+ botName:"Directorate assistant",botStatus:"Answers from this page only",botStatusOff:"Simple search mode (AI not available in this view)",
+ send:"Ask",stop:"Stop",placeholder:"e.g. What IELTS score do I need for a PhD in engineering?",
+ botFoot:"For guidance only. The official instruction and the office have the final word.",
+ greet:"Hello. I can answer questions about postgraduate admission, academic titles and promotion, study leave, supervision, conferences, journals and student rules, based on the Ministry instructions. What would you like to know?",
+ thinking:"Looking through the instructions…",
+ sugg:["What do I need to apply for a Master's?","What English score is needed for a PhD in science?","How many students can an assistant professor supervise?","How are study-leave points calculated?","What do I need to become a Lecturer?"],
+ admEyebrow:"Postgraduate admission",admTitle:"Applying for a higher diploma, Master's or PhD",
+ admText:"From Instruction No. 12 of 2024, which now governs admission to all postgraduate study at public universities in the Kurdistan Region. Students admitted earlier continue under the rules in force when they were admitted.",
+ progLabel:"Programme",rowLabel:"Requirement",
+ calcTitle:"Estimate your Master's ranking points",calcText:"Instruction 12/2024 standardises your Bachelor's average against the highest and lowest averages of your graduation year, then adds your entrance-exam result.",
+ calcAvg:"Your BA average (%)",calcMax:"Highest average in your graduation year (%)",calcMin:"Lowest average in your graduation year (%)",calcExam:"Entrance exam mark (out of 40)",
+ calcNew:"Standardised average",calcPts:"Ranking points",calcNoteA:"Below 60 standardised gives 0 points from the average. An exam mark below 20 means you cannot compete.",calcSample:"Example values filled in; replace with your own.",
+ certEyebrow:"Department 1",certTitle:"Certification & Academic Titles",certText:"Academic titles, promotion, scientific leave and graduates returning from abroad.",
+ planEyebrow:"Department 2",planTitle:"Planning & Higher Education",planText:"Postgraduate plans and seats, opening programmes, study leave, supervision, conferences and journals.",
+ rulesEyebrow:"For students",rulesTitle:"Rules every postgraduate student should know",rulesText:"Study schedule, the entrance exam, the thesis and defence, integrity and discipline.",
+ docsEyebrow:"Document library",docsTitle:"All instructions in the directorate's folder",docsText:"Every file in the shared Drive folder, with its number, what it covers and whether it is still in force. Opening a file requires access to the directorate's Drive folder.",
+ search:"Search the documents",all:"All",open:"Open in Drive",
+ st:{current:"In force",amended:"Amended",superseded:"Replaced",reference:"Reference"},
+ cat:{pg:"Postgraduate study",titles:"Titles & promotion",leave:"Study & scientific leave",research:"Supervision, conferences & journals",students:"Student rules & exams",board:"Medical board",laws:"Laws & regulations",circ:"Letters & circulars"},
+ noDocs:"No documents match your search.",
+ src:"Source",srcs:"Sources",
+ ctEyebrow:"Visit us",ctTitle:"Office information",ctHoursL:"Working hours",ctHours:"Sunday – Thursday (hours to be confirmed)",ctWhereL:"Location",ctWhere:"University of Sulaimani Presidency (to be confirmed)",ctPhoneL:"Phone",ctPhone:"To be added",
+ qrEyebrow:"QR code",qrTitle:"Print a code for the office wall",qrText:"Visitors scan it with their phone camera and land on this site. It points to the address you are viewing now.",
+ footer:"Prepared for the Directorate of Scientific Affairs & Postgraduate, University of Sulaimani. Summaries of Ministry instructions for guidance; the official instruction prevails.",
+ noAnswer:"I couldn't find that in the instructions summarised here. Please ask the office.",closest:"Closest topic on this page:",
+ err:{rate_limited:"Too many questions at once. Please wait a moment and try again.",upstream_error:"The connection was interrupted. Please try again.",refused:"I can't answer that one. Please rephrase your question.",other:"Something went wrong. Please try again."},
+ fab:"Ask a question",more:"Read more",less:"Show less",docCount:"files"},
+ckb:{dir:"rtl",uni:"زانکۆی سلێمانی",name:"بەڕێوەبەرایەتیی کاروباری زانستی و خوێندنی باڵا",
+ nav:{ask:"پرسیار",adm:"وەرگرتن",cert:"بڕوانامە و نازناو",plan:"پلاندانان و خوێندنی باڵا",rules:"ڕێساکانی خوێندکار",docs:"بەڵگەنامەکان",contact:"پەیوەندی"},
+ heroTitle:"ڕێنماییەکانی وەزارەت، بە زمانێکی ساکار",
+ heroText:"مەرجەکانی وەرگرتن، نازناوی زانستی، بەرزکردنەوەی پلە، مۆڵەتی خوێندن، سەرپەرشتیکردن و زیاتر، پوختەکراوە لە ڕێنماییەکانی وەزارەتی خوێندنی باڵا کە بەڕێوەبەرایەتی کاریان پێدەکات. هەر وەڵامێک ناوی ئەو ڕێنماییە دەهێنێت کە لێیەوە هاتووە.",
+ heroNote:"ڕەشنووس بۆ پێداچوونەوەی ناوخۆیی · پوختەیە، نەک دەقی فەرمی",
+ statDocs:"بەڵگەنامە خوێنرایەوە",statCurrent:"کاری پێدەکرێت",statMain:"ڕێنمایی سەرەکی",
+ askEyebrow:"پرسیار لە یاریدەدەر بکە",askTitle:"بە کوردی، عەرەبی یان ئینگلیزی پرسیار بکە",
+ askText:"یاریدەدەر تەنها لەو ڕێنماییانەوە وەڵام دەداتەوە کە لەم پەڕەیەدا پوختە کراون و سەرچاوەکەش دەڵێت. ئەگەر وەڵامەکە نەبوو، دەیڵێت.",
+ botName:"یاریدەدەری بەڕێوەبەرایەتی",botStatus:"تەنها لەم پەڕەیەوە وەڵام دەداتەوە",botStatusOff:"دۆخی گەڕانی سادە (زیرەکیی دەستکرد لێرە بەردەست نییە)",
+ send:"بپرسە",stop:"ڕاگرتن",placeholder:"بۆ نموونە: بۆ دکتۆرای ئەندازیاری چ نمرەیەکی IELTSم پێویستە؟",
+ botFoot:"تەنها بۆ ڕێنمایی. بڕیاری کۆتایی بۆ ڕێنماییی فەرمی و نووسینگەیە.",
+ greet:"سڵاو. دەتوانم وەڵامی پرسیارەکانت بدەمەوە دەربارەی وەرگرتن لە خوێندنی باڵا، نازناوی زانستی و بەرزکردنەوەی پلە، مۆڵەتی خوێندن، سەرپەرشتیکردن، کۆنفرانس، گۆڤار و ڕێساکانی خوێندکار، بەپێی ڕێنماییەکانی وەزارەت. دەتەوێت چی بزانیت؟",
+ thinking:"بەدوای وەڵامدا دەگەڕێم لە ڕێنماییەکاندا…",
+ sugg:["بۆ ماستەر چیم پێویستە؟","بۆ دکتۆرای زانستی چ نمرەیەکی زمان پێویستە؟","پرۆفیسۆری یاریدەدەر چەند خوێندکار سەرپەرشتی دەکات؟","خاڵی مۆڵەتی خوێندن چۆن هەژمار دەکرێت؟","بۆ نازناوی مامۆستا چیم پێویستە؟"],
+ admEyebrow:"وەرگرتن لە خوێندنی باڵا",admTitle:"پێشکەشکردن بۆ دبلۆمی باڵا، ماستەر یان دکتۆرا",
+ admText:"لە ڕێنمایی ژمارە (١٢)ی ساڵی ٢٠٢٤ەوە، کە ئێستا وەرگرتن لە هەموو جۆرەکانی خوێندنی باڵا لە زانکۆ حکومییەکانی هەرێم ڕێکدەخات. ئەوانەی پێشتر وەرگیراون بەپێی ڕێنماییی کاتی وەرگرتنیان بەردەوام دەبن.",
+ progLabel:"جۆری خوێندن",rowLabel:"مەرج",
+ calcTitle:"خاڵی پێشبڕکێی ماستەرەکەت هەژمار بکە",calcText:"ڕێنمایی ١٢/٢٠٢٤ تێکڕای نمرەی بەکالۆریۆس بەراورد بە بەرزترین و نزمترین تێکڕای ساڵی دەرچوونت ستاندارد دەکات، پاشان نمرەی تاقیکردنەوەی پێشبڕکێی وەرگرتن زیاد دەکات.",
+ calcAvg:"تێکڕای نمرەی بەکالۆریۆست (٪)",calcMax:"بەرزترین تێکڕا لە ساڵی دەرچوونت (٪)",calcMin:"نزمترین تێکڕا لە ساڵی دەرچوونت (٪)",calcExam:"نمرەی تاقیکردنەوە (لە ٤٠)",
+ calcNew:"تێکڕای ستاندارد",calcPts:"خاڵی پێشبڕکێ",calcNoteA:"تێکڕای ستانداردی خوار ٦٠ هیچ خاڵێک وەرناگرێت. نمرەی تاقیکردنەوەی خوار ٢٠ مافی پێشبڕکێ نادات.",calcSample:"نموونە پڕکراوەتەوە؛ ژمارەکانی خۆت دابنێ.",
+ certEyebrow:"بەشی یەکەم",certTitle:"بەشی بڕوانامە و نازناوی زانستی",certText:"نازناوی زانستی، بەرزکردنەوەی پلە، خۆتەرخانکردنی زانستی و دەرچووانی گەڕاوە لە دەرەوە.",
+ planEyebrow:"بەشی دووەم",planTitle:"بەشی پلاندانان و خوێندنی باڵا",planText:"پلان و کورسیی خوێندنی باڵا، کردنەوەی بەرنامە، مۆڵەتی خوێندن، سەرپەرشتیکردن، کۆنفرانس و گۆڤار.",
+ rulesEyebrow:"بۆ خوێندکاران",rulesTitle:"ئەو ڕێسایانەی هەموو خوێندکارێکی خوێندنی باڵا دەبێت بیزانێت",rulesText:"خشتەی خوێندن، تاقیکردنەوەی وەرگرتن، ماستەرنامە و گفتوگۆ، دەستپاکی و جڵەوگیری.",
+ docsEyebrow:"کتێبخانەی بەڵگەنامە",docsTitle:"هەموو ڕێنماییەکانی بوخچەی بەڕێوەبەرایەتی",docsText:"هەموو فایلەکانی بوخچەی هاوبەشی درایڤ، لەگەڵ ژمارە، ناوەڕۆک و ئایا هێشتا کاری پێدەکرێت. بۆ کردنەوەی فایل، دەستگەیشتن بە بوخچەی درایڤی بەڕێوەبەرایەتی پێویستە.",
+ search:"گەڕان لە بەڵگەنامەکان",all:"هەموو",open:"کردنەوە لە درایڤ",
+ st:{current:"کاری پێدەکرێت",amended:"هەموارکراوە",superseded:"گۆڕدراوە",reference:"سەرچاوە"},
+ cat:{pg:"خوێندنی باڵا",titles:"نازناو و بەرزکردنەوەی پلە",leave:"مۆڵەتی خوێندن و خۆتەرخانکردن",research:"سەرپەرشتی، کۆنفرانس و گۆڤار",students:"ڕێساکانی خوێندکار و تاقیکردنەوە",board:"بۆردی پزیشکی",laws:"یاسا و پەیڕەو",circ:"نووسراو و گشتاندن"},
+ noDocs:"هیچ بەڵگەنامەیەک لەگەڵ گەڕانەکەت ناگونجێت.",
+ src:"سەرچاوە",srcs:"سەرچاوەکان",
+ ctEyebrow:"سەردانمان بکە",ctTitle:"زانیاریی نووسینگە",ctHoursL:"کاتی دەوام",ctHours:"یەکشەممە – پێنجشەممە (کاتژمێر دیاری دەکرێت)",ctWhereL:"شوێن",ctWhere:"سەرۆکایەتیی زانکۆی سلێمانی (دیاری دەکرێت)",ctPhoneL:"تەلەفۆن",ctPhone:"زیاد دەکرێت",
+ qrEyebrow:"کۆدی QR",qrTitle:"کۆدێک چاپ بکە بۆ دیواری نووسینگە",qrText:"سەردانکەران بە کامێرای مۆبایل دەیخوێننەوە و دەگەنە ئەم ماڵپەڕە. ئاماژە بەو ناونیشانە دەکات کە ئێستا لەسەری.",
+ footer:"ئامادەکراوە بۆ بەڕێوەبەرایەتیی کاروباری زانستی و خوێندنی باڵا، زانکۆی سلێمانی. پوختەی ڕێنماییەکانی وەزارەتە بۆ ڕێنمایی؛ دەقی فەرمی بنەمایە.",
+ noAnswer:"ئەمەم لە ڕێنماییە پوختەکراوەکاندا نەدۆزییەوە. تکایە لە نووسینگە بپرسە.",closest:"نزیکترین بابەت لەم پەڕەیەدا:",
+ err:{rate_limited:"پرسیاری زۆر لە یەک کاتدا. تکایە کەمێک چاوەڕێ بکە.",upstream_error:"پەیوەندییەکە پچڕا. تکایە دووبارە هەوڵ بدەرەوە.",refused:"ناتوانم وەڵامی ئەمە بدەمەوە. تکایە بە شێوەیەکی تر بیپرسە.",other:"هەڵەیەک ڕوویدا. تکایە دووبارە هەوڵ بدەرەوە."},
+ fab:"پرسیارێک بکە",more:"زیاتر",less:"کەمتر",docCount:"فایل"},
+ar:{dir:"rtl",uni:"جامعة السليمانية",name:"مديرية الشؤون العلمية والدراسات العليا",
+ nav:{ask:"اسأل",adm:"القبول",cert:"الشهادات والألقاب",plan:"التخطيط والتعليم العالي",rules:"ضوابط الطلبة",docs:"الوثائق",contact:"التواصل"},
+ heroTitle:"تعليمات الوزارة بلغة واضحة",
+ heroText:"شروط القبول، الألقاب العلمية، الترقية، الإجازة الدراسية، الإشراف وغيرها، ملخصة من تعليمات وزارة التعليم العالي التي تعمل بها المديرية. كل إجابة تذكر التعليمات التي استندت إليها.",
+ heroNote:"مسودة للمراجعة الداخلية · ملخصات وليست نصاً رسمياً",
+ statDocs:"وثيقة تمت قراءتها",statCurrent:"نافذة",statMain:"التعليمات الرئيسة",
+ askEyebrow:"اسأل المساعد",askTitle:"اسأل بالكردية أو العربية أو الإنجليزية",
+ askText:"يجيب المساعد فقط من التعليمات الملخصة في هذه الصفحة ويذكر المصدر. إن لم يجد الإجابة يقول ذلك.",
+ botName:"مساعد المديرية",botStatus:"يجيب من هذه الصفحة فقط",botStatusOff:"وضع البحث البسيط (الذكاء الاصطناعي غير متاح هنا)",
+ send:"اسأل",stop:"إيقاف",placeholder:"مثلاً: ما درجة IELTS المطلوبة لدكتوراه الهندسة؟",
+ botFoot:"للإرشاد فقط. القول الفصل للتعليمات الرسمية والمكتب.",
+ greet:"مرحباً. يمكنني الإجابة عن أسئلتك حول القبول في الدراسات العليا، والألقاب العلمية والترقية، والإجازة الدراسية، والإشراف، والمؤتمرات، والمجلات، وضوابط الطلبة، استناداً إلى تعليمات الوزارة. ماذا تود أن تعرف؟",
+ thinking:"أبحث في التعليمات…",
+ sugg:["ما المطلوب للتقديم على الماجستير؟","ما درجة اللغة المطلوبة لدكتوراه العلوم؟","كم طالباً يشرف عليه الأستاذ المساعد؟","كيف تحسب نقاط الإجازة الدراسية؟","ما المطلوب لنيل لقب مدرس؟"],
+ admEyebrow:"القبول في الدراسات العليا",admTitle:"التقديم على الدبلوم العالي أو الماجستير أو الدكتوراه",
+ admText:"من التعليمات رقم (12) لسنة 2024 التي تنظم الآن القبول في جميع الدراسات العليا في الجامعات الحكومية في الإقليم. المقبولون سابقاً يستمرون وفق التعليمات النافذة عند قبولهم.",
+ progLabel:"نوع الدراسة",rowLabel:"الشرط",
+ calcTitle:"احسب نقاط المفاضلة للماجستير",calcText:"توحّد التعليمات 12/2024 معدل البكالوريوس قياساً بأعلى وأدنى معدل في سنة تخرجك، ثم تضيف درجة امتحان التنافس.",
+ calcAvg:"معدل البكالوريوس (%)",calcMax:"أعلى معدل في سنة تخرجك (%)",calcMin:"أدنى معدل في سنة تخرجك (%)",calcExam:"درجة الامتحان (من 40)",
+ calcNew:"المعدل المعياري",calcPts:"نقاط المفاضلة",calcNoteA:"المعدل المعياري دون 60 لا يمنح نقاطاً. درجة امتحان دون 20 لا تسمح بالتنافس.",calcSample:"قيم مثال؛ ضع قيمك.",
+ certEyebrow:"القسم الأول",certTitle:"قسم الشهادات والألقاب العلمية",certText:"الألقاب العلمية، الترقية، التفرغ العلمي، والخريجون العائدون من الخارج.",
+ planEyebrow:"القسم الثاني",planTitle:"قسم التخطيط والتعليم العالي",planText:"خطط ومقاعد الدراسات العليا، فتح البرامج، الإجازة الدراسية، الإشراف، المؤتمرات والمجلات.",
+ rulesEyebrow:"للطلبة",rulesTitle:"ضوابط يجب أن يعرفها كل طالب دراسات عليا",rulesText:"جدول الدراسة، امتحان القبول، الرسالة والمناقشة، النزاهة والانضباط.",
+ docsEyebrow:"مكتبة الوثائق",docsTitle:"جميع التعليمات في مجلد المديرية",docsText:"كل ملفات مجلد درايف المشترك، مع رقمها وموضوعها وهل ما زالت نافذة. فتح الملف يتطلب صلاحية الوصول إلى مجلد المديرية.",
+ search:"ابحث في الوثائق",all:"الكل",open:"فتح في درايف",
+ st:{current:"نافذة",amended:"معدّلة",superseded:"مستبدلة",reference:"مرجع"},
+ cat:{pg:"الدراسات العليا",titles:"الألقاب والترقية",leave:"الإجازة الدراسية والتفرغ",research:"الإشراف والمؤتمرات والمجلات",students:"ضوابط الطلبة والامتحانات",board:"البورد الطبي",laws:"القوانين والأنظمة",circ:"كتب وتعاميم"},
+ noDocs:"لا توجد وثائق مطابقة.",
+ src:"المصدر",srcs:"المصادر",
+ ctEyebrow:"زورونا",ctTitle:"معلومات المكتب",ctHoursL:"أوقات الدوام",ctHours:"الأحد – الخميس (تحدد الساعات لاحقاً)",ctWhereL:"الموقع",ctWhere:"رئاسة جامعة السليمانية (يُؤكد لاحقاً)",ctPhoneL:"الهاتف",ctPhone:"يضاف لاحقاً",
+ qrEyebrow:"رمز QR",qrTitle:"اطبع رمزاً لجدار المكتب",qrText:"يمسحه الزائرون بكاميرا الهاتف فيصلون إلى هذا الموقع. يشير إلى العنوان الذي تتصفحه الآن.",
+ footer:"أُعدّ لمديرية الشؤون العلمية والدراسات العليا، جامعة السليمانية. ملخصات لتعليمات الوزارة للإرشاد؛ والنص الرسمي هو المرجع.",
+ noAnswer:"لم أجد ذلك في التعليمات الملخصة هنا. يرجى مراجعة المكتب.",closest:"أقرب موضوع في هذه الصفحة:",
+ err:{rate_limited:"أسئلة كثيرة في وقت واحد. يرجى الانتظار قليلاً.",upstream_error:"انقطع الاتصال. يرجى المحاولة مجدداً.",refused:"لا أستطيع الإجابة عن هذا. يرجى إعادة الصياغة.",other:"حدث خطأ. يرجى المحاولة مجدداً."},
+ fab:"اطرح سؤالاً",more:"المزيد",less:"أقل",docCount:"ملف"}
+};
+
+/* Programme comparison — Instruction 12/2024 */
+SITE.PROGS = [
+ {id:"hd1",en:"1-year academic higher diploma",ckb:"دبلۆمی باڵای یەک ساڵەی ئەکادیمی",ar:"الدبلوم العالي الأكاديمي (سنة)"},
+ {id:"hd2",en:"2-year clinical higher diploma",ckb:"دبلۆمی باڵای دوو ساڵەی پزیشکی کلینیکی",ar:"الدبلوم العالي السريري (سنتان)"},
+ {id:"ma",en:"Master's (MA/MSc)",ckb:"ماستەر",ar:"الماجستير"},
+ {id:"phd",en:"PhD",ckb:"دکتۆرا",ar:"الدكتوراه"}
+];
+SITE.ROWS = [
+ {en:"Who it is for",ckb:"بۆ کێیە",ar:"لمن",v:{
+  hd1:{en:"BA holders who want to raise their average to apply for a Master's, or to pursue a Master's abroad. Apply to the same department as your BA.",ckb:"خاوەن بەکالۆریۆس کە دەیانەوێت تێکڕاکەیان بەرز بکەنەوە بۆ پێشکەشکردن بۆ ماستەر، یان ماستەر لە دەرەوە. پێشکەشی هەمان بەشی بەکالۆریۆسەکەت دەکەیت.",ar:"حملة البكالوريوس الراغبون في رفع معدلهم للتقديم على الماجستير أو لدراسته في الخارج. التقديم إلى القسم نفسه."},
+  hd2:{en:"Graduates of medicine, dentistry and pharmacy colleges. Same conditions as the Master's, plus senior residency service set by the university.",ckb:"دەرچووانی کۆلێژەکانی پزیشکی، ددان و دەرمانسازی. هەمان مەرجی ماستەر، لەگەڵ خزمەتی نیشتەجێی دێرین کە زانکۆ دیاری دەکات.",ar:"خريجو كليات الطب وطب الأسنان والصيدلة. شروط الماجستير نفسها مع خدمة الإقامة الأقدم التي تحددها الجامعة."},
+  ma:{en:"BA holders. Your BA must be of the same type as the MA department; related fields need a scientific comparison (المقاصة) matching at least 65% or 2/3 of subjects.",ckb:"خاوەن بەکالۆریۆس لە هەمان جۆر. بۆ بواری نزیک، بەراوردی زانستی (مقاصە) پێویستە کە لانیکەم ٦٥٪ یان ٢/٣ی بابەتەکان بگرێتەوە.",ar:"حملة البكالوريوس من النوع نفسه. للتخصصات القريبة تلزم المقاصة العلمية بنسبة 65% أو ثلثي المواد."},
+  phd:{en:"Holders of an academic Master's. BA and MA must be in the same scientific department, and you apply to that department.",ckb:"خاوەن ماستەری ئەکادیمی. بەکالۆریۆس و ماستەر دەبێت لە یەک بەشی زانستی بن و پێشکەشی هەمان بەش دەکەیت.",ar:"حملة الماجستير الأكاديمي. يجب أن يكون البكالوريوس والماجستير في القسم نفسه والتقديم إليه."}}},
+ {en:"Minimum average",ckb:"کەمترین تێکڕا",ar:"الحد الأدنى للمعدل",v:{
+  hd1:{en:"BA average of 50% or more.",ckb:"تێکڕای بەکالۆریۆس ٥٠٪ و سەرەوە.",ar:"معدل البكالوريوس 50% فأكثر."},
+  hd2:{en:"As for the Master's; medical-college graduates are not held to the 60% average.",ckb:"وەک ماستەر؛ دەرچووانی کۆلێژە پزیشکییەکان مەرجی ٦٠٪یان لەسەر نییە.",ar:"كالماجستير؛ لا يُشترط 60% على خريجي الكليات الطبية."},
+  ma:{en:"BA average of 60% (medical colleges exempt). Below 60%: complete the 1-year academic diploma first; your score is then 60% diploma + 40% BA.",ckb:"تێکڕای بەکالۆریۆس ٦٠٪ (کۆلێژە پزیشکییەکان بەخشراون). خوار ٦٠٪: سەرەتا دبلۆمی یەک ساڵە بخوێنە؛ نمرەکەت دەبێتە ٦٠٪ی دبلۆم + ٤٠٪ی بەکالۆریۆس.",ar:"معدل 60% (تُستثنى الكليات الطبية). دون 60%: الدبلوم الأكاديمي أولاً، ويُحتسب 60% للدبلوم و40% للبكالوريوس."},
+  phd:{en:"MA average 70% and BA average 60%. BA average not applied to medical graduates or to MA holders with a permanent academic title (or who met all title conditions).",ckb:"تێکڕای ماستەر ٧٠٪ و بەکالۆریۆس ٦٠٪. مەرجی بەکالۆریۆس بۆ دەرچووانی پزیشکی و خاوەن نازناوی زانستیی هەمیشەیی (یان ئەوانەی مەرجەکانی نازناویان تەواو کردووە) ناژمێردرێت.",ar:"معدل الماجستير 70% والبكالوريوس 60%. لا يُطبق شرط البكالوريوس على خريجي الطب ولا على حملة اللقب العلمي الدائم."}}},
+ {en:"English at application",ckb:"زمانی ئینگلیزی لە کاتی پێشکەشکردن",ar:"اللغة الإنجليزية عند التقديم",v:{
+  hd1:{en:"Not required. English is studied as a module in both semesters.",ckb:"مەرج نییە. ئینگلیزی وەک مۆدیوڵ لە هەردوو سیمستەردا دەخوێندرێت.",ar:"غير مطلوبة. تُدرّس الإنجليزية مادةً في الفصلين."},
+  hd2:{en:"As for the Master's.",ckb:"وەک ماستەر.",ar:"كالماجستير."},
+  ma:{en:"IELTS Academic 5 · TOEFL iBT 59 · TOEFL PBT 414 · PTE Academic 52, or a university language-centre certificate equal to IELTS 5.",ckb:"IELTS Academic 5 · TOEFL iBT 59 · TOEFL PBT 414 · PTE Academic 52، یان بڕوانامەی سەنتەری زمانی زانکۆ بە هاوتای IELTS 5.",ar:"IELTS Academic 5 · TOEFL iBT 59 · TOEFL PBT 414 · PTE 52، أو شهادة مركز اللغات بما يعادل IELTS 5."},
+  phd:{en:"Humanities: IELTS 5 · iBT 59 · PBT 414 · PTE 52. Sciences, engineering and medical fields: IELTS 6 · iBT 73 · PBT 497 · PTE 67 (or language-centre equivalent).",ckb:"زانستە مرۆڤایەتییەکان: IELTS 5 · iBT 59 · PBT 414 · PTE 52. زانستە پەتی، ئەندازیاری و پزیشکییەکان: IELTS 6 · iBT 73 · PBT 497 · PTE 67 (یان هاوتای سەنتەری زمان).",ar:"العلوم الإنسانية: IELTS 5 · iBT 59 · PBT 414 · PTE 52. العلوم الصرفة والهندسية والطبية: IELTS 6 · iBT 73 · PBT 497 · PTE 67."}}},
+ {en:"Entrance competition exam",ckb:"تاقیکردنەوەی پێشبڕکێی وەرگرتن",ar:"امتحان التنافس للقبول",v:{
+  hd1:{en:"None.",ckb:"نییە.",ar:"لا يوجد."},
+  hd2:{en:"Written multiple-choice exam; pass with at least 20 out of 40.",ckb:"تاقیکردنەوەی نووسینی هەڵبژاردن؛ لانیکەم ٢٠ لە ٤٠.",ar:"امتحان تحريري اختيار من متعدد؛ النجاح بـ 20 من 40."},
+  ma:{en:"Written multiple-choice exam; pass with at least 20 out of 40. Each wrong answer cancels one right answer.",ckb:"تاقیکردنەوەی نووسینی هەڵبژاردن؛ لانیکەم ٢٠ لە ٤٠. هەر وەڵامێکی هەڵە وەڵامێکی ڕاست دەبات.",ar:"امتحان تحريري؛ النجاح بـ 20 من 40. كل إجابة خاطئة تلغي إجابة صحيحة."},
+  phd:{en:"Same as the Master's: at least 20 out of 40.",ckb:"وەک ماستەر: لانیکەم ٢٠ لە ٤٠.",ar:"كالماجستير: 20 من 40 على الأقل."}}},
+ {en:"Age (government employees)",ckb:"تەمەن (فەرمانبەری هەمیشەیی)",ar:"العمر (موظفو الدولة)",v:{
+  hd1:{en:"No age limit.",ckb:"سنووری تەمەن نییە.",ar:"لا حد للعمر."},
+  hd2:{en:"45 or under; older applicants may apply on a parallel seat.",ckb:"٤٥ ساڵ و خوارتر؛ گەورەتر لەسەر کورسیی پارالێل.",ar:"45 فما دون؛ والأكبر على مقعد موازٍ."},
+  ma:{en:"45 or under (by year of birth); older applicants may apply on a parallel seat. No limit for non-employees.",ckb:"٤٥ ساڵ و خوارتر (بەپێی ساڵ)؛ گەورەتر لەسەر کورسیی پارالێل. بۆ دانەمەزراوان سنوور نییە.",ar:"45 فما دون؛ والأكبر على مقعد موازٍ. لا حد لغير الموظفين."},
+  phd:{en:"50 or under; older applicants may apply on a parallel seat. No limit for non-employees.",ckb:"٥٠ ساڵ و خوارتر؛ گەورەتر لەسەر کورسیی پارالێل. بۆ دانەمەزراوان سنوور نییە.",ar:"50 فما دون؛ والأكبر على مقعد موازٍ. لا حد لغير الموظفين."}}},
+ {en:"Seats and fees",ckb:"کورسی و کرێ",ar:"المقاعد والأجور",v:{
+  hd1:{en:"All seats are parallel (fee-paying).",ckb:"هەموو کورسییەکان پارالێلن (بە کرێ).",ar:"جميع المقاعد موازية (بأجور)."},
+  hd2:{en:"Free general seats (higher-education staff channel or government-employee channel) and fee-paying parallel seats.",ckb:"کورسیی گشتیی خۆڕایی (بازنەی دامەزراوەکانی خوێندنی باڵا یان فەرمانبەرانی حکومەت) و کورسیی پارالێل.",ar:"مقاعد عامة مجانية (قناة مؤسسات التعليم العالي أو موظفي الحكومة) ومقاعد موازية بأجور."},
+  ma:{en:"Free general seats in two channels, and parallel seats open to everyone. You may apply for one seat type only.",ckb:"کورسیی گشتیی خۆڕایی لە دوو بازنە، و کورسیی پارالێل بۆ هەمووان. تەنها یەک جۆری کورسی هەڵدەبژێریت.",ar:"مقاعد عامة مجانية بقناتين، ومقاعد موازية للجميع. يُختار نوع واحد فقط."},
+  phd:{en:"As for the Master's. Proposals are assigned only after the first PhD semester.",ckb:"وەک ماستەر. پڕۆپۆزەڵ تا کۆتایی سیمستەری یەکەم دانانرێت.",ar:"كالماجستير. لا تُوزَّع المقترحات قبل نهاية الفصل الأول."}}},
+ {en:"Duration and extensions",ckb:"ماوە و درێژکردنەوە",ar:"المدة والتمديد",v:{
+  hd1:{en:"1 year.",ckb:"١ ساڵ.",ar:"سنة واحدة."},
+  hd2:{en:"2 years.",ckb:"٢ ساڵ.",ar:"سنتان."},
+  ma:{en:"2 years. Extensions: 6 months by the college council, 6 months by the university council, then up to 6 months by the minister (final).",ckb:"٢ ساڵ. درێژکردنەوە: ٦ مانگ ئەنجومەنی کۆلێژ، ٦ مانگ ئەنجومەنی زانکۆ، پاشان تا ٦ مانگ وەزیر (کۆتایی).",ar:"سنتان. التمديد: 6 أشهر مجلس الكلية، 6 أشهر مجلس الجامعة، ثم حتى 6 أشهر بقرار الوزير (أخيرة)."},
+  phd:{en:"3 years, with the same three extensions as the Master's.",ckb:"٣ ساڵ، هەمان سێ درێژکردنەوەی ماستەر.",ar:"3 سنوات، مع التمديدات الثلاثة نفسها."}}},
+ {en:"Before the defence",ckb:"پێش گفتوگۆ",ar:"قبل المناقشة",v:{
+  hd1:{en:"No thesis.",ckb:"نامەی نییە.",ar:"لا رسالة."},
+  hd2:{en:"As set for the Master's.",ckb:"وەک ماستەر.",ar:"كالماجستير."},
+  ma:{en:"Acceptance for 1 paper from the thesis in a ministry-licensed local journal or a federal Iraqi public-university journal (an international journal must be Clarivate or Scopus indexed).",ckb:"قبوڵی بڵاوکردنەوەی ١ توێژینەوەی هەڵێنجراو لە گۆڤارێکی ناوخۆیی مۆڵەتپێدراو یان گۆڤاری زانکۆیەکی حکومیی عێراقی فیدراڵ (گۆڤاری نێودەوڵەتی دەبێت لە Clarivate یان Scopus بێت).",ar:"قبول نشر بحث مستل في مجلة محلية مرخصة أو مجلة جامعة حكومية اتحادية (والدولية مفهرسة في Clarivate أو Scopus)."},
+  phd:{en:"Sciences/engineering/medical: acceptance for 1 extracted paper in a Clarivate journal with an Impact Factor, or 2 papers (1 Scopus + 1 local). Humanities: either option, or 2 papers in local licensed journals.",ckb:"زانستی/ئەندازیاری/پزیشکی: قبوڵی ١ توێژینەوە لە گۆڤاری Clarivate بە ئیمپاکت فاکتەر، یان ٢ توێژینەوە (١ Scopus + ١ ناوخۆیی). مرۆڤایەتی: یەکێک لەوانە، یان ٢ توێژینەوە لە گۆڤاری ناوخۆیی.",ar:"العلمية والهندسية والطبية: قبول بحث في مجلة Clarivate ذات معامل تأثير، أو بحثين (سكوبس + محلية). الإنسانية: أحدهما أو بحثان في مجلات محلية."}}},
+ {en:"How applicants are ranked",ckb:"خاڵبەندیی پێشبڕکێ",ar:"المفاضلة",v:{
+  hd1:{en:"By BA average: 50% gives 0 points, each mark above adds 1 point.",ckb:"بەپێی تێکڕای بەکالۆریۆس: ٥٠٪ = ٠ خاڵ، هەر نمرەیەک زیاتر ١ خاڵ.",ar:"بمعدل البكالوريوس: 50% = صفر، وكل درجة فوقها نقطة."},
+  hd2:{en:"As for the Master's.",ckb:"وەک ماستەر.",ar:"كالماجستير."},
+  ma:{en:"Standardised BA average (60% = 0, +1 per mark) plus exam (20 = 0, +1 per mark). Try the calculator below.",ckb:"تێکڕای ستانداردی بەکالۆریۆس (٦٠٪ = ٠، +١ بۆ هەر نمرەیەک) + تاقیکردنەوە (٢٠ = ٠، +١). هەژمارکەرەکەی خوارەوە تاقی بکەرەوە.",ar:"المعدل المعياري (60% = صفر، +1 لكل درجة) + الامتحان (20 = صفر، +1). جرّب الحاسبة أدناه."},
+  phd:{en:"BA (60% = 0) + MA (70% = 0) + exam (20 = 0) + research and patents (up to 25 points) + quality-assurance points for title holders on general seats.",ckb:"بەکالۆریۆس (٦٠٪ = ٠) + ماستەر (٧٠٪ = ٠) + تاقیکردنەوە (٢٠ = ٠) + توێژینەوە و داهێنان (تا ٢٥ خاڵ) + خاڵی دڵنیایی جۆری بۆ خاوەن نازناو لەسەر کورسیی گشتی.",ar:"البكالوريوس (60% = صفر) + الماجستير (70% = صفر) + الامتحان (20 = صفر) + البحوث وبراءات الاختراع (حتى 25) + نقاط ضمان الجودة لحملة الألقاب."}}}
+];
+SITE.ROWSRC = ["14j9Clhq"];
+
+/* DSAP site content (part B): topics for both departments and student rules. */
+SITE.ADMNOTES = {
+ en:["Apply with complete documents by the last day; incomplete files cannot sit the exam.","Choose one seat type only. Applying for two loses both.","Empty seats are never refilled, no seats are added after the plan is approved, and there is no reserve list.","Government employees need their institution's no-objection letter and must meet the study-leave rules (2 years' service after the last degree). Non-employees sign a legal pledge that they are not employed.","Internal study leave is full-time. Only MA holders with a permanent academic title on Ministry staff get partial leave for a PhD.","Postponement is allowed only for force majeure, for one year, and before study starts.","No transfer between universities. Holders of a 2-year clinical diploma need a Master's before applying for a PhD.","Senior officials (ministers, MPs, Senior A/B grades and similar) cannot apply while in post.","Forged documents mean the name is deleted and the case goes to court. Universities verify every document's authenticity.","Those who previously did not finish (scholarship, study leave abroad, or deleted) may apply again but start from the beginning."],
+ ckb:["بەڵگەنامەکان تەواو تا دوا ڕۆژ پێشکەش بکە؛ دۆسیەی ناتەواو مافی تاقیکردنەوەی نییە.","تەنها یەک جۆری کورسی هەڵبژێرە. پێشکەشکردن بۆ دوو جۆر هەردووکی لەدەست دەدات.","کورسیی بەتاڵ پڕ ناکرێتەوە، دوای پەسەندکردنی پلان کورسی زیاد ناکرێت و لیستی یەدەگ نییە.","فەرمانبەران نووسراوی بێ لایەنی دامەزراوەکەیان پێویستە و دەبێت مەرجی مۆڵەتی خوێندن (٢ ساڵ خزمەت دوای دوا بڕوانامە) تەواو بکەن. دانەمەزراوان بەڵێننامەی یاسایی واژۆ دەکەن کە دانەمەزراون.","مۆڵەتی خوێندنی ناوخۆ تەواو کاتە. تەنها خاوەن ماستەری نازناوداری هەمیشەیی لە ستافی وەزارەت بۆ دکتۆرا مۆڵەتی نیوەکاتی وەردەگرن.","دواخستن تەنها بۆ هۆی زۆرەملێ، بۆ یەک ساڵ و پێش دەستپێکردنی خوێندن ڕێگەپێدراوە.","گواستنەوە لە نێوان زانکۆکان نییە. خاوەن دبلۆمی باڵای کلینیکی دەبێت پێش دکتۆرا ماستەر تەواو بکات.","بەرپرسە باڵاکان (وەزیر، پەرلەمانتار، پلەی تایبەتی A/B و هاوشێوە) لە کاتی پۆستەکەیاندا ناتوانن پێشکەش بکەن.","بەڵگەنامەی ساختە: ناو دەسڕدرێتەوە و دۆسیەکە دەدرێتە دادگا. زانکۆکان ڕاستیی دەرچوونی هەموو بەڵگەنامەیەک دەپشکنن.","ئەوانەی پێشتر تەواویان نەکردووە (زەمالە، مۆڵەتی دەرەوە یان ناوسڕاوە) دەتوانن دووبارە پێشکەش بکەنەوە بەڵام لە سەرەتاوە دەست پێدەکەنەوە."],
+ ar:["قدّم مستمسكاتك كاملة قبل اليوم الأخير؛ الملف الناقص لا يدخل الامتحان.","اختر نوع مقعد واحداً فقط. التقديم على نوعين يُفقد الاثنين.","لا تُملأ المقاعد الشاغرة، ولا تضاف مقاعد بعد إقرار الخطة، ولا توجد قائمة احتياط.","يحتاج الموظف إلى كتاب عدم ممانعة من دائرته واستيفاء شروط الإجازة الدراسية (سنتا خدمة بعد آخر شهادة). غير الموظف يوقّع تعهداً بأنه غير موظف.","الإجازة الدراسية الداخلية تفرغ كامل. فقط حملة الماجستير ذوو اللقب العلمي الدائم في ملاك الوزارة يمنحون تفرغاً جزئياً للدكتوراه.","التأجيل لظرف قاهر فقط، لسنة واحدة، وقبل بدء الدراسة.","لا انتقال بين الجامعات. حامل الدبلوم العالي السريري يحتاج إلى الماجستير قبل الدكتوراه.","لا يحق لكبار المسؤولين (الوزراء، النواب، الدرجات الخاصة أ/ب ونحوهم) التقديم أثناء شغلهم المنصب.","المستمسكات المزورة تعني ترقين القيد وإحالة القضية إلى المحكمة. تتحقق الجامعات من صحة صدور كل وثيقة.","من لم يكمل سابقاً (بعثة، إجازة دراسية خارجية، أو ترقين قيد) يحق له التقديم مجدداً ويبدأ من البداية."],
+ src:["14j9Clhq","1O-qDDAv","1xDc0nVW"]
+};
+
+/* Topic cards. dept: cert | plan | rules. table: optional {head:{en,ckb,ar}, rows:[[...]]} */
+SITE.TOPICS = [
+/* ---------------- Certification & Academic Titles ---------------- */
+{id:"t-al",dept:"cert",src:["1BX_0LRS"],
+ en:{t:"Assistant Lecturer title (Master's holders)",s:"First academic title for staff with an academic Master's.",p:["Hold an academic Master's (a foreign degree needs the Ministry's final equivalency order) and be officially employed at a Ministry institution.","Complete the academic development courses: 6 months, 10 hours a week, 240 hours in total. At least 120 hours cover teaching methods, research capacity, and academic leadership and management; up to 120 hours of English for those who need it.","Course pass mark is 70%. 60–69% means a re-sit; below 60% means repeating the course.","English: IELTS 5 or equivalent TOEFL/PTE (a valid certificate exempts you from the English course). Instead of English you may prove advanced German, French, Spanish, Russian or Chinese; Kurdish-literature MA holders may use Persian.","The Ministry's course certificate lets you sit the title exam (a seminar) held by the university."]},
+ ckb:{t:"نازناوی مامۆستای یاریدەدەر (خاوەن ماستەر)",s:"یەکەم نازناوی زانستی بۆ ستافی خاوەن ماستەری ئەکادیمی.",p:["ماستەری ئەکادیمیت هەبێت (بڕوانامەی دەرەوە فەرمانی کۆتایی هاوتاکردنی وەزارەتی پێویستە) و بە فەرمی لە دامەزراوەیەکی وەزارەت دامەزرابیت.","خولەکانی پەرەپێدانی ئەکادیمی تەواو بکە: ٦ مانگ، هەفتانە ١٠ کاتژمێر، کۆی ٢٤٠ کاتژمێر. لانیکەم ١٢٠ کاتژمێر بۆ ڕێگاکانی وانەوتنەوە، توانای توێژینەوە و سەرکردایەتی و بەڕێوەبردنی ئەکادیمی؛ تا ١٢٠ کاتژمێر ئینگلیزی بۆ ئەوانەی پێویستیانە.","نمرەی دەرچوون ٧٠٪ە. ٦٠–٦٩٪ تاقیکردنەوەی دووبارە؛ خوار ٦٠٪ خولەکە دووبارە دەکرێتەوە.","زمان: IELTS 5 یان هاوتای TOEFL/PTE (بڕوانامەی کارا لە خولی ئینگلیزی دەتبەخشێت). لە جیاتی ئینگلیزی دەتوانیت ئاستی پێشکەوتووی ئەڵمانی، فەڕەنسی، ئیسپانی، ڕووسی یان چینی بسەلمێنیت؛ خاوەن ماستەری ئەدەبی کوردی دەتوانێت فارسی بەکاربهێنێت.","بڕوانامەی خولی وەزارەت مافی تاقیکردنەوەی نازناو (سیمینار) دەدات کە زانکۆ ئەنجامی دەدات."]},
+ ar:{t:"لقب مدرس مساعد (حملة الماجستير)",s:"أول لقب علمي لحملة الماجستير الأكاديمي.",p:["ماجستير أكاديمي (الشهادة الأجنبية تحتاج أمر المعادلة النهائي) والتعيين رسمياً في مؤسسة تابعة للوزارة.","إكمال دورات التطوير الأكاديمي: 6 أشهر، 10 ساعات أسبوعياً، 240 ساعة. 120 ساعة على الأقل لطرائق التدريس والقدرة البحثية والقيادة الأكاديمية، وحتى 120 ساعة للغة الإنجليزية لمن يحتاجها.","درجة النجاح 70%. من 60 إلى 69% إعادة امتحان، ودون 60% إعادة الدورة.","اللغة: IELTS 5 أو ما يعادلها (الشهادة النافذة تعفي من دورة الإنجليزية). ويجوز بدلاً منها إثبات مستوى متقدم في الألمانية أو الفرنسية أو الإسبانية أو الروسية أو الصينية، والفارسية لحملة ماجستير الأدب الكردي.","شهادة الدورة من الوزارة شرط لدخول امتحان اللقب (السمنار) الذي تعقده الجامعة."]}},
+{id:"t-lec",dept:"cert",src:["1BX_0LRS","11xdNhZP"],
+ en:{t:"Lecturer title (PhD holders)",s:"Title for staff receiving a title for the first time with a PhD, or promoted from Assistant Lecturer.",p:["Route 1, first title with a PhD: academic PhD (foreign degrees equated), employed at a Ministry institution, 3 months of courses (at least 60 hours across the three development courses plus at least 80 hours of language), then the title seminar.","Route 2, promotion: at least 3 years as Assistant Lecturer and 2 valuable published papers in peer-reviewed journals, first author on at least one. Acceptance letters are not accepted for this step (2021 amendment).","Quality assurance must be passed for 2 years for promotion from Assistant Lecturer to Lecturer.","The same language options apply as for the Assistant Lecturer title."]},
+ ckb:{t:"نازناوی مامۆستا (خاوەن دکتۆرا)",s:"بۆ ئەوانەی بۆ یەکەمجار بە دکتۆرا نازناو وەردەگرن، یان لە مامۆستای یاریدەدەرەوە بەرز دەکرێنەوە.",p:["ڕێگای ١، یەکەم نازناو بە دکتۆرا: دکتۆرای ئەکادیمی (بڕوانامەی دەرەوە هاوتا کراو)، دامەزراو لە دامەزراوەی وەزارەت، ٣ مانگ خول (لانیکەم ٦٠ کاتژمێر بۆ سێ خولەکە و لانیکەم ٨٠ کاتژمێر زمان)، پاشان سیمیناری نازناو.","ڕێگای ٢، بەرزکردنەوە: لانیکەم ٣ ساڵ وەک مامۆستای یاریدەدەر و ٢ توێژینەوەی بەنرخی بڵاوکراوە لە گۆڤاری محکەم، لە یەکێکیاندا توێژەری یەکەم. نووسراوی قبوڵ بۆ ئەم پلەیە وەرناگیرێت (هەمواری ٢٠٢١).","دەرچوون لە دڵنیایی جۆری بۆ ٢ ساڵ پێویستە بۆ بەرزبوونەوە لە مامۆستای یاریدەدەرەوە بۆ مامۆستا.","هەمان هەڵبژاردەکانی زمان وەک نازناوی مامۆستای یاریدەدەر."]},
+ ar:{t:"لقب مدرس (حملة الدكتوراه)",s:"لمن يُمنح اللقب لأول مرة بالدكتوراه، أو يرقّى من مدرس مساعد.",p:["الطريق الأول، أول لقب بالدكتوراه: دكتوراه أكاديمية (المعادلة للأجنبية)، التعيين في مؤسسة الوزارة، 3 أشهر من الدورات (60 ساعة على الأقل للدورات الثلاث و80 ساعة للغة)، ثم سمنار اللقب.","الطريق الثاني، الترقية: 3 سنوات على الأقل بلقب مدرس مساعد وبحثان قيّمان منشوران في مجلات محكمة، باحث أول في أحدهما. لا تقبل كتب القبول لهذه المرتبة (تعديل 2021).","يجب اجتياز ضمان الجودة لسنتين للترقية من مدرس مساعد إلى مدرس.","خيارات اللغة نفسها كلقب مدرس مساعد."]}},
+{id:"t-low",dept:"cert",src:["1N45NPFl"],
+ en:{t:"Titles for staff whose BA average is below 60%",s:"A ministerial order from 2019 opened a route for Master's and PhD holders on Ministry staff.",p:["Publish 2 papers in peer-reviewed or international journals after your MA/PhD, not taken from your thesis, first author on at least one.","Serve 5 years at universities outside the big cities.","Staff of Salahaddin, Sulaimani and Duhok universities must move their service to another university, in addition to the two conditions above."]},
+ ckb:{t:"نازناو بۆ ئەوانەی تێکڕای بەکالۆریۆسیان خوار ٦٠٪ە",s:"فەرمانێکی وەزاریی ٢٠١٩ ڕێگایەکی کردەوە بۆ خاوەن ماستەر و دکتۆرا لە ستافی وەزارەت.",p:["دوای ماستەر/دکتۆرا ٢ توێژینەوە لە گۆڤاری محکەم یان نێودەوڵەتی بڵاو بکەرەوە، نەک لە نامەکەت، لە یەکێکیاندا توێژەری یەکەم بیت.","٥ ساڵ لە زانکۆکانی دەرەوەی شارە گەورەکان خزمەت بکە.","ستافی زانکۆکانی سەڵاحەددین، سلێمانی و دهۆک دەبێت جگە لەو دوو مەرجە خزمەتەکەیان بگوازنەوە بۆ زانکۆیەکی تر."]},
+ ar:{t:"اللقب لمن معدله في البكالوريوس دون 60%",s:"أمر وزاري عام 2019 فتح طريقاً لحملة الماجستير والدكتوراه في ملاك الوزارة.",p:["نشر بحثين في مجلات محكمة أو دولية بعد الماجستير/الدكتوراه، غير مستلين من الرسالة، باحث أول في أحدهما.","الخدمة 5 سنوات في جامعات خارج المدن الكبرى.","منتسبو جامعات صلاح الدين والسليمانية ودهوك ينقلون خدمتهم إلى جامعة أخرى إضافة إلى الشرطين."]}},
+{id:"t-promo",dept:"cert",src:["11xdNhZP","1sJwxgY6","18L0TQHT"],
+ en:{t:"Academic promotion: what each rank needs",s:"From the promotion instruction (Order 1312 of 2016) with the 2021 amendments (letter 3920).",p:["Assistant Professor: at least 4 years as Lecturer and 3 valuable papers, one sole-authored.","Professor: PhD, at least 6 years as Assistant Professor and 6 papers, 3 of them original and 1 sole-authored (4 original for Kurdish-language specialties).","Papers must be in your general or precise specialty, published in a Scopus-indexed peer-reviewed journal, not used before, not from your own theses, and started after your last promotion. At most 2 papers from one journal issue.","A PhD thesis (not medical board) counts as one original paper for the next promotion. Papers from theses you supervised count, one per thesis: up to 2 for Assistant Professor and 3 for Professor.","Joint papers count up to the 3rd author (humanities) or 4th author (sciences and medicine). A joint paper already evaluated for one co-author is not re-evaluated for another.","Quality assurance must be passed each year of the period: 3 years for Lecturer to Assistant Professor, 4 years for Assistant Professor to Professor. University presidents, vice-presidents and deans are exempt for those years.","PhD students cannot apply for promotion from the start of study until they finish, unless the file was complete before they started.","Also counted: one conference paper per promotion (periodic conference, full paper in proceedings with ISBN/ISSN), a registered patent (counts as an original paper), one authored book per rank, and for fine arts 5 artistic works = 1 paper."]},
+ ckb:{t:"بەرزکردنەوەی پلەی زانستی: هەر پلەیەک چی پێویستە",s:"لە ڕێنماییی بەرزکردنەوەی پلە (فەرمانی ١٣١٢ی ٢٠١٦) لەگەڵ هەموارەکانی ٢٠٢١ (نووسراوی ٣٩٢٠).",p:["پرۆفیسۆری یاریدەدەر: لانیکەم ٤ ساڵ وەک مامۆستا و ٣ توێژینەوەی بەنرخ، یەکێکیان تاک.","پرۆفیسۆر: دکتۆرا، لانیکەم ٦ ساڵ وەک پرۆفیسۆری یاریدەدەر و ٦ توێژینەوە، ٣یان ڕەسەن و ١ تاک (بۆ پسپۆڕییەکانی زمانی کوردی ٤ ڕەسەن).","توێژینەوەکان دەبێت لە پسپۆڕیی گشتی یان وردی خۆت بن، لە گۆڤاری محکەمی Scopus بڵاو کرابنەوە، پێشتر بەکارنەهاتبن، لە نامەکانی خۆت نەبن و دوای دوا بەرزکردنەوە دەستیان پێکردبێت. لە یەک ژمارەی گۆڤار زیاتر لە ٢ توێژینەوە نا.","نامەی دکتۆرا (نەک بۆردی پزیشکی) وەک یەک توێژینەوەی ڕەسەن بۆ بەرزکردنەوەی دواتر دەژمێردرێت. توێژینەوەی هەڵێنجراو لە نامەی سەرپەرشتیکراو، یەک بۆ هەر نامەیەک: تا ٢ بۆ پرۆفیسۆری یاریدەدەر و ٣ بۆ پرۆفیسۆر.","توێژینەوەی هاوبەش تا توێژەری سێیەم (مرۆڤایەتی) یان چوارەم (زانستی و پزیشکی) دەژمێردرێت. توێژینەوەی هاوبەش کە بۆ هاوبەشێک هەڵسەنگێنراوە بۆ ئەوی تر دووبارە هەڵناسەنگێنرێتەوە.","دەرچوون لە دڵنیایی جۆری بۆ هەموو ساڵەکانی ماوەکە: ٣ ساڵ لە مامۆستاوە بۆ پرۆفیسۆری یاریدەدەر، ٤ ساڵ بۆ پرۆفیسۆر. سەرۆکی زانکۆ، جێگرەکان و ڕاگرەکان بۆ ئەو ساڵانە بەخشراون.","قوتابیانی دکتۆرا لە سەرەتای خوێندنەوە تا تەواوکردن ناتوانن داوای بەرزکردنەوە بکەن، مەگەر دۆسیەکەیان پێش دەستپێکردن تەواو بووبێت.","هەروەها دەژمێردرێن: یەک توێژینەوەی کۆنفرانس بۆ هەر بەرزکردنەوەیەک (کۆنفرانسی خولی، توێژینەوەی تەواو لە بڵاوکراوە بە ISBN/ISSN)، داهێنانی تۆمارکراو (وەک توێژینەوەی ڕەسەن)، یەک کتێبی دانراو بۆ هەر پلەیەک، و بۆ هونەرە جوانەکان ٥ کاری هونەری = ١ توێژینەوە."]},
+ ar:{t:"الترقية العلمية: متطلبات كل مرتبة",s:"من تعليمات الترقية (الأمر 1312 لسنة 2016) وتعديلات 2021 (الكتاب 3920).",p:["أستاذ مساعد: 4 سنوات على الأقل بمرتبة مدرس و3 بحوث قيّمة أحدها منفرد.","أستاذ: دكتوراه و6 سنوات على الأقل بمرتبة أستاذ مساعد و6 بحوث، 3 أصيلة و1 منفرد (4 أصيلة لاختصاصات اللغة الكردية).","أن تكون البحوث في الاختصاص العام أو الدقيق، منشورة في مجلة محكمة مفهرسة في سكوبس، غير مستخدمة سابقاً، وغير مستلة من رسائلك، وبعد آخر ترقية. بحثان كحد أقصى من عدد واحد.","تُحتسب أطروحة الدكتوراه (عدا البورد) بحثاً أصيلاً للترقية التالية. وبحوث الرسائل التي أشرفت عليها: واحد لكل رسالة، حتى 2 لأستاذ مساعد و3 لأستاذ.","البحوث المشتركة تُحتسب حتى الباحث الثالث (الإنسانية) أو الرابع (العلمية والطبية). البحث المشترك المقيّم لأحد الشركاء لا يعاد تقييمه لغيره.","اجتياز ضمان الجودة لكل سنوات المدة: 3 سنوات من مدرس إلى أستاذ مساعد، و4 إلى أستاذ. رؤساء الجامعات ومساعدوهم والعمداء معفون لتلك السنوات.","لا يحق لطالب الدكتوراه التقديم للترقية من بدء الدراسة حتى إكمالها، إلا إذا اكتمل ملفه قبل البدء.","ويُحتسب كذلك: بحث مؤتمر واحد لكل ترقية (مؤتمر دوري، بحث كامل في وقائع بـ ISBN/ISSN)، براءة اختراع مسجلة (كبحث أصيل)، كتاب مؤلَّف واحد لكل مرتبة، وفي الفنون الجميلة 5 أعمال فنية = بحث واحد."]}},
+{id:"t-promoproc",dept:"cert",src:["11xdNhZP","18L0TQHT"],
+ en:{t:"How a promotion file moves",s:"Committees, deadlines and how to complain.",p:["You may apply before the legal period ends: 3 months early for Lecturer, 6 months for Assistant Professor, 1 year for Professor. The title date is the date you complete the requirements.","Submit to the department: application letter, 4 copies of each paper or book, your own theses, supervised theses and the promotion booklet. The department checks plagiarism confidentially (3 weeks) and you give a seminar.","The college promotion committee (a Professor and 4 members) sends the papers confidentially to 3 evaluators of the same or higher rank; they reply within 60 days. The result is by majority (2 of 3).","The file then goes to the college council, the university president, the central promotion committee and the university council, which issues the order. For Professor, 2 of the 3 evaluators come from outside Iraq.","You may name 2 people you do not want as evaluators. Your former supervisor should not evaluate you.","Grievances go to the university grievance committee within 30 days. If your file does not reach the committee within a month of your seminar, complain to the central committee.","Private-university staff: only permanent staff without a government job; evaluated confidentially by a public-university committee at the private university's cost."]},
+ ckb:{t:"دۆسیەی بەرزکردنەوە چۆن دەڕوات",s:"لیژنەکان، ماوەکان و چۆن گازاندە بکەیت.",p:["دەتوانیت پێش تەواوبوونی ماوەی یاسایی داوا بکەیت: ٣ مانگ پێشتر بۆ مامۆستا، ٦ مانگ بۆ پرۆفیسۆری یاریدەدەر، ١ ساڵ بۆ پرۆفیسۆر. بەرواری نازناو بەرواری تەواوکردنی مەرجەکانە.","پێشکەشی بەش بکە: داواکاری، ٤ کۆپی لە هەر توێژینەوە یان کتێبێک، نامەکانی خۆت، نامە سەرپەرشتیکراوەکان و پەڕاوی بەرزکردنەوە. بەش بە نهێنی دزینەوەی زانستی (ئیستیلال) دەپشکنێت (٣ هەفتە) و تۆ سیمینار پێشکەش دەکەیت.","لیژنەی بەرزکردنەوەی کۆلێژ (پرۆفیسۆرێک و ٤ ئەندام) توێژینەوەکان بە نهێنی بۆ ٣ هەڵسەنگێنەری هەمان پلە یان بەرزتر دەنێرێت؛ لە ماوەی ٦٠ ڕۆژدا وەڵام دەدەنەوە. ئەنجام بە زۆرینەیە (٢ لە ٣).","دواتر دۆسیەکە دەچێت بۆ ئەنجومەنی کۆلێژ، سەرۆکی زانکۆ، لیژنەی ناوەندی و ئەنجومەنی زانکۆ کە فەرمانەکە دەردەکات. بۆ پرۆفیسۆر ٢ لە ٣ هەڵسەنگێنەرەکە لە دەرەوەی عێراقن.","دەتوانیت ناوی ٢ کەس بدەیت کە ناتەوێت هەڵتسەنگێنن. سەرپەرشتیاری پێشووت نابێت هەڵتسەنگێنێت.","گازاندە لە ماوەی ٣٠ ڕۆژدا بۆ لیژنەی گازاندەی زانکۆ. ئەگەر دۆسیەکەت لە ماوەی مانگێک دوای سیمینار نەگەیشتە لیژنە، گازاندە بۆ لیژنەی ناوەندی بکە.","ستافی زانکۆ تایبەتەکان: تەنها ستافی هەمیشەیی بێ کاری حکومی؛ بە نهێنی لەلایەن لیژنەی زانکۆیەکی حکومی هەڵدەسەنگێنرێن و تێچووەکەی لەسەر زانکۆ تایبەتەکەیە."]},
+ ar:{t:"مسار ملف الترقية",s:"اللجان والمدد وطريقة التظلم.",p:["يجوز التقديم قبل انتهاء المدة القانونية: 3 أشهر لمدرس، 6 أشهر لأستاذ مساعد، سنة لأستاذ. تاريخ اللقب هو تاريخ استكمال الشروط.","يقدَّم إلى القسم: طلب، 4 نسخ من كل بحث أو كتاب، رسائلك، الرسائل التي أشرفت عليها، وكراس الترقية. يفحص القسم الاستلال سرياً (3 أسابيع) وتلقي سمناراً.","ترسل لجنة الترقيات في الكلية (أستاذ و4 أعضاء) البحوث سرياً إلى 3 مقيّمين بالمرتبة نفسها أو أعلى، يجيبون خلال 60 يوماً. النتيجة بالأغلبية (2 من 3).","ثم يمر الملف بمجلس الكلية ورئيس الجامعة واللجنة المركزية ومجلس الجامعة الذي يصدر الأمر. للأستاذية يكون 2 من 3 مقيّمين من خارج العراق.","يحق لك تسمية شخصين لا ترغب في تقييمهما لك. لا يقيّمك مشرفك السابق.","التظلم خلال 30 يوماً إلى لجنة التظلم في الجامعة. إن لم يصل ملفك إلى اللجنة خلال شهر من السمنار، تظلّم إلى اللجنة المركزية.","منتسبو الجامعات الأهلية: الملاك الدائم بلا وظيفة حكومية فقط، ويقيّمون سرياً من لجنة جامعة حكومية على نفقة الجامعة الأهلية."]}},
+{id:"t-postdoc",dept:"cert",src:["1LtC71vl"],
+ en:{t:"Post-doctorate leave",s:"One year of research abroad, once in a career (Instruction 3 of 2024).",p:["For PhD holders with the title Lecturer only, PhD no older than 5 years, and 2 years' actual service after the PhD (or return and equivalency).","Unconditional acceptance from a Ministry-recognised university (no language-course period), a proposal approved by the department scientific committee, at least 1 paper in an accredited journal, and the department's no-objection.","During the year: prepare a paper with your home-university affiliation in Clarivate Q1/Q2 (sciences) or Scopus Q1–Q3 (humanities), and send a progress letter every 3 months.","On return: give 2 seminars and a training course for colleagues. Post-doc research may be used for promotion.","Full salary, fixed allowances and the university allowance are paid. A financial guarantee is required; failing the obligations means repaying."]},
+ ckb:{t:"مۆڵەتی پۆست دکتۆرا",s:"ساڵێک توێژینەوە لە دەرەوە، یەکجار لە ژیانی کاریدا (ڕێنمایی ٣ی ٢٠٢٤).",p:["بۆ خاوەن دکتۆرا بە نازناوی مامۆستا تەنها، دکتۆراکەی کۆنتر نەبێت لە ٥ ساڵ، و ٢ ساڵ خزمەتی کردەیی دوای دکتۆرا (یان گەڕانەوە و هاوتاکردن).","قبوڵی بێ مەرج لە زانکۆیەکی ناسراوی وەزارەت (بێ ماوەی خولی زمان)، پڕۆپۆزەڵی پەسەندکراوی لیژنەی زانستیی بەش، لانیکەم ١ توێژینەوە لە گۆڤاری متمانەپێکراو، و بێ لایەنیی بەش.","لە ماوەی ساڵەکەدا: توێژینەوەیەک بە ناوی زانکۆکەت لە Clarivate Q1/Q2 (زانستی) یان Scopus Q1–Q3 (مرۆڤایەتی) ئامادە بکە و هەر ٣ مانگ نووسراوی پێشکەوتن بنێرە.","لە گەڕانەوەدا: ٢ سیمینار و خولێکی ڕاهێنان بۆ هاوکارەکانت. توێژینەوەی پۆست دکتۆرا بۆ بەرزکردنەوەی پلە بەکاردێت.","مووچەی تەواو، دەرماڵەی جێگیر و دەرماڵەی زانکۆیی دەدرێت. گەرەنتیی دارایی پێویستە؛ پابەند نەبوون واتە گەڕاندنەوەی پارە."]},
+ ar:{t:"إجازة ما بعد الدكتوراه",s:"سنة بحث في الخارج، مرة واحدة في الخدمة (التعليمات 3 لسنة 2024).",p:["لحملة الدكتوراه بلقب مدرس فقط، على ألا تتجاوز الشهادة 5 سنوات، مع خدمة فعلية سنتين بعدها (أو بعد العودة والمعادلة).","قبول غير مشروط من جامعة معترف بها (دون مدة دورة لغة)، مقترح مصادق من اللجنة العلمية للقسم، بحث واحد على الأقل في مجلة رصينة، وعدم ممانعة القسم.","خلال السنة: إعداد بحث باسم جامعتك في Clarivate Q1/Q2 (العلمية) أو Scopus Q1–Q3 (الإنسانية)، وإرسال كتاب تقدّم كل 3 أشهر.","عند العودة: سمناران ودورة تدريبية للزملاء. يمكن استخدام بحث ما بعد الدكتوراه للترقية.","يصرف الراتب الكامل والمخصصات الثابتة ومخصصات الخدمة الجامعية. تلزم كفالة مالية، والإخلال يوجب الإرجاع."]}},
+{id:"t-sabb",dept:"cert",src:["1LtC71vl"],
+ en:{t:"Sabbatical (scientific) leave",s:"A semester or a year for research, training or writing a book.",p:["For teaching staff of Lecturer rank or above; research sabbaticals are for Assistant Professors and Professors.","Acceptance from a recognised university or scientific body stating the purpose: research (publish a paper), training (stated goals) or authoring/translating a book (complete it). The acceptance is approved by the department committee.","Passed quality assurance (2-year certificate), department no-objection, and 2 years' actual service after the degree, return or equivalency.","Once every 5 years, for one semester or one academic year, with no extension. Post-doc holders may apply 2 years after their post-doc.","Salary and allowances are paid; no spouse-accompanying leave is given with it."]},
+ ckb:{t:"خۆتەرخانکردنی زانستی (ساباتیکەڵ)",s:"سیمستەرێک یان ساڵێک بۆ توێژینەوە، ڕاهێنان یان نووسینی کتێب.",p:["بۆ مامۆستایان بە پلەی مامۆستا و سەرەوە؛ ساباتیکەڵی توێژینەوە بۆ پرۆفیسۆری یاریدەدەر و پرۆفیسۆرە.","قبوڵ لە زانکۆ یان دەزگایەکی زانستیی ناسراو کە ئامانجەکە بڵێت: توێژینەوە (بڵاوکردنەوەی توێژینەوەیەک)، ڕاهێنان (ئامانجی دیار) یان نووسین/وەرگێڕانی کتێب (تەواوکردنی). قبوڵەکە لیژنەی بەش پەسەندی دەکات.","دەرچوون لە دڵنیایی جۆری (بڕوانامەی ٢ ساڵ)، بێ لایەنیی بەش، و ٢ ساڵ خزمەتی کردەیی دوای بڕوانامە، گەڕانەوە یان هاوتاکردن.","هەر ٥ ساڵ جارێک، بۆ سیمستەرێک یان ساڵێکی خوێندن، بێ درێژکردنەوە. خاوەن پۆست دکتۆرا ٢ ساڵ دوای پۆست دکتۆرا دەتوانێت داوا بکات.","مووچە و دەرماڵەکان دەدرێن؛ مۆڵەتی هاوسەرایەتی لەگەڵیدا نادرێت."]},
+ ar:{t:"التفرغ العلمي (السبتي)",s:"فصل أو سنة للبحث أو التدريب أو تأليف كتاب.",p:["للتدريسيين بمرتبة مدرس فما فوق؛ التفرغ البحثي للأستاذ المساعد والأستاذ.","قبول من جامعة أو جهة علمية معترف بها يذكر الغرض: بحث (نشر بحث)، تدريب (أهداف محددة)، أو تأليف/ترجمة كتاب (إكماله). تصادق عليه لجنة القسم.","اجتياز ضمان الجودة (شهادة سنتين)، عدم ممانعة القسم، وخدمة فعلية سنتين بعد الشهادة أو العودة أو المعادلة.","مرة كل 5 سنوات، لفصل أو سنة دراسية، دون تمديد. لحامل ما بعد الدكتوراه التقديم بعد سنتين منها.","يصرف الراتب والمخصصات؛ ولا تمنح معها إجازة مرافقة الزوج."]}},
+{id:"t-ped",dept:"cert",src:["1smPDA6j"],
+ en:{t:"Pedagogical training course",s:"Six-month teaching course for Master's and PhD holders, built with JAMK University (Finland).",p:["Open to holders of an academic MA or PhD (a foreign degree must be equated; the certificate is held until it is).","Taught entirely in English: IELTS Academic 5 or equivalent, or a university language-centre certificate equal to IELTS 5, no older than 3 years.","6 months, 30 ECTS, 6 modules of one month each (24 theory hours + 24 practical hours). Groups of 30–35.","Pass mark 60/100 per module. Failing a module means repeating it; failing 3 modules means repeating the whole course.","Fees: 500,000 IQD at public universities, up to 750,000 IQD at private universities, paid in at least 3 instalments."]},
+ ckb:{t:"خولی ڕاهێنانی پێداگۆجی",s:"خولێکی شەش مانگە بۆ وانەوتنەوە بۆ خاوەن ماستەر و دکتۆرا، لەگەڵ زانکۆی JAMK (فینلەندا).",p:["بۆ خاوەن ماستەر یان دکتۆرای ئەکادیمی (بڕوانامەی دەرەوە دەبێت هاوتا بکرێت؛ تا ئەو کاتە بڕوانامەی خولەکە ڕادەگیرێت).","تەواو بە ئینگلیزی: IELTS Academic 5 یان هاوتا، یان بڕوانامەی سەنتەری زمانی زانکۆ بە هاوتای IELTS 5، کۆنتر نەبێت لە ٣ ساڵ.","٦ مانگ، ٣٠ کرێدیت، ٦ مۆدیوڵ هەر یەکە مانگێک (٢٤ کاتژمێر تیۆری + ٢٤ کاتژمێر پراکتیکی). گروپی ٣٠–٣٥ کەس.","نمرەی دەرچوون ٦٠/١٠٠ بۆ هەر مۆدیوڵێک. کەوتن لە مۆدیوڵێک واتە دووبارەکردنەوەی؛ کەوتن لە ٣ مۆدیوڵ واتە دووبارەکردنەوەی هەموو خولەکە.","کرێ: ٥٠٠,٠٠٠ دینار لە زانکۆ حکومییەکان، تا ٧٥٠,٠٠٠ دینار لە زانکۆ تایبەتەکان، لانیکەم بە ٣ قیست."]},
+ ar:{t:"الدورة التدريبية التربوية",s:"دورة تدريس لستة أشهر لحملة الماجستير والدكتوراه، بالتعاون مع جامعة JAMK (فنلندا).",p:["لحملة الماجستير أو الدكتوراه الأكاديمية (تعادل الشهادة الأجنبية، وتحجب الشهادة حتى ذلك).","باللغة الإنجليزية بالكامل: IELTS Academic 5 أو ما يعادلها، أو شهادة مركز اللغات بما يعادل IELTS 5، لا تتجاوز 3 سنوات.","6 أشهر، 30 وحدة ECTS، 6 وحدات مدة كل منها شهر (24 ساعة نظري + 24 عملي). مجموعات من 30 إلى 35.","درجة النجاح 60/100 لكل وحدة. الرسوب في وحدة يعني إعادتها، والرسوب في 3 وحدات يعني إعادة الدورة كاملة.","الأجور: 500,000 دينار في الجامعات الحكومية، وحتى 750,000 في الأهلية، تدفع على 3 أقساط على الأقل."]}},
+
+/* ---------------- Planning & Higher Education ---------------- */
+{id:"p-plan",dept:"plan",src:["14j9Clhq","1xDc0nVW","1dYexiwE"],
+ en:{t:"The annual postgraduate plan and seats",s:"How departments propose seats and what cannot change afterwards.",p:["The Ministry asks for the plan. The university sets seats according to supervision caps, its own staff, infrastructure and real public and private-sector need; the university council and then the Ministry approve it.","All 1-year academic diploma seats are parallel. For the clinical diploma, MA and PhD there are free general seats in two channels (higher-education staff; other permanent government employees) and parallel seats open to all.","No seats are reserved for any ministry or institution. After approval, seats cannot be added and the plan cannot be changed. Moving seats is allowed only from the higher-education channel to the government-employee channel.","For a PhD, eligible supervisors submit new, non-repeated topics serving government or market needs; the department committee evaluates them and copies go with the plan.","Once admission for a year has closed, requests for extra seats, plan changes, fee waivers or switching from parallel to free are not forwarded to the Ministry."]},
+ ckb:{t:"پلانی ساڵانەی خوێندنی باڵا و کورسییەکان",s:"بەشەکان چۆن کورسی پێشنیار دەکەن و دواتر چی ناگۆڕێت.",p:["وەزارەت داوای پلان دەکات. زانکۆ کورسییەکان بەپێی میچی سەرپەرشتی، ستافی خۆی، ژێرخان و پێویستیی ڕاستەقینەی کەرتی گشتی و تایبەت دیاری دەکات؛ ئەنجومەنی زانکۆ و پاشان وەزارەت پەسەندی دەکەن.","هەموو کورسییەکانی دبلۆمی یەک ساڵە پارالێلن. بۆ دبلۆمی کلینیکی، ماستەر و دکتۆرا کورسیی گشتیی خۆڕایی لە دوو بازنە (ستافی خوێندنی باڵا؛ فەرمانبەرانی هەمیشەیی تری حکومەت) و کورسیی پارالێل بۆ هەمووان هەیە.","هیچ کورسییەک بۆ هیچ وەزارەت یان دامەزراوەیەک تەرخان ناکرێت. دوای پەسەندکردن کورسی زیاد ناکرێت و پلان ناگۆڕدرێت. گواستنەوەی کورسی تەنها لە بازنەی خوێندنی باڵاوە بۆ بازنەی فەرمانبەرانی حکومەت ڕێگەپێدراوە.","بۆ دکتۆرا، سەرپەرشتیارانی شایستە بابەتی نوێ و دووبارەنەکراوە پێشکەش دەکەن کە خزمەتی پێویستیی حکومەت یان بازاڕ بکات؛ لیژنەی بەش هەڵیان دەسەنگێنێت و کۆپییەکانیان لەگەڵ پلان دەنێردرێت.","کاتێک وەرگرتنی ساڵێک داخرا، داوای کورسیی زیادە، گۆڕینی پلان، بەخشینی کرێ یان گۆڕین لە پارالێلەوە بۆ خۆڕایی بۆ وەزارەت نانێردرێت."]},
+ ar:{t:"الخطة السنوية للدراسات العليا والمقاعد",s:"كيف تقترح الأقسام المقاعد وما لا يتغير بعد ذلك.",p:["تطلب الوزارة الخطة. تحدد الجامعة المقاعد وفق سقف الإشراف وملاكها والبنية التحتية والحاجة الفعلية في القطاعين العام والخاص، ثم يقرها مجلس الجامعة فالوزارة.","جميع مقاعد الدبلوم الأكاديمي موازية. للدبلوم السريري والماجستير والدكتوراه مقاعد عامة مجانية بقناتين (منتسبو التعليم العالي؛ موظفو الحكومة الدائمون الآخرون) ومقاعد موازية للجميع.","لا تخصص مقاعد لأي وزارة أو مؤسسة. بعد الإقرار لا تضاف مقاعد ولا تتغير الخطة. النقل مسموح فقط من قناة التعليم العالي إلى قناة موظفي الحكومة.","للدكتوراه يقدم المشرفون المؤهلون عناوين جديدة غير مكررة تخدم حاجة الحكومة أو السوق، تقيّمها لجنة القسم وترسل نسخها مع الخطة.","بعد غلق القبول لسنة ما لا تُرفع إلى الوزارة طلبات المقاعد الإضافية أو تغيير الخطة أو الإعفاء من الأجور أو التحويل من الموازي إلى المجاني."]}},
+{id:"p-open",dept:"plan",src:["14j9Clhq"],
+ en:{t:"Opening a postgraduate programme",s:"Minimum teaching staff a department needs (Instruction 12 of 2024).",p:["1-year academic diploma: at least 5 PhD holders or 5 Lecturers in the same general field.","Master's: 3 Assistant Professors + 3 PhD holders, or 2 Assistant Professors + 4 PhD holders. The PhD holders each need 2 peer-reviewed papers after their PhD.","PhD: 1 Professor + 3 Assistant Professors, or 5 Assistant Professors.","The department must exist and have graduated at least 2 BA cohorts (diploma and MA) or 2 MA cohorts (PhD). Medical colleges are counted at college level; similar departments may combine staff.","Academic partnership with another university is allowed if at least half the staff are the department's own. New programmes go to the Ministry for quality assurance and approval.","Pilot: Tishk and Cihan private universities may open a Master's jointly with a public university by agreement."]},
+ ckb:{t:"کردنەوەی بەرنامەی خوێندنی باڵا",s:"کەمترین ستافی وانەبێژ کە بەشێک پێویستیەتی (ڕێنمایی ١٢ی ٢٠٢٤).",p:["دبلۆمی یەک ساڵەی ئەکادیمی: لانیکەم ٥ خاوەن دکتۆرا یان ٥ مامۆستا لە هەمان بواری گشتی.","ماستەر: ٣ پرۆفیسۆری یاریدەدەر + ٣ خاوەن دکتۆرا، یان ٢ پرۆفیسۆری یاریدەدەر + ٤ خاوەن دکتۆرا. هەر خاوەن دکتۆرایەک ٢ توێژینەوەی محکەمی دوای دکتۆرای پێویستە.","دکتۆرا: ١ پرۆفیسۆر + ٣ پرۆفیسۆری یاریدەدەر، یان ٥ پرۆفیسۆری یاریدەدەر.","بەشەکە دەبێت هەبێت و لانیکەم ٢ دەستەی بەکالۆریۆسی دەرچووبێت (دبلۆم و ماستەر) یان ٢ دەستەی ماستەر (دکتۆرا). کۆلێژە پزیشکییەکان لە ئاستی کۆلێژ دەژمێردرێن؛ بەشە هاوشێوەکان دەتوانن ستاف کۆبکەنەوە.","هاوبەشیی ئەکادیمی لەگەڵ زانکۆیەکی تر ڕێگەپێدراوە بە مەرجێک لانیکەم نیوەی ستافەکە هی بەشەکە خۆی بن. بەرنامە نوێکان بۆ دڵنیایی جۆری و پەسەندکردن دەنێردرێنە وەزارەت.","تاقیکاری: زانکۆ تایبەتەکانی تیشک و جیهان دەتوانن بە ڕێککەوتن لەگەڵ زانکۆیەکی حکومی ماستەری هاوبەش بکەنەوە."]},
+ ar:{t:"فتح برنامج دراسات عليا",s:"الحد الأدنى من الملاك التدريسي (التعليمات 12 لسنة 2024).",p:["الدبلوم الأكاديمي: 5 من حملة الدكتوراه أو 5 بمرتبة مدرس على الأقل في الاختصاص العام نفسه.","الماجستير: 3 أساتذة مساعدين + 3 من حملة الدكتوراه، أو 2 + 4. لكل حامل دكتوراه بحثان محكمان بعد الدكتوراه.","الدكتوراه: أستاذ + 3 أساتذة مساعدين، أو 5 أساتذة مساعدين.","أن يكون القسم قائماً وقد خرّج دفعتين من البكالوريوس (للدبلوم والماجستير) أو من الماجستير (للدكتوراه). الكليات الطبية تُحسب على مستوى الكلية، ويجوز دمج ملاك الأقسام المتشابهة.","الشراكة الأكاديمية مع جامعة أخرى جائزة على أن يكون نصف الملاك على الأقل من القسم. البرامج الجديدة ترفع إلى الوزارة لضمان الجودة والموافقة.","تجريبياً: يجوز لجامعتي تيشك وجيهان الأهليتين فتح ماجستير مشترك مع جامعة حكومية باتفاق."]}},
+{id:"p-leave",dept:"plan",src:["1M6rw4YU","1gpfGgfw"],
+ en:{t:"Study leave for government employees",s:"Council of Ministers Regulation 11 of 2021 and Ministry Instruction 5 of 2021.",p:["For study inside the Region you only need your institution's no-objection letter to compete for admission within the approved plan. If several of an institution's candidates pass, those within its plan, by university ranking, get leave.","Conditions: grade 1 or below; 2 years' actual service after your last approved degree (1-year diploma holders count from the BA for an MA); a degree from a recognised university related to your job; an acceptance letter. No study leave abroad for a BA.","Ministers, MPs, governorate council members, heads of administrative units and Senior A/B grades cannot apply while in post.","Obligations: pledge and contract, serve in the Region where needed, a financial guarantee at least equal to costs and salaries, and repay everything (salaries included) if you fail, except for approved illness or force majeure.","Abroad: 6 months of English (+3), or 1 year for other languages. Continuous residence: at least 1 year for an MA, 2 years for a PhD.","The Ministry publishes specialties, seats and recognised universities each September; institutions send their needs by the end of December and are informed by the end of March."]},
+ ckb:{t:"مۆڵەتی خوێندن بۆ فەرمانبەرانی حکومەت",s:"پەیڕەوی ئەنجومەنی وەزیران ژمارە ١١ی ٢٠٢١ و ڕێنمایی وەزارەت ژمارە ٥ی ٢٠٢١.",p:["بۆ خوێندن لە ناو هەرێم تەنها نووسراوی بێ لایەنیی دامەزراوەکەت پێویستە بۆ پێشبڕکێ لە ناو پلانی پەسەندکراو. ئەگەر چەند کاندیدێکی دامەزراوەیەک دەرچوون، ئەوانەی لە ناو پلانەکەدان بەپێی ڕیزبەندیی زانکۆ مۆڵەت وەردەگرن.","مەرج: پلەی ١ و خوارتر؛ ٢ ساڵ خزمەتی کردەیی دوای دوا بڕوانامەی پەسەندکراو (خاوەن دبلۆمی یەک ساڵە بۆ ماستەر لە بەکالۆریۆسەوە دەژمێرێت)؛ بڕوانامە لە زانکۆی ناسراو و پەیوەست بە کارەکەت؛ نووسراوی قبوڵ. بۆ بەکالۆریۆس مۆڵەتی دەرەوە نییە.","وەزیران، پەرلەمانتاران، ئەندامانی ئەنجومەنی پارێزگا، سەرۆکی یەکە کارگێڕییەکان و پلەی تایبەتی A/B لە کاتی پۆستدا ناتوانن پێشکەش بکەن.","پابەندبوون: بەڵێننامە و گرێبەست، خزمەت لە هەرێم لەو شوێنەی پێویستە، گەرەنتیی دارایی بەقەد تێچوو و مووچە، و گەڕاندنەوەی هەموو شتێک (مووچەش) ئەگەر سەرنەکەوتیت، جگە لە نەخۆشیی پەسەندکراو یان هۆی زۆرەملێ.","دەرەوە: ٦ مانگ ئینگلیزی (+٣)، یان ١ ساڵ بۆ زمانەکانی تر. مانەوەی بەردەوام: لانیکەم ١ ساڵ بۆ ماستەر، ٢ ساڵ بۆ دکتۆرا.","وەزارەت هەموو ئەیلوولێک پسپۆڕی، کورسی و زانکۆ ناسراوەکان بڵاو دەکاتەوە؛ دامەزراوەکان تا کۆتایی کانوونی یەکەم پێویستییەکانیان دەنێرن و تا کۆتایی ئادار ئاگادار دەکرێنەوە."]},
+ ar:{t:"الإجازة الدراسية لموظفي الحكومة",s:"نظام مجلس الوزراء 11 لسنة 2021 وتعليمات الوزارة 5 لسنة 2021.",p:["للدراسة داخل الإقليم يكفي كتاب عدم ممانعة من دائرتك للتنافس ضمن الخطة المقرة. إن نجح عدة مرشحين من دائرة واحدة، يمنح الإجازة من هم ضمن خطتها وفق تسلسل الجامعة.","الشروط: الدرجة الأولى فما دون؛ خدمة فعلية سنتين بعد آخر شهادة معتمدة (حامل الدبلوم الأكاديمي تحسب له من البكالوريوس للماجستير)؛ شهادة من جامعة معترف بها ذات صلة بالعمل؛ كتاب قبول. لا إجازة خارجية للبكالوريوس.","لا يحق للوزراء والنواب وأعضاء مجالس المحافظات ورؤساء الوحدات الإدارية والدرجات الخاصة أ/ب التقديم أثناء المنصب.","الالتزامات: تعهد وعقد، الخدمة في الإقليم حيث الحاجة، كفالة مالية تعادل التكاليف والرواتب، وإرجاع كل شيء (مع الرواتب) عند الإخفاق، عدا المرض المعتمد أو الظرف القاهر.","في الخارج: 6 أشهر للإنجليزية (+3)، أو سنة للغات الأخرى. الإقامة المتصلة: سنة على الأقل للماجستير وسنتان للدكتوراه.","تنشر الوزارة كل أيلول الاختصاصات والمقاعد والجامعات المعترف بها؛ ترسل الدوائر احتياجاتها حتى نهاية كانون الأول وتبلَّغ حتى نهاية آذار."]}},
+{id:"p-points",dept:"plan",src:["1gpfGgfw"],
+ en:{t:"How study-leave points are calculated",s:"Out of 100 points (Instruction 5 of 2021, Article 5).",p:["BA average: multiplied by 0.3 (MA) or 0.2 (PhD). Holders of a 1-year diploma use 60% BA + 40% diploma.","Graduation rank: ((graduates − those ahead of you) ÷ graduates) × 35 (MA) or × 15 (PhD).","Service: 1 point per year, up to 10.","Age: MA 5 points up to age 25, minus 0.5 per year, 0 from 35. PhD 5 points up to 30, 0 from 40.","English: 5 to 10 points by test score (table below). Interview: out of 10.","PhD only: MA average × 0.2, and 1 point per paper in a recognised journal, up to 10."],
+  table:{head:["Factor","MA / diploma","PhD"],rows:[["BA average","30","20"],["BA graduation rank","35","15"],["Years of service","10","10"],["Age","5","5"],["English","10","10"],["Interview","10","10"],["MA average","—","20"],["Published research","—","10"]]}},
+ ckb:{t:"خاڵی مۆڵەتی خوێندن چۆن هەژمار دەکرێت",s:"لە ١٠٠ خاڵ (ڕێنمایی ٥ی ٢٠٢١، ماددەی ٥).",p:["تێکڕای بەکالۆریۆس: × ٠٫٣ (ماستەر) یان × ٠٫٢ (دکتۆرا). خاوەن دبلۆمی یەک ساڵە ٦٠٪ بەکالۆریۆس + ٤٠٪ دبلۆم بەکاردەهێنێت.","ڕیزبەندیی دەرچوون: ((ژمارەی دەرچووان − ئەوانەی لە پێشتن) ÷ ژمارەی دەرچووان) × ٣٥ (ماستەر) یان × ١٥ (دکتۆرا).","خزمەت: ١ خاڵ بۆ هەر ساڵێک، تا ١٠.","تەمەن: ماستەر ٥ خاڵ تا تەمەنی ٢٥، هەر ساڵێک −٠٫٥، لە ٣٥ەوە ٠. دکتۆرا ٥ خاڵ تا ٣٠، لە ٤٠ەوە ٠.","ئینگلیزی: ٥ تا ١٠ خاڵ بەپێی نمرەی تاقیکردنەوە (خشتەی خوارەوە). چاوپێکەوتن: لە ١٠.","تەنها دکتۆرا: تێکڕای ماستەر × ٠٫٢، و ١ خاڵ بۆ هەر توێژینەوەیەک لە گۆڤاری ناسراو، تا ١٠."],
+  table:{head:["فاکتەر","ماستەر / دبلۆم","دکتۆرا"],rows:[["تێکڕای بەکالۆریۆس","30","20"],["ڕیزبەندیی دەرچوون","35","15"],["ساڵانی خزمەت","10","10"],["تەمەن","5","5"],["ئینگلیزی","10","10"],["چاوپێکەوتن","10","10"],["تێکڕای ماستەر","—","20"],["توێژینەوەی بڵاوکراوە","—","10"]]}},
+ ar:{t:"كيف تحسب نقاط الإجازة الدراسية",s:"من 100 نقطة (التعليمات 5 لسنة 2021، المادة 5).",p:["معدل البكالوريوس: × 0.3 (ماجستير) أو × 0.2 (دكتوراه). حامل الدبلوم الأكاديمي يستخدم 60% بكالوريوس + 40% دبلوم.","تسلسل التخرج: ((عدد الخريجين − من يسبقك) ÷ عدد الخريجين) × 35 (ماجستير) أو × 15 (دكتوراه).","الخدمة: نقطة لكل سنة حتى 10.","العمر: للماجستير 5 نقاط حتى 25 سنة، تنقص 0.5 لكل سنة، وصفر من 35. للدكتوراه 5 حتى 30، وصفر من 40.","الإنجليزية: من 5 إلى 10 نقاط حسب الدرجة (الجدول أدناه). المقابلة: من 10.","للدكتوراه فقط: معدل الماجستير × 0.2، ونقطة لكل بحث في مجلة معترف بها حتى 10."],
+  table:{head:["العامل","ماجستير / دبلوم","دكتوراه"],rows:[["معدل البكالوريوس","30","20"],["تسلسل التخرج","35","15"],["سنوات الخدمة","10","10"],["العمر","5","5"],["الإنجليزية","10","10"],["المقابلة","10","10"],["معدل الماجستير","—","20"],["البحوث المنشورة","—","10"]]}}},
+{id:"p-eng",dept:"plan",src:["1gpfGgfw"],
+ en:{t:"English points for study leave",s:"Points out of 10 by test score.",p:["Any one of the four tests may be used."],table:{head:["Points","IELTS","TOEFL iBT","TOEFL PBT","PTE"],rows:[["5","5","59","414","52"],["6","5.5","66","467","59"],["7","6","73","497","67"],["7.5","6.5","80","550","70"],["8","7","88","596","74"],["8.5","7.5","96","630","78"],["9","8","104","634","82"],["9.5","8.5","112","660","86"],["10","9","120","677","90"]]}},
+ ckb:{t:"خاڵی ئینگلیزی بۆ مۆڵەتی خوێندن",s:"خاڵ لە ١٠ بەپێی نمرەی تاقیکردنەوە.",p:["هەر یەکێک لەم چوار تاقیکردنەوەیە بەکاردێت."],table:{head:["خاڵ","IELTS","TOEFL iBT","TOEFL PBT","PTE"],rows:[["5","5","59","414","52"],["6","5.5","66","467","59"],["7","6","73","497","67"],["7.5","6.5","80","550","70"],["8","7","88","596","74"],["8.5","7.5","96","630","78"],["9","8","104","634","82"],["9.5","8.5","112","660","86"],["10","9","120","677","90"]]}},
+ ar:{t:"نقاط اللغة الإنجليزية للإجازة الدراسية",s:"النقاط من 10 حسب درجة الاختبار.",p:["يقبل أي من الاختبارات الأربعة."],table:{head:["النقاط","IELTS","TOEFL iBT","TOEFL PBT","PTE"],rows:[["5","5","59","414","52"],["6","5.5","66","467","59"],["7","6","73","497","67"],["7.5","6.5","80","550","70"],["8","7","88","596","74"],["8.5","7.5","96","630","78"],["9","8","104","634","82"],["9.5","8.5","112","660","86"],["10","9","120","677","90"]]}}},
+{id:"p-ext",dept:"plan",src:["14j9Clhq","1DnNV0pN","1M6rw4YU"],
+ en:{t:"Extending a Master's or PhD",s:"Three extensions at most; the third is the last.",p:["1st extension: 6 months, by the college council, with basic salary and fixed allowances.","2nd extension: 6 months, by the university council, on the same pay.","3rd extension: up to 6 months, by the minister, without salary (unpaid study leave). The supervisor receives no fee but must continue.","Request an extension before the leave ends, with your institution's support. Not finishing after the extensions counts as failure, and the name is deleted.","Parallel students pay extension fees in proportion to the period."]},
+ ckb:{t:"درێژکردنەوەی ماستەر یان دکتۆرا",s:"زۆرترین سێ درێژکردنەوە؛ سێیەمیان کۆتاییە.",p:["درێژکردنەوەی یەکەم: ٦ مانگ، ئەنجومەنی کۆلێژ، بە مووچەی بنەڕەتی و دەرماڵەی جێگیر.","درێژکردنەوەی دووەم: ٦ مانگ، ئەنجومەنی زانکۆ، هەمان مووچە.","درێژکردنەوەی سێیەم: تا ٦ مانگ، وەزیر، بێ مووچە (مۆڵەتی خوێندنی بێ مووچە). سەرپەرشتیار کرێ وەرناگرێت بەڵام بەردەوام دەبێت.","پێش کۆتاییهاتنی مۆڵەت داوای درێژکردنەوە بکە، بە پشتگیریی دامەزراوەکەت. تەواونەکردن دوای درێژکردنەوەکان سەرنەکەوتنە و ناو دەسڕدرێتەوە.","قوتابیانی پارالێل کرێی درێژکردنەوە بە ڕێژەی ماوەکە دەدەن."]},
+ ar:{t:"تمديد الماجستير أو الدكتوراه",s:"ثلاثة تمديدات كحد أقصى؛ الثالث هو الأخير.",p:["التمديد الأول: 6 أشهر بقرار مجلس الكلية، مع الراتب الاسمي والمخصصات الثابتة.","التمديد الثاني: 6 أشهر بقرار مجلس الجامعة، بالراتب نفسه.","التمديد الثالث: حتى 6 أشهر بقرار الوزير، دون راتب. لا يتقاضى المشرف أجراً لكنه يستمر.","يقدم الطلب قبل انتهاء الإجازة بدعم من الدائرة. عدم الإكمال بعد التمديدات إخفاق ويرقّن القيد.","طلبة الموازي يدفعون أجور التمديد بنسبة المدة."]}},
+{id:"p-sup",dept:"plan",src:["1m0dYn8U"],
+ en:{t:"Supervision caps",s:"Maximum students supervised at the same time across all Kurdistan Region universities (Instruction 2 of 2021).",p:["A Lecturer may supervise only with a PhD, at least 1 year in the title, and at least 1 paper after the title in a Clarivate journal with an Impact Factor. A Lecturer may co-supervise 1 PhD only with a higher-ranked co-supervisor.","No supervisor may be related to the student by marriage or kinship up to the 4th degree."],
+  table:{head:["Rank (degree)","Has supervised a PhD: PhD / MA","Has supervised an MA only: PhD / MA","Never supervised: PhD / MA"],rows:[["Professor (PhD)","4 / 5","3 / 5","2 / 2"],["Assistant Professor (PhD)","3 / 4","2 / 4","1 / 2"],["Assistant Professor (MA)","— / —","— / 3","— / 2"],["Lecturer (PhD)","— / —","1 jointly / 3","— / 1"]]}},
+ ckb:{t:"میچی سەرپەرشتیکردن",s:"زۆرترین ژمارەی قوتابی لە یەک کاتدا لە هەموو زانکۆکانی هەرێم (ڕێنمایی ٢ی ٢٠٢١).",p:["مامۆستا تەنها بە دکتۆرا، لانیکەم ١ ساڵ لە نازناوەکەدا و لانیکەم ١ توێژینەوە دوای نازناو لە گۆڤاری Clarivate بە ئیمپاکت فاکتەر سەرپەرشتی دەکات. مامۆستا تەنها بە هاوبەشی لەگەڵ سەرپەرشتیارێکی پلە بەرزتر ١ دکتۆرا سەرپەرشتی دەکات.","هیچ سەرپەرشتیارێک نابێت پەیوەندیی ژن و مێردایەتی یان خزمایەتی تا پلەی چوارەمی لەگەڵ قوتابی هەبێت."],
+  table:{head:["پلە (بڕوانامە)","دکتۆرای سەرپەرشتی کردووە: دکتۆرا / ماستەر","تەنها ماستەری سەرپەرشتی کردووە: دکتۆرا / ماستەر","هەرگیز سەرپەرشتی نەکردووە: دکتۆرا / ماستەر"],rows:[["پرۆفیسۆر (دکتۆرا)","4 / 5","3 / 5","2 / 2"],["پرۆفیسۆری یاریدەدەر (دکتۆرا)","3 / 4","2 / 4","1 / 2"],["پرۆفیسۆری یاریدەدەر (ماستەر)","— / —","— / 3","— / 2"],["مامۆستا (دکتۆرا)","— / —","1 هاوبەش / 3","— / 1"]]}},
+ ar:{t:"سقف الإشراف",s:"الحد الأقصى للطلبة في وقت واحد في جميع جامعات الإقليم (التعليمات 2 لسنة 2021).",p:["يشرف المدرس فقط إذا كان حاملاً للدكتوراه، مضى على لقبه سنة على الأقل، وله بحث بعد اللقب في مجلة Clarivate ذات معامل تأثير. ويشرف على دكتوراه واحدة بالاشتراك مع مشرف أعلى مرتبة فقط.","لا يجوز أن تربط المشرف بالطالب مصاهرة أو قرابة حتى الدرجة الرابعة."],
+  table:{head:["المرتبة (الشهادة)","سبق أن أشرف على دكتوراه: دكتوراه / ماجستير","أشرف على ماجستير فقط: دكتوراه / ماجستير","لم يشرف سابقاً: دكتوراه / ماجستير"],rows:[["أستاذ (دكتوراه)","4 / 5","3 / 5","2 / 2"],["أستاذ مساعد (دكتوراه)","3 / 4","2 / 4","1 / 2"],["أستاذ مساعد (ماجستير)","— / —","— / 3","— / 2"],["مدرس (دكتوراه)","— / —","1 مشترك / 3","— / 1"]]}}},
+{id:"p-def",dept:"plan",src:["1m0dYn8U"],
+ en:{t:"Defence committees",s:"Who sits on Master's and PhD defence committees.",p:["Master's: at least 3 members besides the supervisor; at least 2 from outside the university and 1 internal, all PhD holders of Assistant Professor rank or higher.","PhD: at least 5 members besides the supervisor; at least 3 external and 2 internal, all PhD holders of Assistant Professor rank or higher.","A chair or member may sit on at most 2 defences a month across the Region (2 MA, 2 PhD, or 1 of each).","Defences are held on the university campus only. No committee member may be related to the student up to the 4th degree."]},
+ ckb:{t:"لیژنەکانی گفتوگۆ",s:"کێ لە لیژنەی گفتوگۆی ماستەر و دکتۆرا دادەنیشێت.",p:["ماستەر: لانیکەم ٣ ئەندام جگە لە سەرپەرشتیار؛ لانیکەم ٢ لە دەرەوەی زانکۆ و ١ ناوخۆیی، هەموویان خاوەن دکتۆرا بە پلەی پرۆفیسۆری یاریدەدەر و سەرەوە.","دکتۆرا: لانیکەم ٥ ئەندام جگە لە سەرپەرشتیار؛ لانیکەم ٣ دەرەکی و ٢ ناوخۆیی، هەموویان خاوەن دکتۆرا بە پلەی پرۆفیسۆری یاریدەدەر و سەرەوە.","سەرۆک یان ئەندام لە مانگێکدا زۆرترین ٢ گفتوگۆ لە هەموو هەرێم (٢ ماستەر، ٢ دکتۆرا یان ١ لە هەر یەکە).","گفتوگۆ تەنها لە ناو کەمپی زانکۆ دەکرێت. هیچ ئەندامێک نابێت تا پلەی چوارەم خزمی قوتابی بێت."]},
+ ar:{t:"لجان المناقشة",s:"تشكيل لجان مناقشة الماجستير والدكتوراه.",p:["الماجستير: 3 أعضاء على الأقل عدا المشرف؛ اثنان على الأقل من خارج الجامعة وواحد من داخلها، جميعهم من حملة الدكتوراه بمرتبة أستاذ مساعد فما فوق.","الدكتوراه: 5 أعضاء على الأقل عدا المشرف؛ 3 خارجيون واثنان داخليان، جميعهم من حملة الدكتوراه بمرتبة أستاذ مساعد فما فوق.","لا يشارك الرئيس أو العضو في أكثر من مناقشتين شهرياً في الإقليم (2 ماجستير، 2 دكتوراه، أو واحدة من كل).","تجري المناقشة داخل حرم الجامعة فقط. لا يجوز أن يكون أي عضو قريباً للطالب حتى الدرجة الرابعة."]}},
+{id:"p-conf",dept:"plan",src:["1_Ad8cRU"],
+ en:{t:"Holding a scientific conference",s:"Three levels with different minimums (Instruction 6 of 2022).",p:["Send the proposal, with its level, to the Ministry's Research & Development department; the Ministry Council decides within a month.","Announce all details 6 months ahead on a website with online submission. The title must be in Kurdish, Arabic and English and match the content.","Peer review by Lecturers, Assistant Professors or Professors. Each paper gets metadata and a DOI; proceedings stay online permanently under a Creative Commons licence.","Presentation certificates go only to presenting researchers; attendance certificates to attendees. Send the report form to the Ministry within 15 days."],
+  table:{head:["Level","Accepted papers","Researchers from","Keynote speakers","Length"],rows:[["Kurdistan","15 or more","3+ institutions in the Region","2+ (1 external)","1 day possible"],["Iraq","20 or more","2+ institutions outside the Region","3+ (2 external)","2+ days"],["International","25 or more","several countries","4+ (half from abroad)","2+ days"]]}},
+ ckb:{t:"ئەنجامدانی کۆنفرانسی زانستی",s:"سێ ئاست بە کەمترینی جیاواز (ڕێنمایی ٦ی ٢٠٢٢).",p:["پێشنیارەکە لەگەڵ ئاستەکەی بنێرە بۆ بەشی توێژینەوە و پەرەپێدانی وەزارەت؛ ئەنجومەنی وەزارەت لە ماوەی مانگێکدا بڕیار دەدات.","٦ مانگ پێشتر هەموو وردەکارییەکان لە ماڵپەڕێک بە پێشکەشکردنی ئۆنلاین ڕابگەیەنە. ناونیشان بە کوردی، عەرەبی و ئینگلیزی و گونجاو لەگەڵ ناوەڕۆک.","هەڵسەنگاندن لەلایەن مامۆستا، پرۆفیسۆری یاریدەدەر یان پرۆفیسۆر. هەر توێژینەوەیەک مێتاداتا و DOI وەردەگرێت؛ بڵاوکراوەکان بە هەمیشەیی ئۆنلاین دەمێننەوە بە مۆڵەتی Creative Commons.","بڕوانامەی پێشکەشکردن تەنها بۆ توێژەرانی پێشکەشکار؛ بڕوانامەی ئامادەبوون بۆ ئامادەبووان. فۆرمی ڕاپۆرت لە ماوەی ١٥ ڕۆژدا بۆ وەزارەت بنێرە."],
+  table:{head:["ئاست","توێژینەوەی قبوڵکراو","توێژەران لە","وتاربێژی سەرەکی","ماوە"],rows:[["کوردستان","١٥ و زیاتر","٣+ دامەزراوە لە هەرێم","٢+ (١ دەرەکی)","١ ڕۆژ دەبێت"],["عێراق","٢٠ و زیاتر","٢+ دامەزراوە لە دەرەوەی هەرێم","٣+ (٢ دەرەکی)","٢+ ڕۆژ"],["نێودەوڵەتی","٢٥ و زیاتر","چەند وڵاتێک","٤+ (نیوەیان لە دەرەوە)","٢+ ڕۆژ"]]}},
+ ar:{t:"عقد مؤتمر علمي",s:"ثلاثة مستويات بحدود دنيا مختلفة (التعليمات 6 لسنة 2022).",p:["يرسل المقترح مع مستواه إلى دائرة البحث والتطوير في الوزارة، ويقرر مجلس الوزارة خلال شهر.","تعلن كل التفاصيل قبل 6 أشهر على موقع إلكتروني مع التقديم الإلكتروني. العنوان بالكردية والعربية والإنجليزية ومطابق للمحتوى.","التحكيم من المدرسين أو الأساتذة المساعدين أو الأساتذة. لكل بحث بيانات وصفية وDOI، وتبقى الوقائع متاحة دائماً بترخيص Creative Commons.","شهادة المشاركة للباحثين المقدِّمين فقط، وشهادة الحضور للحضور. يرسل تقرير المؤتمر إلى الوزارة خلال 15 يوماً."],
+  table:{head:["المستوى","البحوث المقبولة","الباحثون من","المتحدثون الرئيسيون","المدة"],rows:[["كوردستان","15 فأكثر","3+ مؤسسات في الإقليم","2+ (1 خارجي)","يوم واحد ممكن"],["العراق","20 فأكثر","2+ مؤسسات خارج الإقليم","3+ (2 خارجيان)","يومان فأكثر"],["دولي","25 فأكثر","عدة دول","4+ (نصفهم من الخارج)","يومان فأكثر"]]}}},
+{id:"p-jour",dept:"plan",src:["1-p7SYPW"],
+ en:{t:"Issuing a scientific journal",s:"Standards every journal must meet (Instruction 9 of 2024). Existing journals have one year to comply.",p:["Issued by a university, an accredited academic body or a research centre in the Region. The journal's name must not be the institution's name.","Editorial board: at least 7 members (general journal) or 5 (specialised), all Assistant Professor or higher, at least 25% from outside the Region and Iraq, none holding posts at director-general level or above.","Must have eISSN and pISSN, a DOI for every paper, its own website, a Google Scholar profile and online submission.","Plagiarism check before review, maximum 20%. At least 10% international reviewers, at least 5% international papers per issue, English title, abstract and keywords.","At least 2 issues a year, one of them printed. Stopping for a year needs an explanation; a repeat means the licence is revoked.","Licensing: Ministry committee → initial licence → issue No. 0 → re-evaluation → final licence. If issue 0 passes, its papers count as issue 1 and can be used for promotion. Journals are reviewed every 2 years."]},
+ ckb:{t:"دەرکردنی گۆڤاری زانستی",s:"ئەو ستانداردانەی هەموو گۆڤارێک دەبێت هەیبێت (ڕێنمایی ٩ی ٢٠٢٤). گۆڤارە هەبووەکان ساڵێکیان هەیە بۆ گونجاندن.",p:["لەلایەن زانکۆ، دەزگای ئەکادیمیی متمانەپێکراو یان سەنتەری توێژینەوە لە هەرێم دەردەچێت. ناوی گۆڤار نابێت ناوی دامەزراوەکە بێت.","دەستەی نووسەران: لانیکەم ٧ ئەندام (گۆڤاری گشتی) یان ٥ (پسپۆڕ)، هەموویان پرۆفیسۆری یاریدەدەر و سەرەوە، لانیکەم ٢٥٪ لە دەرەوەی هەرێم و عێراق، هیچیان پۆستی بەڕێوەبەری گشتی و سەرەوەیان نەبێت.","دەبێت eISSN و pISSN، DOI بۆ هەر توێژینەوەیەک، ماڵپەڕی تایبەت، پرۆفایلی Google Scholar و پێشکەشکردنی ئۆنلاینی هەبێت.","پشکنینی دزینەوەی زانستی پێش هەڵسەنگاندن، زۆرترین ٢٠٪. لانیکەم ١٠٪ هەڵسەنگێنەری نێودەوڵەتی، لانیکەم ٥٪ توێژینەوەی نێودەوڵەتی لە هەر ژمارەیەک، ناونیشان و پوختە و وشەی سەرەکی بە ئینگلیزی.","لانیکەم ٢ ژمارە لە ساڵێکدا، یەکێکیان چاپکراو. ڕاگرتن بۆ ساڵێک ڕوونکردنەوەی پێویستە؛ دووبارەبوونەوە واتە هەڵوەشاندنەوەی مۆڵەت.","مۆڵەت: لیژنەی وەزارەت ← مۆڵەتی سەرەتایی ← ژمارە ٠ ← هەڵسەنگاندنەوە ← مۆڵەتی کۆتایی. ئەگەر ژمارە ٠ دەرچوو، توێژینەوەکانی وەک ژمارە ١ دەژمێردرێن و بۆ بەرزکردنەوەی پلە بەکاردێن. هەر ٢ ساڵ پێداچوونەوە دەکرێت."]},
+ ar:{t:"إصدار مجلة علمية",s:"المعايير التي يجب أن تستوفيها كل مجلة (التعليمات 9 لسنة 2024). للمجلات القائمة سنة للتكيّف.",p:["تصدرها جامعة أو جهة أكاديمية معتمدة أو مركز بحثي في الإقليم. لا يكون اسم المجلة اسم المؤسسة.","هيئة التحرير: 7 أعضاء على الأقل (عامة) أو 5 (متخصصة)، جميعهم بمرتبة أستاذ مساعد فما فوق، 25% على الأقل من خارج الإقليم والعراق، ولا يشغل أحدهم منصب مدير عام فما فوق.","يجب توفر eISSN وpISSN وDOI لكل بحث، وموقع خاص، وملف Google Scholar، وتقديم إلكتروني.","فحص الاستلال قبل التحكيم، بحد أقصى 20%. 10% على الأقل محكمون دوليون، و5% على الأقل بحوث دولية في كل عدد، وعنوان وملخص وكلمات مفتاحية بالإنجليزية.","عددان على الأقل سنوياً، أحدهما مطبوع. التوقف سنة يحتاج تبريراً، وتكراره يعني سحب الترخيص.","الترخيص: لجنة الوزارة ← ترخيص أولي ← العدد صفر ← إعادة تقييم ← ترخيص نهائي. إن نجح العدد صفر تحتسب بحوثه عدداً أول وتصلح للترقية. تراجع المجلات كل سنتين."]}},
+{id:"p-fees",dept:"plan",src:["14j9Clhq","1uAu_Ex5"],
+ en:{t:"Fees and exemptions",s:"Who pays for postgraduate study.",p:["General (free) seats: the university bears the cost.","Parallel seats: the student pays annual fees and lab materials and signs a pledge. Fees are proposed by the university council and approved by the Ministry.","Families (son, daughter, spouse) of martyrs and genocide victims, and political prisoners receiving a monthly grant (themselves or one child, once): on a parallel seat, with a letter signed by the Minister of Martyrs & Anfal Affairs, that ministry pays the fees.","Blind (100%) and low-vision (90%) students, with a letter signed by the Minister of Labour & Social Affairs, are exempt from parallel fees. Blind students are also exempt from the English requirement."]},
+ ckb:{t:"کرێ و بەخشین",s:"کێ تێچووی خوێندنی باڵا دەدات.",p:["کورسیی گشتی (خۆڕایی): زانکۆ تێچووەکە هەڵدەگرێت.","کورسیی پارالێل: قوتابی کرێی ساڵانە و کەرەستەی تاقیگە دەدات و بەڵێننامە واژۆ دەکات. کرێکان ئەنجومەنی زانکۆ پێشنیاری دەکات و وەزارەت پەسەندی دەکات.","کەسوکاری (کوڕ، کچ، هاوسەر) شەهیدانی سەنگەر و قوربانیانی جینۆساید، و زیندانیانی سیاسی کە بەخشینی مانگانە وەردەگرن (خۆیان یان یەک منداڵ، یەکجار): لەسەر کورسیی پارالێل، بە نووسراوی واژۆکراوی وەزیری شەهیدان و ئەنفالکراوان، ئەو وەزارەتە کرێکان دەدات.","قوتابیانی نابینا (١٠٠٪) و کەمبینا (٩٠٪)، بە نووسراوی واژۆکراوی وەزیری کار و کاروباری کۆمەڵایەتی، لە کرێی پارالێل دەبەخشرێن. نابینایان هەروەها لە مەرجی ئینگلیزی دەبەخشرێن."]},
+ ar:{t:"الأجور والإعفاءات",s:"من يتحمل تكاليف الدراسات العليا.",p:["المقاعد العامة (المجانية): تتحمل الجامعة التكلفة.","المقاعد الموازية: يدفع الطالب الأجور السنوية ومواد المختبر ويوقع تعهداً. تقترح الأجور من مجلس الجامعة وتصادقها الوزارة.","ذوو (الابن، البنت، الزوج/ة) شهداء الخنادق وضحايا الإبادة، والسجناء السياسيون المستفيدون من المنحة الشهرية (أنفسهم أو ولد واحد، لمرة واحدة): على مقعد موازٍ وبكتاب موقع من وزير الشهداء والمؤنفلين، تدفع تلك الوزارة الأجور.","الطلبة المكفوفون (100%) وضعاف البصر (90%) بكتاب موقع من وزير العمل والشؤون الاجتماعية معفون من أجور الموازي. والمكفوفون معفون أيضاً من شرط اللغة الإنجليزية."]}},
+
+/* ---------------- Student rules ---------------- */
+{id:"r-sched",dept:"rules",src:["1iaa550S","14j9Clhq","11T8dMkM"],
+ en:{t:"Study schedule and attendance",s:"Postgraduate study is a morning programme.",p:["Study starts in the morning and may continue into the evening; it must not be moved entirely to the evening.","Classes are spread over at least 3 days a week, never compressed into 2. No classes on Friday.","Students may take equivalent first-year subjects as guests at another public university with both universities' consent.","PhD students may spend 3–6 months at a partner university abroad by agreement (parallel students pay their own costs)."]},
+ ckb:{t:"خشتەی خوێندن و ئامادەبوون",s:"خوێندنی باڵا بەرنامەیەکی بەیانیانە.",p:["خوێندن بەیانی دەست پێدەکات و دەتوانێت بۆ ئێوارە درێژ ببێتەوە؛ نابێت بە تەواوی بگوازرێتەوە بۆ ئێوارە.","وانەکان لانیکەم بەسەر ٣ ڕۆژی هەفتەدا دابەش دەکرێن، هەرگیز لە ٢ ڕۆژدا کۆ ناکرێنەوە. ڕۆژی هەینی وانە نییە.","قوتابی دەتوانێت بابەتی هاوتای ساڵی یەکەم وەک میوان لە زانکۆیەکی حکومیی تر بخوێنێت بە ڕەزامەندیی هەردوو زانکۆ.","قوتابیانی دکتۆرا دەتوانن بە ڕێککەوتن ٣–٦ مانگ لە زانکۆیەکی هاوبەش لە دەرەوە بەسەر ببەن (پارالێل تێچووی خۆی دەدات)."]},
+ ar:{t:"جدول الدراسة والدوام",s:"الدراسات العليا دراسة صباحية.",p:["تبدأ الدراسة صباحاً ويجوز امتدادها إلى المساء، ولا يجوز نقلها بالكامل إلى المساء.","توزع المحاضرات على 3 أيام أسبوعياً على الأقل، ولا تضغط في يومين. لا محاضرات يوم الجمعة.","يجوز للطالب دراسة مواد مكافئة للسنة الأولى ضيفاً في جامعة حكومية أخرى بموافقة الجامعتين.","يجوز لطالب الدكتوراه قضاء 3 إلى 6 أشهر في جامعة شريكة في الخارج باتفاق (طالب الموازي يتحمل تكاليفه)."]}},
+{id:"r-exam",dept:"rules",src:["1S6Eu2T3","14j9Clhq","1ZNdXO5O"],
+ en:{t:"On the day of the entrance exam",s:"Rules for the scientific competency exam.",p:["Duration: 3 hours for the 1-year diploma; 4 hours for the clinical diploma, MA and PhD.","Bring an original ID: civil ID, nationality certificate, national card or passport.","Blue dry pen only. No phones or smartwatches. Write only your answers; any other mark counts as cheating. Obey the invigilators.","Papers are marked inside the college and never leave it. A Ministry committee may inspect.","The model answers are announced right after the exam and results within 48 hours. Marks are not rounded and there is no curve. Ranking points are not announced until the approvals are done.","Teachers related to an applicant up to the 4th degree may not set or mark that specialty's questions."]},
+ ckb:{t:"ڕۆژی تاقیکردنەوەی وەرگرتن",s:"ڕێساکانی تاقیکردنەوەی توانستی زانستی.",p:["ماوە: ٣ کاتژمێر بۆ دبلۆمی یەک ساڵە؛ ٤ کاتژمێر بۆ دبلۆمی کلینیکی، ماستەر و دکتۆرا.","ناسنامەی ڕەسەن لەگەڵ خۆت بهێنە: ناسنامەی باری شارستانی، ڕەگەزنامە، کارتی نیشتمانی یان پاسپۆرت.","تەنها پێنووسی شین. مۆبایل و کاتژمێری زیرەک قەدەغەیە. تەنها وەڵامەکانت بنووسە؛ هەر نیشانەیەکی تر بە فێڵ دادەنرێت. گوێڕایەڵی چاودێران بە.","وەرەقەکان لە ناو کۆلێژ ڕاست دەکرێنەوە و هەرگیز دەرناچن. لیژنەی وەزارەت دەتوانێت سەردان بکات.","وەڵامی نموونەیی ڕاستەوخۆ دوای تاقیکردنەوە ڕادەگەیەنرێت و ئەنجام لە ماوەی ٤٨ کاتژمێردا. نمرە بەرز ناکرێتەوە و کێرڤ نییە. خاڵی پێشبڕکێ تا تەواوبوونی پەسەندکردنەکان ڕاناگەیەنرێت.","مامۆستای خزمی پێشکەشکار تا پلەی چوارەم نابێت پرسیاری ئەو پسپۆڕییە دابنێت یان ڕاستی بکاتەوە."]},
+ ar:{t:"يوم امتحان القبول",s:"ضوابط امتحان الكفاءة العلمية.",p:["المدة: 3 ساعات للدبلوم الأكاديمي؛ 4 ساعات للدبلوم السريري والماجستير والدكتوراه.","أحضر هوية أصلية: هوية الأحوال المدنية أو شهادة الجنسية أو البطاقة الوطنية أو جواز السفر.","قلم جاف أزرق فقط. لا هواتف ولا ساعات ذكية. اكتب إجاباتك فقط؛ أي علامة أخرى تعد غشاً. التزم بتوجيهات المراقبين.","تصحح الدفاتر داخل الكلية ولا تخرج منها. يحق للجنة الوزارة التفتيش.","تعلن الأجوبة النموذجية فور انتهاء الامتحان والنتائج خلال 48 ساعة. لا تقريب للدرجات ولا منحنى. لا تعلن نقاط المفاضلة قبل إتمام المصادقات.","لا يضع أو يصحح الأسئلة تدريسي قريب لمتقدم حتى الدرجة الرابعة في ذلك الاختصاص."]}},
+{id:"r-thesis",dept:"rules",src:["1gVY-osl","1j6CZfz8","1jDzcBPZ","11T8dMkM"],
+ en:{t:"Thesis, publication and defence",s:"What must be done before you can defend and receive the degree.",p:["Only the student and supervisor(s) may be named on a thesis or dissertation, and on the papers extracted from it.","You may submit your thesis for scientific and linguistic evaluation 3 months before the end of the study period, then defend directly.","You may defend before meeting the English requirement, but the degree is withheld until you meet it, within 1 year of the defence. Otherwise the name is deleted. You sign a pledge at the university legal affairs office.","The publication requirement (see the admission table) must be met before the defence.","No teacher may teach or supervise a relative (by marriage or kinship up to the 4th degree) in postgraduate study."]},
+ ckb:{t:"نامە، بڵاوکردنەوە و گفتوگۆ",s:"چی دەبێت بکرێت پێش ئەوەی گفتوگۆ بکەیت و بڕوانامە وەربگریت.",p:["تەنها ناوی قوتابی و سەرپەرشتیار(ەکان) لەسەر ماستەرنامە یان تێز و ئەو توێژینەوانەی لێی هەڵێنجراون دەنووسرێت.","دەتوانیت ٣ مانگ پێش کۆتایی ماوەی خوێندن نامەکەت بۆ هەڵسەنگاندنی زانستی و زمانەوانی پێشکەش بکەیت، پاشان ڕاستەوخۆ گفتوگۆ بکەیت.","دەتوانیت پێش تەواوکردنی مەرجی ئینگلیزی گفتوگۆ بکەیت، بەڵام بڕوانامەکە ڕادەگیرێت تا مەرجەکە تەواو دەکەیت، لە ماوەی ١ ساڵ دوای گفتوگۆ. ئەگینا ناو دەسڕدرێتەوە. لە فەرمانگەی کاروباری یاسایی زانکۆ بەڵێننامە واژۆ دەکەیت.","مەرجی بڵاوکردنەوە (بڕوانە خشتەی وەرگرتن) دەبێت پێش گفتوگۆ تەواو بێت.","هیچ مامۆستایەک نابێت لە خوێندنی باڵادا وانە بە خزمی خۆی (ژن و مێردایەتی یان خزمایەتی تا پلەی چوارەم) بڵێتەوە یان سەرپەرشتی بکات."]},
+ ar:{t:"الرسالة والنشر والمناقشة",s:"ما يجب إنجازه قبل المناقشة ومنح الشهادة.",p:["لا يذكر على الرسالة أو الأطروحة، ولا على البحوث المستلة منها، إلا اسم الطالب والمشرف (المشرفين).","يجوز تقديم الرسالة للتقويم العلمي واللغوي قبل 3 أشهر من نهاية المدة، ثم المناقشة مباشرة.","يجوز المناقشة قبل استيفاء شرط اللغة الإنجليزية، لكن تحجب الشهادة حتى استيفائه خلال سنة من المناقشة، وإلا يرقن القيد. يوقع الطالب تعهداً في الشؤون القانونية للجامعة.","يجب استيفاء شرط النشر (انظر جدول القبول) قبل المناقشة.","لا يجوز للتدريسي تدريس أو الإشراف على قريب له (مصاهرة أو قرابة حتى الدرجة الرابعة) في الدراسات العليا."]}},
+{id:"r-disc",dept:"rules",src:["11HTSHlx","1LJcUSMe"],
+ en:{t:"Student discipline",s:"Duties and penalties (Student Discipline Instructions 2 of 2009).",p:["Duties: obey laws and rules, behave respectfully, protect university property, do not disrupt study or offend religious or national beliefs.","Penalties rise in steps: notice → warning → reprimand → temporary dismissal (up to one academic year) → permanent dismissal.","Violence, carrying weapons, deliberate damage or insulting staff can lead to temporary dismissal. Repeating these, assaulting teaching staff, crimes, drugs or forged documents can lead to permanent dismissal.","Each college has a discipline committee. The dean may impose up to one month's dismissal, the college council longer, and only the university president a permanent dismissal.","You may appeal within 15 days. Decisions are posted on the notice board for at least a week and your family is told in writing."]},
+ ckb:{t:"جڵەوگیریی خوێندکاران",s:"ئەرک و سزاکان (ڕێنماییی جڵەوگیریی خوێندکاران ژمارە ٢ی ٢٠٠٩).",p:["ئەرکەکان: پابەندبوون بە یاسا و ڕێساکان، ڕەفتاری ڕێزدارانە، پاراستنی موڵکی زانکۆ، تێکنەدانی خوێندن و سووکایەتی نەکردن بە باوەڕی ئایینی یان نەتەوەیی.","سزاکان پلە بە پلە بەرز دەبنەوە: ئاگادارکردنەوە ← هۆشداری ← سەرزەنشت ← دوورخستنەوەی کاتی (تا ساڵێکی خوێندن) ← دوورخستنەوەی هەمیشەیی.","توندوتیژی، هەڵگرتنی چەک، تێکدانی بە ئەنقەستی موڵک یان سووکایەتی بە ستاف دەکرێت ببێتە هۆی دوورخستنەوەی کاتی. دووبارەکردنەوەیان، دەستدرێژی بۆ سەر مامۆستا، تاوان، مادەی هۆشبەر یان بەڵگەنامەی ساختە دەکرێت ببێتە هۆی دوورخستنەوەی هەمیشەیی.","هەر کۆلێژێک لیژنەی جڵەوگیری هەیە. ڕاگر تا مانگێک دوورخستنەوە دەسەپێنێت، ئەنجومەنی کۆلێژ زیاتر، و تەنها سەرۆکی زانکۆ دوورخستنەوەی هەمیشەیی.","لە ماوەی ١٥ ڕۆژدا تانە دەدەیت. بڕیارەکان لانیکەم هەفتەیەک لە تەختەی ڕاگەیاندن دادەنرێن و بە نووسراو خێزانەکەت ئاگادار دەکرێتەوە."]},
+ ar:{t:"انضباط الطلبة",s:"الواجبات والعقوبات (تعليمات انضباط الطلبة 2 لسنة 2009).",p:["الواجبات: الالتزام بالقوانين والأنظمة، السلوك المحترم، الحفاظ على ممتلكات الجامعة، عدم الإخلال بالدراسة أو الإساءة إلى المعتقدات الدينية أو القومية.","تتدرج العقوبات: تنبيه ← إنذار ← توبيخ ← فصل مؤقت (حتى سنة دراسية) ← فصل نهائي.","العنف وحمل السلاح والإتلاف المتعمد وإهانة المنتسبين قد تؤدي إلى الفصل المؤقت. وتكرارها أو الاعتداء على التدريسيين أو الجرائم أو المخدرات أو تزوير الوثائق قد يؤدي إلى الفصل النهائي.","في كل كلية لجنة انضباط. للعميد الفصل حتى شهر، ولمجلس الكلية أكثر، والفصل النهائي لرئيس الجامعة فقط.","يحق الاعتراض خلال 15 يوماً. تعلن القرارات على لوحة الإعلانات أسبوعاً على الأقل وتبلغ الأسرة كتابياً."]}}
+];
+
+/* Returning graduates — process as described by the directorate; no instruction for it is in the folder yet. */
+SITE.RETURN = {
+ en:{t:"Returning from study abroad",s:"For Master's and PhD graduates of universities outside the Kurdistan Region. Your degree is recognised by the Ministry; depending on your university's world ranking, you may need an evaluation seminar.",
+  before:[["Submit your file to the Ministry","Apply to the Ministry of Higher Education for recognition (equivalency) of your degree."],["The Ministry checks your university","The Ministry checks your documents and your university's position in the world rankings."]],
+  q:"Is your university among the world's top 1,000?",yes:"Yes · top 1,000",no:"No · outside the top 1,000",yesText:"No seminar is needed. Your file continues to degree recognition.",
+  after:[["Ministry decree","The Ministry issues a decree naming you and assigns a public university in the Region to hold your seminar."],["Evaluation seminar","You present your thesis to a scientific committee at that university."],["Result","The committee's decision goes back to the Ministry to complete the recognition."]],
+  note:"Based on the directorate's description of the procedure. The ranking list used and the exact conditions are set by the Ministry; no written instruction on this is in the folder yet."},
+ ckb:{t:"گەڕانەوە لە خوێندنی دەرەوە",s:"بۆ دەرچووانی ماستەر و دکتۆرای زانکۆکانی دەرەوەی هەرێمی کوردستان. وەزارەت بڕوانامەکەت دەناسێتەوە؛ بەپێی پلەی جیهانیی زانکۆکەت لەوانەیە سیمیناری هەڵسەنگاندنت پێویست بێت.",
+  before:[["دۆسیەکەت پێشکەشی وەزارەت بکە","داوای ناسینەوە (هاوتاکردن)ی بڕوانامەکەت لە وەزارەتی خوێندنی باڵا بکە."],["وەزارەت زانکۆکەت دەپشکنێت","وەزارەت بەڵگەنامەکانت و پلەی زانکۆکەت لە پلەبەندییە جیهانییەکاندا دەپشکنێت."]],
+  q:"ئایا زانکۆکەت لە ١٬٠٠٠ زانکۆی یەکەمی جیهاندایە؟",yes:"بەڵێ · لە ١٬٠٠٠ی یەکەم",no:"نەخێر · لە دەرەوەی ١٬٠٠٠ی یەکەم",yesText:"سیمینار پێویست نییە. دۆسیەکەت بۆ ناسینەوەی بڕوانامە بەردەوام دەبێت.",
+  after:[["فەرمانی وەزارەت","وەزارەت فەرمانێک بە ناوی تۆ دەردەکات و زانکۆیەکی حکومیی هەرێم دیاری دەکات بۆ سیمینارەکەت."],["سیمیناری هەڵسەنگاندن","نامەکەت پێشکەشی لیژنەیەکی زانستیی ئەو زانکۆیە دەکەیت."],["ئەنجام","بڕیاری لیژنە دەنێردرێتەوە بۆ وەزارەت بۆ تەواوکردنی ناسینەوە."]],
+  note:"لەسەر بنەمای وەسفی بەڕێوەبەرایەتی بۆ ڕێکارەکە. لیستی پلەبەندی و مەرجە وردەکان وەزارەت دیاریان دەکات؛ هێشتا هیچ ڕێنماییەکی نووسراو لەم بارەیەوە لە بوخچەکەدا نییە."},
+ ar:{t:"العودة من الدراسة في الخارج",s:"لخريجي الماجستير والدكتوراه من جامعات خارج إقليم كوردستان. تعترف الوزارة بشهادتك، وحسب تصنيف جامعتك عالمياً قد يُطلب منك سمنار تقييمي.",
+  before:[["قدّم ملفك إلى الوزارة","قدّم إلى وزارة التعليم العالي طلب الاعتراف (المعادلة) بشهادتك."],["الوزارة تتحقق من جامعتك","تتحقق الوزارة من مستمسكاتك وموقع جامعتك في التصنيفات العالمية."]],
+  q:"هل جامعتك ضمن أفضل 1,000 جامعة في العالم؟",yes:"نعم · ضمن أفضل 1,000",no:"لا · خارج أفضل 1,000",yesText:"لا حاجة إلى سمنار. يستمر ملفك نحو الاعتراف بالشهادة.",
+  after:[["أمر وزاري","تصدر الوزارة أمراً باسمك وتحدد جامعة حكومية في الإقليم لإقامة السمنار."],["سمنار التقييم","تعرض رسالتك أمام لجنة علمية في تلك الجامعة."],["النتيجة","يرسل قرار اللجنة إلى الوزارة لإكمال الاعتراف."]],
+  note:"استناداً إلى وصف المديرية للإجراء. قائمة التصنيف والشروط الدقيقة تحددها الوزارة؛ لا توجد بعد تعليمات مكتوبة بهذا الشأن في المجلد."}
+};
+
+/* ---------- app ---------- */
+const {T, PROGS, ROWS, ADMNOTES, TOPICS, RETURN} = SITE;
+const LANGS = ["ckb","ar","en"];
+const CAT_ORDER = ["pg","titles","leave","research","students","board","laws","circ"];
+const ST_ORDER = {current:0, amended:1, reference:2, superseded:3};
+const EXTRA = {
+  notes:{en:"Good to know before applying",ckb:"پێش پێشکەشکردن بیزانە",ar:"قبل التقديم: معلومات مهمة"},
+  notElig:{en:"not eligible",ckb:"مافی پێشبڕکێ نییە",ar:"غير مؤهل"}
+};
+let lang = "ckb", prog = "ma", docCat = "all";
+try { const s = localStorage.getItem("dsap-lang"); if (LANGS.includes(s)) lang = s; } catch(e){}
+
+const $ = id => document.getElementById(id);
+const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+const docBy = p => DOCS.find(d => d.id.startsWith(p));
+const NOW = {ckb:{"Letter":"نووسراوی","Order":"فەرمانی","Law":"یاسای","Reg.":"پەیڕەوی","Circular":"گشتاندنی","Compendium":"کۆکراوە","UoS plan":"پلانی زانکۆ","UoS":"زانکۆی سلێمانی"},ar:{"Letter":"كتاب","Order":"أمر","Law":"قانون","Reg.":"نظام","Circular":"تعميم","Compendium":"مجموعة","UoS plan":"خطة الجامعة","UoS":"جامعة السليمانية"}};
+const noL = d => { const m = NOW[lang]; if (!m) return d.no; let n = d.no; Object.keys(m).sort((a,b)=>b.length-a.length).some(k => n.startsWith(k) && (n = m[k] + n.slice(k.length), true)); return n; };
+
+function srcLine(box, ids){
+  const L = T[lang]; box.textContent = "";
+  box.append(el("span", null, (ids.length > 1 ? L.srcs : L.src) + ":"));
+  ids.forEach((p, i) => {
+    const d = docBy(p); if (!d) return;
+    const a = el("a", null, noL(d) + " · " + d[lang]); a.href = d.url; a.target = "_blank"; a.rel = "noopener";
+    box.append(a);
+  });
+}
+
+function applyLang(){
+  const L = T[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = L.dir;
+  document.querySelectorAll("[data-t]").forEach(n => { const v = L[n.dataset.t]; if (typeof v === "string") n.textContent = v; });
+  if (!aiReady && sampleChecked) $("bot-status").textContent = L.botStatusOff;
+  $("q").placeholder = L.placeholder;
+  $("doc-q").placeholder = L.search;
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  renderJump(); renderAdmission(); renderTopics(); renderReturn(); renderDocCats(); renderDocs(); renderChips(); calc();
+  if (!chatLog.length) { $("log").textContent = ""; addMsg("bot", L.greet); }
+}
+
+function renderJump(){
+  const L = T[lang], box = $("jump"); box.textContent = "";
+  [["assistant","ask"],["admission","adm"],["cert","cert"],["plan","plan"],["rules","rules"],["docs","docs"],["contact","contact"]].forEach(([id,k]) => {
+    const a = el("a", null, L.nav[k]); a.href = "#" + id; box.append(a);
+  });
+}
+
+function renderAdmission(){
+  const tabs = $("prog-tabs"); tabs.textContent = "";
+  tabs.setAttribute("aria-label", T[lang].progLabel);
+  PROGS.forEach(p => {
+    const b = el("button", null, p[lang]); b.type = "button"; b.setAttribute("aria-pressed", p.id === prog);
+    b.onclick = () => { prog = p.id; renderAdmission(); };
+    tabs.append(b);
+  });
+  const box = $("req"); box.textContent = "";
+  ROWS.forEach(r => {
+    const row = el("div","req-row"); row.append(el("h3", null, r[lang]), el("p", null, r.v[prog][lang])); box.append(row);
+  });
+  srcLine($("req-src"), ["14j9Clhq","1jDzcBPZ"]);
+  $("notes-h").textContent = EXTRA.notes[lang];
+  const ul = $("adm-notes"); ul.textContent = "";
+  ADMNOTES[lang].forEach(t => ul.append(el("li", null, t)));
+  srcLine($("notes-src"), ADMNOTES.src);
+}
+
+function trunc2(x){ return (Math.trunc(x * 100) / 100).toFixed(2); }
+function calc(){
+  const avg = parseFloat($("c-avg").value), mx = parseFloat($("c-max").value), mn = parseFloat($("c-min").value), ex = parseFloat($("c-exam").value);
+  if ([avg,mx,mn].some(isNaN) || mx <= mn) { $("c-new").textContent = "–"; $("c-pts").textContent = "–"; return; }
+  const z = (2*avg - (mx + mn)) / (mx - mn), nav = 75 + 20*z;
+  $("c-new").textContent = trunc2(nav);
+  if (isNaN(ex)) { $("c-pts").textContent = "–"; return; }
+  if (ex < 20) { $("c-pts").textContent = EXTRA.notElig[lang]; return; }
+  $("c-pts").textContent = trunc2(Math.max(0, nav - 60) + (ex - 20));
+}
+["c-avg","c-max","c-min","c-exam"].forEach(id => $(id).addEventListener("input", calc));
+
+function tableEl(tb){
+  const w = el("div","tbl-wrap"), t = el("table"), th = el("thead"), hr = el("tr");
+  tb.head.forEach(h => hr.append(el("th", null, h))); th.append(hr); t.append(th);
+  const tbd = el("tbody");
+  tb.rows.forEach(r => { const tr = el("tr"); r.forEach((c, i) => tr.append(el("td", i ? "n" : null, c))); tbd.append(tr); });
+  t.append(tbd); w.append(t); return w;
+}
+function renderTopics(){
+  ["cert","plan","rules"].forEach(dep => {
+    const box = $("topics-" + dep); box.textContent = "";
+    TOPICS.filter(t => t.dept === dep).forEach(t => {
+      const c = t[lang], d = el("details","topic"); d.id = t.id;
+      const sum = el("summary"), tt = el("div","t-title");
+      tt.append(el("strong", null, c.t), el("span", null, c.s)); sum.append(tt, el("span","chev"));
+      const body = el("div","t-body"), ul = el("ul");
+      c.p.forEach(x => ul.append(el("li", null, x))); body.append(ul);
+      if (c.table) body.append(tableEl(c.table));
+      const b = el("p","basis"); srcLine(b, t.src); body.append(b);
+      d.append(sum, body); box.append(d);
+    });
+  });
+}
+
+function stepEl(n, title, text){
+  const s = el("div","step"), b = el("div");
+  b.append(el("strong", null, title), el("p", null, text));
+  s.append(el("span","n", n), b); return s;
+}
+function renderReturn(){
+  const R = RETURN[lang], box = $("ret"); box.textContent = "";
+  $("ret-h").textContent = R.t;
+  const digits = lang === "en" ? ["1","2","3","4","5"] : ["١","٢","٣","٤","٥"];
+  const flow = el("div","card flow");
+  flow.append(el("p", null, R.s)); flow.lastChild.style.cssText = "color:var(--muted);margin-bottom:16px";
+  R.before.forEach((s,i) => flow.append(stepEl(digits[i], s[0], s[1])));
+  const q = el("div","fork-q"), qi = el("span","n"); qi.append(el("span", null, "?")); q.append(qi, el("span", null, R.q)); flow.append(q);
+  const fork = el("div","fork");
+  const yes = el("div","branch yes"); yes.append(el("span","tag",R.yes), el("p", null, R.yesText));
+  const no = el("div","branch no"); no.append(el("span","tag",R.no));
+  R.after.forEach((s,i) => no.append(stepEl(digits[i+2], s[0], s[1])));
+  fork.append(yes, no); flow.append(fork, el("p","basis",R.note));
+  box.append(flow);
+}
+
+function renderDocCats(){
+  const L = T[lang], box = $("doc-cats"); box.textContent = "";
+  ["all", ...CAT_ORDER].forEach(c => {
+    const n = c === "all" ? DOCS.length : DOCS.filter(d => d.cat === c).length;
+    const b = el("button","chip", (c === "all" ? L.all : L.cat[c]) + " · " + n); b.type = "button";
+    b.setAttribute("aria-pressed", c === docCat);
+    b.onclick = () => { docCat = c; renderDocCats(); renderDocs(); };
+    box.append(b);
+  });
+}
+function renderDocs(){
+  const L = T[lang], box = $("doc-list"), q = $("doc-q").value.trim().toLowerCase(); box.textContent = "";
+  const list = DOCS.filter(d => (docCat === "all" || d.cat === docCat) &&
+      (!q || [d.no,d.en,d.ckb,d.ar,d.t].join(" ").toLowerCase().includes(q)))
+    .sort((a,b) => CAT_ORDER.indexOf(a.cat) - CAT_ORDER.indexOf(b.cat) || ST_ORDER[a.st] - ST_ORDER[b.st] || (b.id.startsWith("14j9") - a.id.startsWith("14j9")));
+  $("doc-count").textContent = list.length + " " + L.docCount;
+  if (!list.length) { box.append(el("p","doc",L.noDocs)); return; }
+  list.forEach(d => {
+    const r = el("div","doc"), mid = el("div"), side = el("div","doc-side");
+    mid.append(el("strong", null, d[lang]), el("span","fn", L.cat[d.cat] + " · " + d.t));
+    const a = el("a", null, L.open); a.href = d.url; a.target = "_blank"; a.rel = "noopener";
+    side.append(el("span","badge " + d.st, L.st[d.st]), a);
+    r.append(el("span","doc-ref", noL(d)), mid, side); box.append(r);
+  });
+}
+$("doc-q").addEventListener("input", renderDocs);
+
+function renderChips(){
+  const box = $("chips"); box.textContent = "";
+  T[lang].sugg.forEach(q => { const c = el("button","chip",q); c.type = "button"; c.onclick = () => ask(q); box.append(c); });
+}
+
+/* ---------- assistant ---------- */
+let sample = null, aiReady = false, sampleChecked = false, ctl = null, busy = false;
+const chatLog = [];
+
+function knowledge(){
+  const out = [];
+  ["en","ckb"].forEach(l => {
+    out.push("##### LANGUAGE: " + l + " #####");
+    out.push("=== POSTGRADUATE ADMISSION (Instruction 12 of 2024, with Instruction 11 of 2024) ===");
+    PROGS.forEach(p => {
+      out.push("-- " + p[l] + " --");
+      ROWS.forEach(r => out.push(r[l] + ": " + r.v[p.id][l]));
+    });
+    out.push("MA ranking calculator: standard score = (2×BA average − (highest + lowest average of graduation year)) ÷ (highest − lowest); standardised average = 75 + 20 × standard score; points = (standardised average − 60, minimum 0) + (exam mark − 20). Exam below 20 = cannot compete.");
+    out.push("General admission rules: " + ADMNOTES[l].join(" | "));
+    TOPICS.forEach(t => {
+      const c = t[l];
+      out.push("=== " + c.t + " [section: " + t.dept + "; sources: " + [...new Set(t.src.map(p => docBy(p).no))].join(", ") + "] ===", c.s, ...c.p.map(x => "- " + x));
+      if (c.table) out.push("Table: " + c.table.head.join(" | "), ...c.table.rows.map(r => r.join(" | ")));
+    });
+    const R = RETURN[l];
+    out.push("=== " + R.t + " ===", R.s, ...R.before.map(s => s[0] + ": " + s[1]), R.q + " " + R.yes + ": " + R.yesText + " " + R.no + ": " + R.after.map(s => s[0] + ": " + s[1]).join(" "), R.note, "");
+  });
+  out.push("=== DOCUMENT LIBRARY (number · status · title) ===");
+  DOCS.forEach(d => out.push(d.no + " · " + d.st + " · " + d.en));
+  out.push("", "=== OFFICE ===", "Working hours, location and phone have not been published yet; visitors should contact the directorate at the University of Sulaimani Presidency.");
+  return out.join("\n");
+}
+let RULES = null;
+function rules(){
+  if (RULES) return RULES;
+  RULES = "You are the information assistant on the website of the Directorate of Scientific Affairs & Postgraduate, University of Sulaimani (Kurdistan Region of Iraq). The site summarises Ministry of Higher Education and Scientific Research (KRG) instructions.\n" +
+  "Answer ONLY from the reference information below. Do not use outside knowledge and never invent numbers, dates, fees or rules. If something is not covered, say so and suggest asking the office.\n" +
+  "Reply in the language of the visitor's latest message: Kurdish Sorani (Arabic script), Arabic, or English. Use the Kurdish wording from the reference when replying in Kurdish; translate faithfully into Arabic when replying in Arabic.\n" +
+  "Be brief and practical: one or two sentences, then a short list with '- ' items when useful. Plain text, no Markdown headings or bold.\n" +
+  "End with one line naming the instruction it comes from, e.g. 'Source: Instruction 12/2024' (Kurdish: 'سەرچاوە: ڕێنمایی ١٢/٢٠٢٤', Arabic: 'المصدر: التعليمات 12/2024').\n" +
+  "If a rule depends on admission year, note that students admitted earlier follow the rules in force when they were admitted. Remind visitors that the official instruction and the office have the final word when the question is about their individual case.\n" +
+  "If the question is unrelated to the directorate, politely say you can only help with these topics.\n\nREFERENCE INFORMATION:\n" + knowledge();
+  return RULES;
+}
+
+function addMsg(kind, text){ const m = el("div","msg " + kind, text); $("log").append(m); $("log").scrollTop = $("log").scrollHeight; return m; }
+function setBusy(b){ busy = b; $("send").disabled = b; $("stop").hidden = !b; }
+
+const KW = {
+  hd1:"diploma one-year 1-year دبلۆم دبلوم",
+  hd2:"clinical medical dentistry pharmacy کلینیکی پزیشکی سريري طبي",
+  ma:"master masters msc mа ماستەر ماجستير",
+  phd:"phd doctorate doctoral دکتۆرا دكتوراه الدكتوراه",
+  row0:"eligible who apply related field equivalency مقاصة مقاصە بواری نزیک",
+  row1:"average gpa grade percent تێکڕا کۆنمرە معدل المعدل",
+  row2:"english ielts toefl pte language ئینگلیزی زمان ئایلتس اللغة الإنجليزية الانجليزية آيلتس ايلتس",
+  row3:"exam entrance competition test mcq تاقیکردنەوە پێشبڕکێ امتحان الامتحان التنافس",
+  row4:"age old years limit تەمەن ساڵ عمر العمر",
+  row5:"seat seats parallel free fee fees channel کورسی پارالێل خۆڕایی مقعد مقاعد موازي مجاني",
+  row6:"duration long extension درێژکردنەوە ماوە مدة تمديد",
+  row7:"publish publication paper journal defence defense بڵاوکردنەوە گفتوگۆ نشر بحث المناقشة",
+  row8:"ranking rank points score calculate خاڵ خاڵبەندی مفاضلة نقاط",
+  notes:"document documents transfer postpone forged pledge no-objection بەڵگەنامە گواستنەوە دواخستن ساختە تأجيل انتقال مزور",
+  "t-al":"assistant lecturer title titles نازناو مامۆستای یاریدەدەر لقب مدرس مساعد",
+  "t-lec":"lecturer title مامۆستا نازناوی لقب مدرس",
+  "t-low":"below 60 low average نازناو خوار ٦٠ دون 60",
+  "t-promo":"promotion promote rank professor research papers بەرزکردنەوە پلە پرۆفیسۆر ترقية ترقیة أستاذ",
+  "t-promoproc":"promotion file evaluator committee grievance complaint گازاندە هەڵسەنگێنەر تظلم مقيم",
+  "t-postdoc":"postdoc post-doc post-doctorate پۆست ما بعد الدكتوراه",
+  "t-sabb":"sabbatical scientific leave ساباتیکەڵ خۆتەرخانکردن تفرغ",
+  "t-ped":"pedagogy pedagogical course jamk teaching پێداگۆجی تربوية الدورة",
+  "p-plan":"plan seats channel add seats پلان کورسی خطة مقاعد",
+  "p-open":"open opening programme program new department کردنەوە بەرنامە فتح برنامج",
+  "p-leave":"study leave employee employees مۆڵەتی خوێندن فەرمانبەر إجازة دراسية موظف",
+  "p-points":"study leave points calculate formula خاڵی مۆڵەت نقاط الإجازة",
+  "p-eng":"english points ielts study leave خاڵی ئینگلیزی نقاط اللغة",
+  "p-ext":"extension extend extra time درێژکردنەوە تمديد",
+  "p-sup":"supervise supervisor supervision students cap how many سەرپەرشتی سەرپەرشتیار قوتابی يشرف إشراف الإشراف مشرف طالب",
+  "p-def":"defence defense committee examiner viva لیژنەی گفتوگۆ لجنة المناقشة",
+  "p-conf":"conference conferences keynote کۆنفرانس مؤتمر",
+  "p-jour":"journal journals editorial issn doi گۆڤار مجلة",
+  "p-fees":"fee fees cost pay martyrs blind exempt کرێ شەهید نابینا أجور شهداء مكفوفين",
+  "r-sched":"schedule morning evening friday attendance days بەیانی هەینی دوام صباحي الجمعة",
+  "r-exam":"exam day pen phone id invigilator rules تاقیکردنەوە پێنووس مۆبایل امتحان قلم هاتف",
+  "r-thesis":"thesis dissertation defend submit author name ماستەرنامە تێز نامە رسالة أطروحة",
+  "r-disc":"discipline penalty dismissal cheating punishment جڵەوگیری سزا انضباط عقوبة فصل"
+};
+const STOP = new Set("what which need needs does how many much can the for and with you your from are is was who when where have has will should get required need? ماذا كيف كم هل ما هو هي على في من الى إلى چی چۆن چەند بۆ لە کە ئایا پێویستە".split(" "));
+function localAnswer(q){
+  const L = T[lang];
+  const words = q.toLowerCase().split(/[\s،,.?؟!:;()]+/).filter(w => w.length > 2 && !STOP.has(w));
+  const entries = PROGS.map(p => ({src:["14j9Clhq","1jDzcBPZ"], kw:KW[p.id], get:l => ({t:p[l], s:"", p:ROWS.map(r => r[l] + ": " + r.v[p.id][l])})}))
+    .concat(ROWS.map((r, i) => ({src:["14j9Clhq"], kw:KW["row" + i], get:l => ({t:T[l].nav.adm + ": " + r[l], s:"", p:PROGS.map(p => p[l] + ": " + r.v[p.id][l])})})))
+    .concat([{src:ADMNOTES.src, kw:KW.notes, get:l => ({t:EXTRA.notes[l], s:"", p:ADMNOTES[l]})}])
+    .concat(TOPICS.map(t => ({src:t.src, kw:KW[t.id], get:l => ({t:t[l].t, s:t[l].s, p:t[l].p})})));
+  let best = null, bestScore = 0;
+  entries.forEach(e => LANGS.forEach(l => {
+    const c = e.get(l), title = (c.t + " " + c.s).toLowerCase(), hay = (title + " " + c.p.join(" ")).toLowerCase();
+    const kw = (e.kw || "").toLowerCase();
+    let sc = 0; words.forEach(w => { if (kw.includes(w)) sc += 4; if (hay.includes(w)) sc += title.includes(w) ? 3 : 1; });
+    if (sc > bestScore) { bestScore = sc; best = e; }
+  }));
+  if (!best || bestScore < 3) return L.noAnswer;
+  const c = best.get(lang);
+  return L.closest + "\n" + c.t + "\n\n" + c.p.slice(0, 6).map(x => "- " + x).join("\n") + "\n\n" + L.src + ": " + [...new Set(best.src.map(p => docBy(p).no))].join(", ");
+}
+
+async function ask(q){
+  q = (q || "").trim(); if (!q || busy) return;
+  $("q").value = "";
+  addMsg("user", q);
+  if (!aiReady) { chatLog.push({role:"user",content:q}); const a = localAnswer(q); chatLog.push({role:"assistant",content:a}); addMsg("bot", a); return; }
+  chatLog.push({role:"user", content:q});
+  const turns = chatLog.slice(-10);
+  while (turns.length && turns[0].role !== "user") turns.shift();
+  const bubble = addMsg("bot thinking", T[lang].thinking);
+  setBusy(true); ctl = new AbortController();
+  try {
+    const { text } = await sample([{role:"user", content:rules()}, {role:"assistant", content:"Understood. I will answer only from the reference information."}, ...turns], {
+      cache:false, signal:ctl.signal, modelTier:"default", effort:"low",
+      onText:({text}) => { bubble.className = "msg bot"; bubble.textContent = text; $("log").scrollTop = $("log").scrollHeight; }
+    });
+    bubble.className = "msg bot"; bubble.textContent = text;
+    chatLog.push({role:"assistant", content:text});
+  } catch(e) {
+    const L = T[lang], code = e && e.code;
+    if (["not_granted","sampling_disabled","not_declared","capability_disabled","capability_removed"].includes(code)) {
+      aiReady = false; $("bot-status").textContent = L.botStatusOff;
+      const a = localAnswer(q); bubble.className = "msg bot"; bubble.textContent = a; chatLog.push({role:"assistant",content:a});
+    } else if (code === "cancelled") {
+      bubble.className = "msg bot"; bubble.textContent = e.text || "…";
+      if (e.text) chatLog.push({role:"assistant",content:e.text}); else chatLog.pop();
+    } else {
+      bubble.className = "msg bot"; chatLog.pop();
+      bubble.textContent = code === "refused" ? L.err.refused : (e && e.text ? e.text + "\n\n" : "") + (L.err[code] || L.err.other);
+    }
+  } finally { setBusy(false); }
+}
+$("ask-form").addEventListener("submit", ev => { ev.preventDefault(); ask($("q").value); });
+$("stop").onclick = () => ctl && ctl.abort();
+document.querySelectorAll(".lang button").forEach(b => b.onclick = () => {
+  lang = b.dataset.lang; try { localStorage.setItem("dsap-lang", lang); } catch(e){}
+  applyLang();
+});
+
+/* ---------- QR ---------- */
+let qr = null;
+function drawQR(){
+  const v = $("qr-url").value.trim() || SELF_URL;
+  if (typeof QRCode === "undefined") { $("qrbox").textContent = "QR"; return; }
+  if (!qr) qr = new QRCode($("qrbox"), {text:v, width:160, height:160, colorDark:"#0d2a24", colorLight:"#ffffff", correctLevel:QRCode.CorrectLevel.M});
+  else { qr.clear(); qr.makeCode(v); }
+}
+const SELF_URL = location.href.split("#")[0];
+$("qr-url").value = SELF_URL;
+$("qr-url").addEventListener("input", drawQR);
+
+$("st-docs").textContent = DOCS.length;
+$("st-cur").textContent = DOCS.filter(d => d.st === "current").length;
+applyLang();
+drawQR();
+(async () => {
+  try { sample = window.claude && window.claude.use ? await window.claude.use("sample") : null; } catch(e){ sample = null; }
+  aiReady = !!sample; sampleChecked = true;
+  if (!aiReady) $("bot-status").textContent = T[lang].botStatusOff;
+})();
+
+</script>
+</body>
+</html>
